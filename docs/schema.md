@@ -15,11 +15,10 @@ column name | data type | details
 id          | integer   | not null, primary key
 side_a      | text      | not null
 side_b      | text      | not null
-side_a_img  | string    | 
+side_a_img  | string    |
 side_b_img  | string    |
 mastery     | integer   | default 1
-author_id   | string    | not null, foreign key (references users), indexed
-deck_id     | string    | not null, foreign key (references decks), indexed
+deck_id     | integer   | not null, foreign key (references decks), indexed
 
 ## decks
 column name | data type | details
