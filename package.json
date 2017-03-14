@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack",
     "webpack": "webpack --watch"
   },
   "repository": {
@@ -19,6 +20,10 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/TerryOShea/cardsharp/issues"
+  },
+  "engines": {
+    "node": "6.9.4",
+    "npm": "3.10.10"
   },
   "homepage": "https://github.com/TerryOShea/cardsharp#readme",
   "dependencies": {
