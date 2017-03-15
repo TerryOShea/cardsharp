@@ -18,7 +18,7 @@ class SessionForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { processForm, router } = this.props;
-    processForm(this.state).then(() => router.push("/"));
+    processForm(this.state).then(() => router.push("/profile"));
   }
 
   processErrors(errors) {

@@ -1,5 +1,9 @@
 class Api::CardsController < ApplicationController
 
+  def show
+    @card = Card.find(params[:id])
+  end
+
   def create
   end
 
@@ -8,5 +12,5 @@ class Api::CardsController < ApplicationController
 
   def destroy
   end
-  
+
 end

@@ -15,7 +15,7 @@ class Api::DecksController < ApplicationController
   end
 
   def show
-    @deck = Deck.find(params[:id])
+    @deck = Deck.includes(:cards).find(params[:id])
     if @deck
       render :show
     else
@@ -37,6 +37,9 @@ class Api::DecksController < ApplicationController
   end
 
   def destroy
+    @deck = Deck.find(params[:id])
+    @deck.destroy
+    render :show
   end
 
   private

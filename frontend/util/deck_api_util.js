@@ -20,3 +20,10 @@ export const createDeck = deck => (
     data: { deck }
   })
 );
+
+export const deleteDeck = id => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/decks/${id}`
+  })
+);

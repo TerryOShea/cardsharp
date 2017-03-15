@@ -29,20 +29,20 @@ export const createDeck = deck => dispatch => (
     .fail(err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const fetchDeck = id => dispatch => (
-  DeckAPIUtil.fetchDeck(id)
-    .then(deck => {
-      dispatch(clearErrors());
-      dispatch(receiveDeck(deck));
-    })
-    .fail(err => dispatch(receiveErrors(err.responseJSON)))
-)
-
 export const fetchDecks = filters => dispatch => (
   DeckAPIUtil.fetchDecks(filters)
     .then(decks => {
-      dispatch(clearErrors())
-      dispatch(receiveDecks(decks))
+      dispatch(clearErrors());
+      dispatch(receiveDecks(decks));
+    })
+    .fail(err => dispatch(receiveErrors(err.responseJSON)))
+);
+
+export const deleteDeck = id => dispatch => (
+  DeckAPIUtil.deleteDeck(id)
+    .then(deck => {
+      dispatch(clearErrors());
+      dispatch(removeDeck(deck));
     })
     .fail(err => dispatch(receiveErrors(err.responseJSON)))
 );
