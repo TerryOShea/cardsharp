@@ -1,6 +1,6 @@
 # CardSharp
 
-Heroku link: coming soon!
+[Heroku link](https://card-sharp.herokuapp.com/)
 
 [Trello link](https://trello.com/b/KjRtCQsy/cardsharp)
 
