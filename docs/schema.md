@@ -15,8 +15,6 @@ column name | data type | details
 id          | integer   | not null, primary key
 side_a      | text      | not null
 side_b      | text      | not null
-side_a_img  | string    |
-side_b_img  | string    |
 mastery     | integer   | default 1
 deck_id     | integer   | not null, foreign key (references decks), indexed
 
@@ -26,7 +24,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 title       | string    | not null
-description | string    |
+description | text      |
 is_private  | boolean   | default true
 
 ## tags

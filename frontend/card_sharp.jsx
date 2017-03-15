@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
+import { fetchDecks } from './util/deck_api_util';
+window.fetchDecks = fetchDecks;
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 

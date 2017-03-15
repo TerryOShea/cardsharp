@@ -6,7 +6,7 @@ const App = ({ children }) => (
   <div className="page-container">
     <header>
       <Link to="/">
-        <h1>CardSharp</h1>
+        <h1 className="header-title">CardSharp</h1>
       </Link>
       <GreetingContainer />
     </header>

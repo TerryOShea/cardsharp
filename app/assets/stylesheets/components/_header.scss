@@ -1,0 +1,25 @@
+header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 5vw;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 32px;
+  color: $red;
+}
+
+.header-nav {
+  display: flex;
+  width: 140px;
+  align-items: center;
+  justify-content: space-between;
+
+  a:hover {
+    color: $red;
+  }
+}
