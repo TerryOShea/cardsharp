@@ -26,6 +26,7 @@ author_id   | integer   | not null, foreign key (references users), indexed
 title       | string    | not null
 description | text      |
 is_private  | boolean   | default true
+category    | string    | not null
 
 ## tags
 column name | data type | details

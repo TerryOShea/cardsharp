@@ -1,0 +1,22 @@
+.decks-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.deck-widget {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  border-radius: 25px;
+}
+
+.foreign-languages {
+  background-color: green;
+}
+
+.mathematics {
+  background-color: yellow;
+}

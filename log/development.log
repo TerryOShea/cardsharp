@@ -7666,3 +7666,1008 @@ Processing by Api::DecksController#index as JSON
 Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.9ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (130.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_development"[0m
+  [1m[35m (130.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_test"[0m
+  [1m[35m (399.2ms)[0m  [1m[35mCREATE DATABASE "CardSharp_development" ENCODING = 'unicode'[0m
+  [1m[35m (252.3ms)[0m  [1m[35mCREATE DATABASE "CardSharp_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "cards" ("id" serial primary key, "side_a" text NOT NULL, "side_b" text NOT NULL, "mastery" integer DEFAULT 1, "deck_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_cards_on_deck_id" ON "cards" USING btree ("deck_id")[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "decks" ("id" serial primary key, "title" character varying NOT NULL, "description" text, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "is_private" boolean DEFAULT 'f')[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_decks_on_author_id" ON "decks" USING btree ("author_id")[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "username" character varying NOT NULL, "session_token" character varying NOT NULL, "password_digest" character varying NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170315165016)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170314175155),
+(20170314210607),
+(20170314214530),
+(20170314235724);
+
+[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "cards" ("id" serial primary key, "side_a" text NOT NULL, "side_b" text NOT NULL, "mastery" integer DEFAULT 1, "deck_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_cards_on_deck_id" ON "cards" USING btree ("deck_id")[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "decks" ("id" serial primary key, "title" character varying NOT NULL, "description" text, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "is_private" boolean DEFAULT 'f')[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_decks_on_author_id" ON "decks" USING btree ("author_id")[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "username" character varying NOT NULL, "session_token" character varying NOT NULL, "password_digest" character varying NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170315165016)[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170314175155),
+(20170314210607),
+(20170314214530),
+(20170314235724);
+
+[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC], ["username", "Terry"], ["session_token", "dOcS9ddWSWB6W7fFUWh0kQ"], ["password_digest", "$2a$10$FIw05u2ScIKBiFeInEwpPuSHZywBfFQBBPZmD6XhhMaK30qVKyb7G"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Mabel"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC], ["username", "Mabel"], ["session_token", "_cNX0YMrKCxCLdfIjIMBaQ"], ["password_digest", "$2a$10$9VegjhnGE/XmSHD9hwCIf.Mcg5SZHh5hfEhplCx49MGUa0D1BcZwW"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Magnus"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC], ["username", "Magnus"], ["session_token", "sR99BMpbhXy_vmI5Pgpkfg"], ["password_digest", "$2a$10$Bjd4dBMDG.XvKsno1BXH5.KAbu3XSZ9jchKY6/gjPU5LwWP5M2T7G"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Oscar"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC], ["username", "Oscar"], ["session_token", "d8DyEqSirlLBWIe-7OnCkw"], ["password_digest", "$2a$10$0kxWeC7F6UVysLWmh77iaec9bmFSjFPCByyiPUDL3M/CC0IvWq7Xy"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Wanda"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC], ["username", "Wanda"], ["session_token", "akFqCQm8C7C_Sm7Vi1rV-g"], ["password_digest", "$2a$10$c6YCM8bxSm.5wWj0wvBYDOGq/dJfqNVJ.cQABn50.NEB194TLHqNe"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "is_private") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "French"], ["description", "Elementary French 101"], ["author_id", 1], ["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC], ["is_private", true]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Spanish"], ["description", "Intermediate Spanish 207"], ["author_id", 1], ["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "German"], ["description", "Advanced German 302"], ["author_id", 1], ["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Algebra"], ["description", "For Mrs. Hassett's class"], ["author_id", 3], ["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Geometry"], ["description", "For 4th period geometry class"], ["author_id", 3], ["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "bird"], ["side_b", "oiseau"], ["mastery", 2], ["deck_id", 1], ["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "monkey"], ["side_b", "singe"], ["mastery", 4], ["deck_id", 1], ["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "elephant"], ["side_b", "éléphant"], ["mastery", 5], ["deck_id", 1], ["created_at", 2017-03-15 17:11:33 UTC], ["updated_at", 2017-03-15 17:11:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" ORDER BY "decks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 1]]
+Started GET "/" for ::1 at 2017-03-15 10:13:26 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zvZKvYncUwePBHgywkti8A"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 276ms (Views: 272.0ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-15 10:13:42 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Magnus", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Magnus"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Magnus"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "O2eG0QifYAszJzJA5agBVA"], ["updated_at", 2017-03-15 17:13:42 UTC], ["id", 3]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (3.8ms)
+Completed 200 OK in 99ms (Views: 9.8ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:15:08 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "O2eG0QifYAszJzJA5agBVA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 344ms (Views: 342.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:15:14 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "O2eG0QifYAszJzJA5agBVA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:15:15 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "O2eG0QifYAszJzJA5agBVA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/api/session" for ::1 at 2017-03-15 10:15:17 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "O2eG0QifYAszJzJA5agBVA"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Magnus"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "xVE9if8zp9wUL8_jZVCJtQ"], ["updated_at", 2017-03-15 17:15:17 UTC], ["id", 3]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-15 10:15:26 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Terry", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "f5hKzc0XRn32SdBqa_vLUQ"], ["updated_at", 2017-03-15 17:15:26 UTC], ["id", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.4ms)
+Completed 200 OK in 85ms (Views: 7.1ms | ActiveRecord: 3.5ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (5028.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (129.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_development"[0m
+  [1m[35m (129.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_test"[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5264609448502180770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170314175155)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170314175155"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToUsers (20170314210607)
+  [1m[35m (6.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mALTER TABLE "users" ADD "username" character varying NOT NULL[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "session_token" character varying NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying NOT NULL[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170314210607"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCards (20170314214530)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.7ms)[0m  [1m[35mCREATE TABLE "cards" ("id" serial primary key, "side_a" text NOT NULL, "side_b" text NOT NULL, "mastery" integer DEFAULT 1, "deck_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE  INDEX  "index_cards_on_deck_id" ON "cards"  ("deck_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170314214530"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDecks (20170314235724)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "decks" ("id" serial primary key, "title" character varying NOT NULL, "description" text, "is_private" boolean DEFAULT 't', "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_decks_on_author_id" ON "decks"  ("author_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170314235724"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeDefaultDeckPrivacy (20170315165016)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "decks" DROP "is_private"[0m
+  [1m[35m (5.5ms)[0m  [1m[35mALTER TABLE "decks" ADD "is_private" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170315165016"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCategoryToDecks (20170315171816)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5264609448502180770)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5264609448502180770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddCategoryToDecks (20170315171816)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "decks" ADD "category" character varying NOT NULL[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170315171816"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-15 17:22:56 UTC], ["updated_at", 2017-03-15 17:22:56 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5264609448502180770)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (130.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_development"[0m
+  [1m[35m (127.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_test"[0m
+  [1m[35m (246.4ms)[0m  [1m[35mCREATE DATABASE "CardSharp_development" ENCODING = 'unicode'[0m
+  [1m[35m (248.4ms)[0m  [1m[35mCREATE DATABASE "CardSharp_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "cards" ("id" serial primary key, "side_a" text NOT NULL, "side_b" text NOT NULL, "mastery" integer DEFAULT 1, "deck_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_cards_on_deck_id" ON "cards" USING btree ("deck_id")[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "decks" ("id" serial primary key, "title" character varying NOT NULL, "description" text, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "is_private" boolean DEFAULT 'f', "category" character varying NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_decks_on_author_id" ON "decks" USING btree ("author_id")[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "username" character varying NOT NULL, "session_token" character varying NOT NULL, "password_digest" character varying NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170315171816)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170314175155),
+(20170314210607),
+(20170314214530),
+(20170314235724),
+(20170315165016);
+
+[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-15 17:23:03 UTC], ["updated_at", 2017-03-15 17:23:03 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "cards" ("id" serial primary key, "side_a" text NOT NULL, "side_b" text NOT NULL, "mastery" integer DEFAULT 1, "deck_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_cards_on_deck_id" ON "cards" USING btree ("deck_id")[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "decks" ("id" serial primary key, "title" character varying NOT NULL, "description" text, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "is_private" boolean DEFAULT 'f', "category" character varying NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_decks_on_author_id" ON "decks" USING btree ("author_id")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "username" character varying NOT NULL, "session_token" character varying NOT NULL, "password_digest" character varying NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170315171816)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170314175155),
+(20170314210607),
+(20170314214530),
+(20170314235724),
+(20170315165016);
+
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-15 17:23:03 UTC], ["updated_at", 2017-03-15 17:23:03 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 17:23:03 UTC], ["updated_at", 2017-03-15 17:23:03 UTC], ["username", "Terry"], ["session_token", "piB8buiAY6U0HdqJ_RQCRQ"], ["password_digest", "$2a$10$LwIqrS/3FzFW1jsI7JEEdO06QoH3C8dg1s5nMOY4/9dNaShjCMiWy"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Mabel"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 17:23:03 UTC], ["updated_at", 2017-03-15 17:23:03 UTC], ["username", "Mabel"], ["session_token", "RiUKDoWKMOgM0I525eTrTw"], ["password_digest", "$2a$10$v/E0aUbtQBoS2ses6lvzkewFL0swtyPGsTYJKXYCcGrfN4QwiWJy."]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Magnus"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 17:23:03 UTC], ["updated_at", 2017-03-15 17:23:03 UTC], ["username", "Magnus"], ["session_token", "muyU82WBsymVDDmgJV5ACQ"], ["password_digest", "$2a$10$XpRuzm2MiwWV6peQVT8P.Okjo1m7W8c6i/VDw0XFwamIrwe2hnmk6"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Oscar"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 17:23:03 UTC], ["updated_at", 2017-03-15 17:23:03 UTC], ["username", "Oscar"], ["session_token", "dX8o1mT1nPg2hY1WmyHRtg"], ["password_digest", "$2a$10$ZnlwmBn0k/vAM33tw5hSO.bXj5kqx5Jq6xr2HfNeX6wDk0ySP0ZEm"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Wanda"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 17:23:03 UTC], ["updated_at", 2017-03-15 17:23:03 UTC], ["username", "Wanda"], ["session_token", "3WpED3ksBrnVVzobTJD3zQ"], ["password_digest", "$2a$10$/kb.xCv3H7N0m9y1dunGzeMXmc6Oe.PvEXN4Cd3b8ftJYr4HtUad."]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "is_private", "category") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "French"], ["description", "Elementary French 101"], ["author_id", 1], ["created_at", 2017-03-15 17:23:04 UTC], ["updated_at", 2017-03-15 17:23:04 UTC], ["is_private", true], ["category", "foreign languages"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Spanish"], ["description", "Intermediate Spanish 207"], ["author_id", 1], ["created_at", 2017-03-15 17:23:04 UTC], ["updated_at", 2017-03-15 17:23:04 UTC], ["category", "foreign languages"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "German"], ["description", "Advanced German 302"], ["author_id", 1], ["created_at", 2017-03-15 17:23:04 UTC], ["updated_at", 2017-03-15 17:23:04 UTC], ["category", "foreign languages"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Algebra"], ["description", "For Mrs. Hassett's class"], ["author_id", 3], ["created_at", 2017-03-15 17:23:04 UTC], ["updated_at", 2017-03-15 17:23:04 UTC], ["category", "mathematics"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Geometry"], ["description", "For 4th period geometry class"], ["author_id", 3], ["created_at", 2017-03-15 17:23:04 UTC], ["updated_at", 2017-03-15 17:23:04 UTC], ["category", "mathematics"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "bird"], ["side_b", "oiseau"], ["mastery", 2], ["deck_id", 1], ["created_at", 2017-03-15 17:23:04 UTC], ["updated_at", 2017-03-15 17:23:04 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "monkey"], ["side_b", "singe"], ["mastery", 4], ["deck_id", 1], ["created_at", 2017-03-15 17:23:04 UTC], ["updated_at", 2017-03-15 17:23:04 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "elephant"], ["side_b", "éléphant"], ["mastery", 5], ["deck_id", 1], ["created_at", 2017-03-15 17:23:04 UTC], ["updated_at", 2017-03-15 17:23:04 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2017-03-15 10:42:05 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f5hKzc0XRn32SdBqa_vLUQ"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 678ms (Views: 673.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:42:11 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f5hKzc0XRn32SdBqa_vLUQ"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 306ms (Views: 303.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:47:07 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f5hKzc0XRn32SdBqa_vLUQ"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 288ms (Views: 281.2ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:48:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f5hKzc0XRn32SdBqa_vLUQ"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 310ms (Views: 306.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:49:51 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f5hKzc0XRn32SdBqa_vLUQ"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 292ms (Views: 288.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:50:16 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f5hKzc0XRn32SdBqa_vLUQ"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 285ms (Views: 283.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:50:48 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f5hKzc0XRn32SdBqa_vLUQ"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 280ms (Views: 277.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:52:06 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f5hKzc0XRn32SdBqa_vLUQ"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-15 10:52:13 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Terry", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["updated_at", 2017-03-15 17:52:13 UTC], ["id", 1]]
+  [1m[35m (85.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (10.3ms)
+Completed 200 OK in 190ms (Views: 14.8ms | ActiveRecord: 90.2ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:52:42 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 290ms (Views: 287.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 10:52:43 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.7ms)
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (29.2ms)
+Completed 200 OK in 56ms (Views: 24.5ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:53:17 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 291ms (Views: 289.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 10:53:18 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.1ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (16.2ms)
+Completed 200 OK in 24ms (Views: 20.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:53:23 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 306ms (Views: 304.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 10:53:23 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (2.8ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.7ms)
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (10.7ms)
+Completed 200 OK in 24ms (Views: 17.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:54:56 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 273ms (Views: 270.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 10:54:57 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.9ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (8.1ms)
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:54:58 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 296ms (Views: 293.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 10:54:59 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (9.9ms)
+Completed 200 OK in 20ms (Views: 16.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:55:22 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 295ms (Views: 293.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 10:55:23 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.4ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (9.4ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 10:58:46 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 298ms (Views: 296.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 10:58:47 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.1ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (9.4ms)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (234.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_development"[0m
+  [1m[35m (234.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_test"[0m
+  [1m[35m (310.2ms)[0m  [1m[35mCREATE DATABASE "CardSharp_development" ENCODING = 'unicode'[0m
+  [1m[35m (272.2ms)[0m  [1m[35mCREATE DATABASE "CardSharp_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "cards" ("id" serial primary key, "side_a" text NOT NULL, "side_b" text NOT NULL, "mastery" integer DEFAULT 1, "deck_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_cards_on_deck_id" ON "cards" USING btree ("deck_id")[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "decks" ("id" serial primary key, "title" character varying NOT NULL, "description" text, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "is_private" boolean DEFAULT 'f', "category" character varying NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_decks_on_author_id" ON "decks" USING btree ("author_id")[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "username" character varying NOT NULL, "session_token" character varying NOT NULL, "password_digest" character varying NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170315171816)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170314175155),
+(20170314210607),
+(20170314214530),
+(20170314235724),
+(20170315165016);
+
+[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-15 18:02:24 UTC], ["updated_at", 2017-03-15 18:02:24 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "cards" ("id" serial primary key, "side_a" text NOT NULL, "side_b" text NOT NULL, "mastery" integer DEFAULT 1, "deck_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE  INDEX  "index_cards_on_deck_id" ON "cards" USING btree ("deck_id")[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "decks" ("id" serial primary key, "title" character varying NOT NULL, "description" text, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "is_private" boolean DEFAULT 'f', "category" character varying NOT NULL)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE  INDEX  "index_decks_on_author_id" ON "decks" USING btree ("author_id")[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "username" character varying NOT NULL, "session_token" character varying NOT NULL, "password_digest" character varying NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170315171816)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170314175155),
+(20170314210607),
+(20170314214530),
+(20170314235724),
+(20170315165016);
+
+[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-15 18:02:24 UTC], ["updated_at", 2017-03-15 18:02:24 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 18:02:24 UTC], ["updated_at", 2017-03-15 18:02:24 UTC], ["username", "Terry"], ["session_token", "4pEvK8oPaF6iAhTepiztwQ"], ["password_digest", "$2a$10$w5EvMYVcjg82qo37ia52peWFBtjllKtFYapmqG3ybulobrH7PYYLW"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Mabel"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 18:02:24 UTC], ["updated_at", 2017-03-15 18:02:24 UTC], ["username", "Mabel"], ["session_token", "pWs8S4WSwJCTCP5FN_b30A"], ["password_digest", "$2a$10$7mc6h1bnLyhaeo6zdV7eVucjxfk9.BWw12ECGxGl3K1wqC9czI4h2"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Magnus"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 18:02:24 UTC], ["updated_at", 2017-03-15 18:02:24 UTC], ["username", "Magnus"], ["session_token", "GtZVVy0_rKzkoVyZuX1BmA"], ["password_digest", "$2a$10$v7HRDM6BJqo69Rtt3CWzKOHhlGHrtuoZ4iP3ZDerKaq8shhru.Pea"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Oscar"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 18:02:24 UTC], ["updated_at", 2017-03-15 18:02:24 UTC], ["username", "Oscar"], ["session_token", "aBA2989TH6CY86V43tSiAA"], ["password_digest", "$2a$10$n3y1bp54EFdwVLjaaySfKuyRqDcK16utb0vEO8.uFAsdFPcGVZifC"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Wanda"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-15 18:02:25 UTC], ["updated_at", 2017-03-15 18:02:25 UTC], ["username", "Wanda"], ["session_token", "P9JC28XkmiT99Z5ZFUckYQ"], ["password_digest", "$2a$10$LbSmtjskWWxpqAXxmK2i3.wcKqCMlmcVWHq6e07DnqY87YqkG2/Ce"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "is_private", "category") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "French"], ["description", "Elementary French 101"], ["author_id", 1], ["created_at", 2017-03-15 18:02:25 UTC], ["updated_at", 2017-03-15 18:02:25 UTC], ["is_private", true], ["category", "foreign_languages"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Spanish"], ["description", "Intermediate Spanish 207"], ["author_id", 1], ["created_at", 2017-03-15 18:02:25 UTC], ["updated_at", 2017-03-15 18:02:25 UTC], ["category", "foreign_languages"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "German"], ["description", "Advanced German 302"], ["author_id", 1], ["created_at", 2017-03-15 18:02:25 UTC], ["updated_at", 2017-03-15 18:02:25 UTC], ["category", "foreign_languages"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Algebra"], ["description", "For Mrs. Hassett's class"], ["author_id", 3], ["created_at", 2017-03-15 18:02:25 UTC], ["updated_at", 2017-03-15 18:02:25 UTC], ["category", "mathematics"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Geometry"], ["description", "For 4th period geometry class"], ["author_id", 3], ["created_at", 2017-03-15 18:02:25 UTC], ["updated_at", 2017-03-15 18:02:25 UTC], ["category", "mathematics"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "bird"], ["side_b", "oiseau"], ["mastery", 2], ["deck_id", 1], ["created_at", 2017-03-15 18:02:25 UTC], ["updated_at", 2017-03-15 18:02:25 UTC]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "monkey"], ["side_b", "singe"], ["mastery", 4], ["deck_id", 1], ["created_at", 2017-03-15 18:02:25 UTC], ["updated_at", 2017-03-15 18:02:25 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "elephant"], ["side_b", "éléphant"], ["mastery", 5], ["deck_id", 1], ["created_at", 2017-03-15 18:02:25 UTC], ["updated_at", 2017-03-15 18:02:25 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2017-03-15 11:03:20 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 550ms (Views: 544.8ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:03:35 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 284ms (Views: 282.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:03:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 287ms (Views: 284.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:04:12 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 316ms (Views: 312.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:04:19 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rUSgixlfwgJ35QtqyETbsw"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 367ms (Views: 365.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-15 11:04:27 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Terry", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "TeD6ekkfo6Ii_1bpPNDDcQ"], ["updated_at", 2017-03-15 18:04:27 UTC], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (3.1ms)
+Completed 200 OK in 94ms (Views: 9.0ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 11:04:34 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "TeD6ekkfo6Ii_1bpPNDDcQ"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (13.7ms)
+Completed 200 OK in 31ms (Views: 13.1ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:05:00 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "TeD6ekkfo6Ii_1bpPNDDcQ"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 292ms (Views: 289.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:05:00 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "TeD6ekkfo6Ii_1bpPNDDcQ"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 31ms (Views: 28.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 11:05:01 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "TeD6ekkfo6Ii_1bpPNDDcQ"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.8ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.7ms)
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  Rendered api/decks/index.json.jbuilder (12.6ms)
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/api/session" for ::1 at 2017-03-15 11:08:33 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "TeD6ekkfo6Ii_1bpPNDDcQ"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "SLjfcNNkQU-1cLziexESjg"], ["updated_at", 2017-03-15 18:08:33 UTC], ["id", 1]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:10:12 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 288ms (Views: 286.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:11:39 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 349ms (Views: 347.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-15 11:11:46 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Terry", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "HpSXBudBbkAjAn5z6iPT-w"], ["updated_at", 2017-03-15 18:11:46 UTC], ["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (1.5ms)
+Completed 200 OK in 83ms (Views: 7.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 11:11:49 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HpSXBudBbkAjAn5z6iPT-w"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.0ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (5.1ms)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2017-03-15 11:11:51 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HpSXBudBbkAjAn5z6iPT-w"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "XEhNKB6kHX7V3-h77HxBxA"], ["updated_at", 2017-03-15 18:11:51 UTC], ["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:14:20 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 286ms (Views: 284.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:14:38 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:15:07 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 277ms (Views: 275.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-15 11:15:13 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Magnus", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Magnus"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Magnus"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "hQiBaBnQ_OeHpH-aj3BIJA"], ["updated_at", 2017-03-15 18:15:13 UTC], ["id", 3]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.9ms)
+Completed 200 OK in 84ms (Views: 6.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/decks?authorId=3" for ::1 at 2017-03-15 11:15:18 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hQiBaBnQ_OeHpH-aj3BIJA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 3]]
+  Rendered api/decks/_deck.json.jbuilder (0.7ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (5.2ms)
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/api/session" for ::1 at 2017-03-15 11:15:20 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hQiBaBnQ_OeHpH-aj3BIJA"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Magnus"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "rIH23_jqX4T4TcuodgydJg"], ["updated_at", 2017-03-15 18:15:20 UTC], ["id", 3]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:15:52 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:17:06 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 274ms (Views: 272.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-15 11:18:22 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 343ms (Views: 341.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-15 11:18:47 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Terry", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "goyzigWBaimHX8-PZA78Sg"], ["updated_at", 2017-03-15 18:18:47 UTC], ["id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (1.4ms)
+Completed 200 OK in 77ms (Views: 7.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-15 11:18:56 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "goyzigWBaimHX8-PZA78Sg"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.3ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (4.7ms)
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/api/session" for ::1 at 2017-03-15 11:19:16 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "goyzigWBaimHX8-PZA78Sg"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "xEOwu7EzboVh21fEOkqGww"], ["updated_at", 2017-03-15 18:19:16 UTC], ["id", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/api/user" for ::1 at 2017-03-15 11:19:27 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 76ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-15 11:21:30 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Magnus", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Magnus"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Magnus"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "1k09KP1Ow_UKD3NO3weXIg"], ["updated_at", 2017-03-15 18:21:30 UTC], ["id", 3]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.2ms)
+Completed 200 OK in 72ms (Views: 5.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/decks?authorId=3" for ::1 at 2017-03-15 11:21:32 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1k09KP1Ow_UKD3NO3weXIg"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.9ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 3]]
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (4.8ms)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 1.3ms)
+
+

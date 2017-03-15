@@ -1,22 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 const Greeting = ({ currentUser, logout }) => {
   if (currentUser) {
     return (
       <nav className="header-nav">
-        <h3>{currentUser.username}</h3>
+        <Link to="/profile">{currentUser.username}</Link>
         <button onClick={logout}>Log Out</button>
       </nav>
     )
   } else {
     return (
       <nav className="header-nav">
-        <Link to="/login" activeClassName="current">Log In</Link>
-        <Link to="/signup" activeClassName="current">Sign Up</Link>
+        <Link to="/login">Log In</Link>
+        <Link to="/signup">Sign Up</Link>
       </nav>
     )
   }
 }
 
-export default Greeting;
+export default withRouter(Greeting);
