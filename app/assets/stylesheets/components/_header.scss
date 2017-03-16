@@ -1,16 +1,32 @@
 header {
-  height: 100px;
+  height: 60px;
+  background-color: $darkgray;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 0 5vw;
+  border-bottom: 5px solid $coral;
+  padding: 0 40px;
 }
 
 .header-title {
-  font-weight: 700;
-  font-size: 32px;
-  color: $red;
+  font-size: 20px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+
+  span {
+    font-weight: 700;
+    margin-left: 10px;
+  }
+}
+
+.header-logo {
+  width: 25px;
+  height: 25px;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
 }
 
 .header-nav {
@@ -20,6 +36,6 @@ header {
   justify-content: space-between;
 
   a:hover {
-    color: $red;
+    color: $blue;
   }
 }

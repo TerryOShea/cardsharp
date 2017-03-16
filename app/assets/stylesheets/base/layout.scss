@@ -1,5 +1,4 @@
 body {
-	width: 80%;
 	margin: 0 auto;
 	font-family: $body;
 	font-size: 16px;
@@ -11,6 +10,7 @@ button {
 	box-sizing: border-box;
 	border: 1px solid $blue;
 	color: $blue;
+	text-align: center;
 
 	&:hover {
 		color: white;
@@ -21,4 +21,6 @@ button {
 input {
 	border-bottom: 1px solid lighten($gray, 60%);
 	margin-left: 5px;
+	width: 200px;
+	padding: 5px 0;
 }

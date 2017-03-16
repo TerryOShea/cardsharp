@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.2.6'
+ruby '2.3.1'
 # add icons from Font Awesome
 gem 'font-awesome-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -5,6 +5,7 @@ class SessionForm extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
     this.state = {
       username: "",
       password: ""
@@ -30,6 +31,13 @@ class SessionForm extends Component {
     return (<ul>{errorItems}</ul>);
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    const demoLogin = { username: "Terry", password: "password" };
+    const { processForm, router } = this.props;
+    processForm(demoLogin).then(() => router.push("/profile"));
+  }
+
   render() {
     const { formType, errors } = this.props;
     const title = formType === 'login' ? "Log In" : "Sign Up";
@@ -39,7 +47,7 @@ class SessionForm extends Component {
       <div className="session-form-container">
         <h3>{title}</h3>
         {errorsList}
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="session-form">
           <input
             type="text"
             placeholder="Username"
@@ -51,6 +59,7 @@ class SessionForm extends Component {
             value={this.state.password}
             onChange={this.update('password')} />
           <button>Submit</button>
+          <button onClick={this.demoLogin}>Demo</button>
         </form>
       </div>
     );
