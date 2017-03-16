@@ -10,6 +10,13 @@ header {
   padding: 0 40px;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 220px;
+}
+
 .header-title {
   font-size: 20px;
   text-transform: uppercase;
