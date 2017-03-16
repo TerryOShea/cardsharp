@@ -5,16 +5,14 @@ body {
 }
 
 button {
-	padding: 5px 10px;
+	color: white;
+	background-color: $blue;
+	padding: 5px 20px;
 	border-radius: 3px;
-	box-sizing: border-box;
-	border: 1px solid $blue;
-	color: $blue;
 	text-align: center;
 
 	&:hover {
-		color: white;
-		background-color: $blue;
+		background-color: lighten($blue, 10%);
 	}
 }
 

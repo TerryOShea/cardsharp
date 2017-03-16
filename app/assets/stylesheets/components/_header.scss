@@ -1,13 +1,20 @@
 header {
   height: 60px;
   background-color: $darkgray;
-  color: white;
+  color: $gray;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   border-bottom: 5px solid $coral;
   padding: 0 40px;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(153,153,153,1);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(153,153,153,1);
+  box-shadow: 0px 1px 5px 0px rgba(153,153,153,1);
+
+  a:hover {
+    color: $blue;
+  }
 }
 
 .header-left {
@@ -18,10 +25,15 @@ header {
 }
 
 .header-title {
+  color: white;
   font-size: 20px;
   text-transform: uppercase;
   display: flex;
   align-items: center;
+
+  &:hover {
+    color: white;
+  }
 
   span {
     font-weight: 700;
@@ -36,13 +48,9 @@ header {
   filter: invert(100%);
 }
 
-.header-nav {
+.header-greeting {
   display: flex;
-  width: 140px;
+  width: 150px;
   align-items: center;
   justify-content: space-between;
-
-  a:hover {
-    color: $blue;
-  }
 }

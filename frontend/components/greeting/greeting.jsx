@@ -11,9 +11,9 @@ const Greeting = ({ currentUser, logout, router }) => {
     )
   } else {
     return (
-      <nav className="header-nav">
+      <nav className="header-greeting">
         <Link to="/login">Log In</Link>
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/signup"><button type="button">Sign Up</button></Link>
       </nav>
     )
   }
