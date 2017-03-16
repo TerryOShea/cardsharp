@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router';
 const Greeting = ({ currentUser, logout, router }) => {
   if (currentUser) {
     return (
-      <nav className="header-nav">
+      <nav className="header-greeting">
         <Link to="/profile">{currentUser.username}</Link>
         <button onClick={() => logout().then(() => router.push("/"))}>Log Out</button>
       </nav>
