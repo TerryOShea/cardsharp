@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.3.1'
+gem 'faker'
 # add icons from Font Awesome
 gem 'font-awesome-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

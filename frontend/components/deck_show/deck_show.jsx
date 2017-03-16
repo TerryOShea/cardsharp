@@ -3,7 +3,7 @@ import Card from '../card/card';
 import AddCardContainer from '../add_card/add_card_container';
 import TrashCardContainer from '../trash_card/trash_card_container';
 
-class Deck extends React.Component {
+class DeckShow extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -35,4 +35,4 @@ class Deck extends React.Component {
   }
 };
 
-export default Deck;
+export default DeckShow;

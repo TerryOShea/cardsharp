@@ -9,12 +9,6 @@
     <%= favicon_link_tag 'favicon.png' %>
 
     <script type="text/javascript" src="http://widget.cloudinary.com/global/all.js"></script>
-    <script type="text/javascript">
-      window.CLOUDINARY_OPTIONS = {
-        cloud_name: "<%= ENV['CLOUD_NAME'] %>",
-        upload_preset: "<%= ENV['UPLOAD_PRESET'] %>"
-      }
-    </script>
   </head>
 
   <body>

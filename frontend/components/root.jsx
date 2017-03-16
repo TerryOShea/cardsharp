@@ -6,7 +6,8 @@ import { clearErrors } from '../actions/error_actions';
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
 import ProfileContainer from './profile/profile_container';
-import DeckContainer from './deck/deck_container';
+import DeckShowContainer from './deck_show/deck_show_container';
+import HomeContainer from './home/home_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replaceState) => {
@@ -29,10 +30,11 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
+          <IndexRoute component={HomeContainer} />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} onLeave={_clearErrors} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} onLeave={_clearErrors} />
           <Route path="/profile" component={ProfileContainer} onEnter={_ensureLoggedIn} onLeave={_clearErrors} />
-          <Route path="/decks/:deckId" component={DeckContainer} />
+          <Route path="/decks/:deckId" component={DeckShowContainer} />
         </Route>
       </Router>
     </Provider>

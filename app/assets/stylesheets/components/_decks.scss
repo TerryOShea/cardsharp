@@ -1,6 +1,10 @@
 .decks-container {
   display: flex;
   flex-wrap: wrap;
+  width: 70vw;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .deck-widget {
@@ -11,6 +15,9 @@
   justify-content: center;
   margin: 20px;
   border-radius: 25px;
+  background-size: 150px 150px;
+  background-repeat: no-repeat;
+  background-position: center;
 
   &:hover {
     cursor: pointer;
@@ -19,9 +26,36 @@
 }
 
 .foreign-languages {
-  background-color: green;
+  background-image: url("foreign_languages.png");
+  background-color: lightskyblue;
 }
 
 .mathematics {
+  background-image: url("mathematics.png");
   background-color: yellow;
+}
+
+.architecture {
+  background-image: url("architecture.png");
+  background-color: orange;
+}
+
+.art {
+  background-image: url("art.png");
+  background-color: red;
+}
+
+.geography {
+  background-image: url("geography.png");
+  background-color: green;
+}
+
+.literature {
+  background-image: url("literature.png");
+  background-color: cornflowerblue;
+}
+
+.music {
+  background-image: url("music.png");
+  background-color: pink;
 }

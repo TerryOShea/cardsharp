@@ -4,7 +4,7 @@ class Api::DecksController < ApplicationController
     if params[:recent]
       num = params[:recent][:num].to_i || 10
       offset = params[:recent][:offset].to_i || 0
-      @decks = Deck.most_recent(num, offset, current_user.id)
+      @decks = Deck.most_recent(num, offset)
     elsif params[:authorId]
       @decks = Deck.authored_by(params[:authorId].to_i, current_user.id)
     else

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Deck from './deck';
+import DeckShow from './deck_show';
 import { fetchDeckShow, deleteDeckShow } from '../../actions/deck_show_actions';
 
 const mapStateToProps = state => ({
@@ -12,4 +12,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   removeDeck: () => dispatch(deleteDeckShow())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Deck);
+export default connect(mapStateToProps, mapDispatchToProps)(DeckShow);

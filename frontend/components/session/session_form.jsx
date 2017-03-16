@@ -38,7 +38,7 @@ class SessionForm extends Component {
     return (
       <div className="session-form-container">
         <ErrorBox errors={errors} />
-        <h3>{title}</h3>
+        <h3 className="session-form-title">{title}</h3>
         <form onSubmit={this.handleSubmit} className="session-form">
           <input
             type="text"

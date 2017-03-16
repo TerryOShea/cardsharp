@@ -4,6 +4,7 @@ import { receiveErrors, clearErrors } from './error_actions';
 export const RECEIVE_DECKS = "RECEIVE_DECKS";
 export const RECEIVE_DECK = "RECEIVE_DECK";
 export const REMOVE_DECK = "REMOVE_DECK";
+export const REMOVE_DECKS = "REMOVE_DECKS";
 
 const receiveDecks = decks => ({
   type: RECEIVE_DECKS,
@@ -18,6 +19,10 @@ const receiveDeck = deck => ({
 const removeDeck = deck => ({
   type: REMOVE_DECK,
   deck
+});
+
+export const removeDecks = () => ({
+  type: REMOVE_DECKS
 });
 
 export const createDeck = deck => dispatch => (
