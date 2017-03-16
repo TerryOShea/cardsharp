@@ -16421,3 +16421,1460 @@ Processing by Api::DecksController#show as JSON
 Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:24:17 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.3ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (4.5ms)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:25:21 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 34ms (Views: 32.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:25:22 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (1.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (2.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.7ms)
+  Rendered api/cards/_card.json.jbuilder (0.7ms)
+  Rendered api/cards/_card.json.jbuilder (0.2ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.2ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/decks/show.json.jbuilder (15.8ms)
+Completed 200 OK in 37ms (Views: 25.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:25:35 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.6ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (6.0ms)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:25:37 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.6ms)
+  Rendered api/decks/show.json.jbuilder (2.9ms)
+Completed 200 OK in 12ms (Views: 7.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:26:54 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 302ms (Views: 300.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:26:55 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.6ms)
+  Rendered api/decks/show.json.jbuilder (2.8ms)
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:26:57 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 304ms (Views: 302.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:26:58 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.7ms)
+  Rendered api/decks/show.json.jbuilder (3.4ms)
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:27:06 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:27:09 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 43ms (Views: 41.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:27:25 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/show.json.jbuilder (2.0ms)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:27:45 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/show.json.jbuilder (2.3ms)
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:27:53 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.3ms)
+  Rendered api/decks/show.json.jbuilder (2.5ms)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:29:42 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (3.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (36.2ms)
+Completed 200 OK in 527ms (Views: 519.0ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:29:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 166ms (Views: 157.6ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:29:48 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/show.json.jbuilder (2.3ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 7.2ms)
+
+
+
+SyntaxError - syntax error, unexpected '{', expecting keyword_end
+json.set! 'cards' {}
+                   ^:
+  app/views/api/decks/show.json.jbuilder:2:in `'
+  actionview (5.0.2) lib/action_view/template.rb:310:in `compile'
+  actionview (5.0.2) lib/action_view/template.rb:259:in `block (2 levels) in compile!'
+  activesupport (5.0.2) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.0.2) lib/action_view/template.rb:356:in `instrument'
+  actionview (5.0.2) lib/action_view/template.rb:258:in `block in compile!'
+  actionview (5.0.2) lib/action_view/template.rb:246:in `compile!'
+  actionview (5.0.2) lib/action_view/template.rb:158:in `block in render'
+  activesupport (5.0.2) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.0.2) lib/action_view/template.rb:354:in `instrument'
+  actionview (5.0.2) lib/action_view/template.rb:157:in `render'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (5.0.2) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.2) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (5.0.2) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.0.2) lib/action_view/rendering.rb:104:in `_render_template'
+  actionpack (5.0.2) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.0.2) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.0.2) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.0.2) lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+  actionpack (5.0.2) lib/abstract_controller/rendering.rb:26:in `render'
+  actionpack (5.0.2) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/Terry/.rbenv/versions/2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (5.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  app/controllers/api/decks_controller.rb:20:in `show'
+  actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.2) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.2) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.2) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.2) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.2) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.2) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.2) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.2) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  rack-livereload (0.3.16) lib/rack/livereload.rb:23:in `_call'
+  rack-livereload (0.3.16) lib/rack/livereload.rb:14:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.2) lib/rails/engine.rb:522:in `call'
+  puma (3.8.1) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.1) lib/puma/server.rb:590:in `handle_request'
+  puma (3.8.1) lib/puma/server.rb:425:in `process_client'
+  puma (3.8.1) lib/puma/server.rb:289:in `block in run'
+  puma (3.8.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/" for ::1 at 2017-03-16 09:30:22 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (2.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (38.2ms)
+Completed 200 OK in 309ms (Views: 299.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:30:25 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 170ms (Views: 160.3ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:30:27 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/show.json.jbuilder (8.0ms)
+Completed 200 OK in 76ms (Views: 13.2ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:31:56 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (33.1ms)
+Completed 200 OK in 296ms (Views: 288.5ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:31:59 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (34.6ms)
+Completed 200 OK in 165ms (Views: 156.2ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:32:01 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.9ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.9ms)
+  Rendered api/decks/show.json.jbuilder (9.1ms)
+Completed 200 OK in 78ms (Views: 13.6ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:32:26 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.3ms)
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (5.3ms)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:32:27 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.8ms)
+  Rendered api/decks/show.json.jbuilder (3.6ms)
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:32:29 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (5.5ms)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:32:31 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.7ms)
+  Rendered api/cards/_card.json.jbuilder (0.3ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/decks/show.json.jbuilder (11.4ms)
+Completed 200 OK in 43ms (Views: 16.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:32:41 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (4.9ms)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/decks/3" for ::1 at 2017-03-16 09:32:41 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 3[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.3ms)
+  Rendered api/decks/show.json.jbuilder (2.3ms)
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:32:44 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (4.8ms)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:32:45 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.7ms)
+  Rendered api/decks/show.json.jbuilder (3.0ms)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:32:46 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.7ms)
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (6.6ms)
+Completed 200 OK in 13ms (Views: 11.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:32:47 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  Rendered api/cards/_card.json.jbuilder (0.4ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.2ms)
+  Rendered api/decks/show.json.jbuilder (9.1ms)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:32:48 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (5.1ms)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:32:49 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/show.json.jbuilder (2.5ms)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:33:47 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 373ms (Views: 371.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:33:48 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.8ms)
+  Rendered api/decks/show.json.jbuilder (4.2ms)
+Completed 200 OK in 15ms (Views: 11.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:34:04 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 354ms (Views: 352.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:34:17 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 289ms (Views: 287.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:34:18 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.9ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  Rendered api/decks/show.json.jbuilder (7.2ms)
+Completed 200 OK in 65ms (Views: 12.3ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:36:25 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 311ms (Views: 309.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:36:26 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (1.0ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.3ms)
+  Rendered api/decks/show.json.jbuilder (2.1ms)
+Completed 200 OK in 11ms (Views: 6.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:36:50 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 291ms (Views: 288.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:37:28 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 303ms (Views: 301.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:37:34 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 282ms (Views: 279.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:37:41 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 303ms (Views: 300.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:38:17 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 314ms (Views: 312.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:38:47 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 303ms (Views: 300.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:39:16 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 294ms (Views: 292.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:39:16 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (1.0ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.8ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  Rendered api/decks/show.json.jbuilder (2.9ms)
+Completed 200 OK in 13ms (Views: 8.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:39:39 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 312ms (Views: 309.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/decks/2" for ::1 at 2017-03-16 09:39:40 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 2[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  Rendered api/decks/show.json.jbuilder (3.3ms)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:43:33 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (5.0ms)
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:43:37 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (1.0ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  Rendered api/cards/_card.json.jbuilder (0.4ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/decks/show.json.jbuilder (8.7ms)
+Completed 200 OK in 32ms (Views: 12.9ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:43:44 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 42ms (Views: 40.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:43:44 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.6ms)
+  Rendered api/cards/_card.json.jbuilder (0.4ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.4ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/decks/show.json.jbuilder (12.6ms)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:43:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:43:45 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (0.8ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  Rendered api/cards/_card.json.jbuilder (0.5ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.5ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/decks/show.json.jbuilder (14.1ms)
+Completed 200 OK in 23ms (Views: 18.5ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/cards" for ::1 at 2017-03-16 09:43:59 -0700
+Processing by Api::CardsController#create as JSON
+  Parameters: {"card"=>{"side_a"=>"monkey", "side_b"=>"singe", "formActivated"=>"true", "deck_id"=>"1"}}
+Unpermitted parameter: formActivated
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["side_a", "monkey"], ["side_b", "singe"], ["deck_id", 1], ["created_at", 2017-03-16 16:43:59 UTC], ["updated_at", 2017-03-16 16:43:59 UTC]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/_card.json.jbuilder (0.3ms)
+  Rendered api/cards/show.json.jbuilder (1.6ms)
+Completed 200 OK in 15ms (Views: 6.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:44:06 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:44:10 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (4.5ms)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:44:11 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.7ms)
+  Rendered api/cards/_card.json.jbuilder (0.6ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/decks/show.json.jbuilder (9.2ms)
+Completed 200 OK in 19ms (Views: 14.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:44:50 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 294ms (Views: 292.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:44:51 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/cards/_card.json.jbuilder (0.5ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/decks/show.json.jbuilder (9.1ms)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:44:51 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 301ms (Views: 299.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:44:52 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (1.0ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.8ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/cards/_card.json.jbuilder (0.5ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/decks/show.json.jbuilder (7.9ms)
+Completed 200 OK in 19ms (Views: 14.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:45:06 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 45ms (Views: 43.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:45:06 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.6ms)
+  Rendered api/cards/_card.json.jbuilder (0.6ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/decks/show.json.jbuilder (11.4ms)
+Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:45:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 296ms (Views: 294.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:45:27 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.0ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.6ms)
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  Rendered api/decks/index.json.jbuilder (7.8ms)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/decks/1" for ::1 at 2017-03-16 09:45:29 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 1[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.3ms)
+  Rendered api/cards/_card.json.jbuilder (0.3ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/decks/show.json.jbuilder (7.1ms)
+Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:45:30 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (4.7ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:45:50 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 293ms (Views: 291.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:45:51 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.6ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (10.9ms)
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:48:17 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 299ms (Views: 297.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:48:18 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (3.1ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.6ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (11.8ms)
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:48:28 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Started GET "/" for ::1 at 2017-03-16 09:48:29 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 601ms (Views: 599.0ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 171ms (Views: 169.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:48:29 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (1.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  Rendered api/decks/index.json.jbuilder (7.2ms)
+Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/api/session" for ::1 at 2017-03-16 09:48:35 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "IWLqQ0RfbPYsUWEl96PonA"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "L8Ajcmf9BSz1yw6TdpdVDQ"], ["updated_at", 2017-03-16 16:48:35 UTC], ["id", 1]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 7.4ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 09:48:37 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:48:56 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 307ms (Views: 305.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 09:48:59 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:49:35 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 282ms (Views: 280.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:49:36 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:49:38 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 298ms (Views: 296.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:49:39 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 43ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2017-03-16 09:49:42 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 89ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:50:00 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 363ms (Views: 361.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:50:02 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 51ms (Views: 49.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2017-03-16 09:50:04 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 80ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:50:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Started GET "/" for ::1 at 2017-03-16 09:50:26 -0700
+Processing by StaticPagesController#root as HTML
+Completed 200 OK in 296ms (Views: 294.0ms | ActiveRecord: 0.0ms)
+
+
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 50ms (Views: 47.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:50:27 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2017-03-16 09:50:28 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 69ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:50:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Started GET "/" for ::1 at 2017-03-16 09:50:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 302ms (Views: 300.6ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 192ms (Views: 190.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2017-03-16 09:50:47 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 69ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:51:05 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 292ms (Views: 291.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:51:05 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 64ms (Views: 62.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:51:13 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 09:51:16 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:51:52 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 301ms (Views: 299.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:51:56 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 287ms (Views: 285.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:51:58 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 09:52:00 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:52:39 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:52:39 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 296ms (Views: 294.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2017-03-16 09:52:41 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 67ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:53:07 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 09:53:09 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:54:01 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 293ms (Views: 292.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:54:21 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 295ms (Views: 293.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:54:25 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:54:27 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:55:44 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 294ms (Views: 292.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:55:49 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 288ms (Views: 286.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:55:50 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 43ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:56:06 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 304ms (Views: 302.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:56:23 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 320ms (Views: 318.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:56:23 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:56:26 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2017-03-16 09:56:27 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 70ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 09:56:32 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:56:39 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 316ms (Views: 315.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:57:17 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 289ms (Views: 288.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:57:18 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 77ms (Views: 74.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:57:44 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 358ms (Views: 356.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:58:20 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 287ms (Views: 286.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2017-03-16 09:58:24 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"Terry", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 71ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 09:59:06 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 300ms (Views: 298.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 09:59:10 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Terry", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "rdJvZPBOzXH3yZFfcQeF3Q"], ["updated_at", 2017-03-16 16:59:10 UTC], ["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.3ms)
+Completed 200 OK in 78ms (Views: 5.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 09:59:10 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rdJvZPBOzXH3yZFfcQeF3Q"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.4ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  Rendered api/decks/index.json.jbuilder (4.6ms)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/api/session" for ::1 at 2017-03-16 09:59:12 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rdJvZPBOzXH3yZFfcQeF3Q"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "-KZT7VHOUBQc_WurR6Sw2A"], ["updated_at", 2017-03-16 16:59:12 UTC], ["id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 09:59:14 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/user" for ::1 at 2017-03-16 09:59:18 -0700
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 69ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+

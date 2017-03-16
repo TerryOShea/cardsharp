@@ -12,6 +12,10 @@ class Deck extends React.Component {
     this.props.fetchDeck();
   }
 
+  componentWillUnmount() {
+    this.props.removeDeck();
+  }
+
   render() {
     const { cards, deckId } = this.props;
 

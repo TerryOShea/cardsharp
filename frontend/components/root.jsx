@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { clearErrors } from '../actions/error_actions';
 
 import App from './app';
 import SessionFormContainer from './session/session_form_container';
@@ -21,6 +22,7 @@ const Root = ({ store }) => {
   };
 
   const _clearErrors = (nextState, replace) => {
+    store.dispatch(clearErrors());
   };
 
   return (

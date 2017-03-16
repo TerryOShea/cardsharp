@@ -42,6 +42,7 @@ class SessionForm extends Component {
     const { formType, errors } = this.props;
     const title = formType === 'login' ? "Log In" : "Sign Up";
     const errorsList = this.processErrors(errors);
+    const demoButton = formType === 'login' ? (<button onClick={this.demoLogin}>Demo</button>) : "";
 
     return (
       <div className="session-form-container">
@@ -59,7 +60,7 @@ class SessionForm extends Component {
             value={this.state.password}
             onChange={this.update('password')} />
           <button>Submit</button>
-          <button onClick={this.demoLogin}>Demo</button>
+          {demoButton}
         </form>
       </div>
     );
