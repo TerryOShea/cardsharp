@@ -1,5 +1,9 @@
 json.partial! 'api/decks/deck', deck: @deck
 
-json.cards @deck.cards do |card|
-  json.partial! 'api/cards/card', card: card
+json.set! 'cards' do
+  @deck.cards.each do |card|
+    json.set! card.id do
+      json.partial! 'api/cards/card', card: card
+    end
+  end
 end
