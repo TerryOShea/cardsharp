@@ -18,6 +18,7 @@
   background-size: 150px 150px;
   background-repeat: no-repeat;
   background-position: center;
+  overflow: hidden;
 
   &:hover {
     cursor: pointer;
@@ -25,9 +26,43 @@
   }
 }
 
+.progress {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
+}
+
+.zero-fifths {
+  width: 200px;
+  height: 200px;
+  border-radius: 0;
+}
+
+.one-fifth {
+  -webkit-clip-path: polygon(50% 50%, 100% 34%, 100% 100%, 0 100%, 0 0, 50% 0);
+  clip-path: polygon(50% 50%, 100% 34%, 100% 100%, 0 100%, 0 0, 50% 0);
+}
+
+.two-fifths {
+  -webkit-clip-path: polygon(50% 50%, 50% 0, 0 0, 0 100%, 86% 100%);
+  clip-path: polygon(50% 50%, 50% 0, 0 0, 0 100%, 86% 100%);
+}
+
+.three-fifths {
+  -webkit-clip-path: polygon(50% 50%, 50% 0, 0 0, 0 100%, 14% 100%);
+  clip-path: polygon(50% 50%, 50% 0, 0 0, 0 100%, 14% 100%);
+}
+
+.four-fifths {
+  -webkit-clip-path: polygon(50% 50%, 50% 0, 0 0, 0 34%);
+  clip-path: polygon(50% 50%, 50% 0, 0 0, 0 34%);
+}
+
 .foreign-languages {
   background-image: url("foreign_languages.png");
-  background-color: lightskyblue;
+  background-color: blanchedalmond;
 }
 
 .mathematics {
@@ -37,7 +72,7 @@
 
 .architecture {
   background-image: url("architecture.png");
-  background-color: orange;
+  background-color: lightskyblue;
 }
 
 .art {
@@ -58,4 +93,49 @@
 .music {
   background-image: url("music.png");
   background-color: pink;
+}
+
+.food-drink {
+  background-image: url("food_drink.png");
+  background-color: black;
+}
+
+.health {
+  background-image: url("health.png");
+  background-color: black;
+}
+
+.history {
+  background-image: url("history.png");
+  background-color: black;
+}
+
+.miscellaneous {
+  background-image: url("miscellaneous.png");
+  background-color: black;
+}
+
+.pop-culture {
+  background-image: url("pop_culture.png");
+  background-color: black;
+}
+
+.religion {
+  background-image: url("religion.png");
+  background-color: black;
+}
+
+.science {
+  background-image: url("science.png");
+  background-color: black;
+}
+
+.technology {
+  background-image: url("technology.png");
+  background-color: black;
+}
+
+.test-prep {
+  background-image: url("test_prep.png");
+  background-color: black;
 }
