@@ -4,22 +4,27 @@ import { Link } from 'react-router';
 const ItemTooltip = ({ deck, deleteDeck }) => {
 
   const handleClick = () => {
-    console.log("here");
-    // deleteDeck(deck.id);
+    deleteDeck(deck.id);
   };
 
-  let option;
+  let option, masteryText;
 
   if (deck.mastery === 0) {
     option = (<button type="button" onClick={handleClick}>Delete</button>);
+    masteryText = "";
   } else {
-    option = (<Link to="#">Train</Link>);
+    option = (<Link to="/profile">Train</Link>);
+    masteryText = (<p><span className="tooltip-mastery">{`${deck.mastery * 20}%`}</span> mastery</p>);
   }
 
   return (
     <div className="item-tooltip">
-      <Link to={`decks/${deck.id}`}>Edit</Link>
-      {option}
+      {masteryText}
+      <div className="tooltip-options">
+        <Link to={`decks/${deck.id}`}>Edit</Link>
+        &nbsp;|&nbsp;
+        {option}
+      </div>
     </div>
   );
 }

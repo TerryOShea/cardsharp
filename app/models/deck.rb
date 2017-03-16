@@ -4,7 +4,7 @@ class Deck < ApplicationRecord
   validates :is_private, inclusion: { in: [true, false] }
   # TODO: validate category's inclusion in category list
 
-  has_many :cards
+  has_many :cards, dependent: :destroy
 
   def self.most_recent(num, offset)
     self.limit(num).offset(offset).order('id desc').where(is_private: false)

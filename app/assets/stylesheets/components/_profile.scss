@@ -1,0 +1,16 @@
+.profile-container {
+  text-align: center;
+}
+
+.add-deck-btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: $seagreen;
+  margin-left: 5px;
+}
+
+.add-deck-form {
+  overflow: hidden;
+  transition: height 1s;
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
-import ItemTooltip from './item_tooltip';
+import ItemTooltipContainer from './item_tooltip_container';
 
 const progressRef = {
-  '0': 'zero-fifths',
+  '0': '',
   '1': 'one-fifth',
   '2': 'two-fifths',
   '3': 'three-fifths',
@@ -31,7 +31,7 @@ class DeckIndexItem extends React.Component {
     const { deck } = this.props;
     const catName = deck.category.split("_").join("-");
     const progressName = `progress ${progressRef[deck.mastery.toString()]}`;
-    const tooltip = this.state.activated ? (<ItemTooltip deck={deck} />) : "";
+    const tooltip = this.state.activated ? (<ItemTooltipContainer deck={deck} />) : "";
     const progressStyle = this.state.activated ? { display: "none" } : {};
 
     return (

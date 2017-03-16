@@ -7,7 +7,9 @@ const DecksReducer = (state = {}, action) => {
     case RECEIVE_DECKS:
       return merge({}, action.decks);
     case RECEIVE_DECK:
-      return merge({}, action.decks, { [action.deck.id]: action.deck });
+      delete action.deck.cards;
+      action.deck.mastery = 0;
+      return merge({}, state, { [action.deck.id]: action.deck });
     case REMOVE_DECK:
       const newState = merge({}, state);
       delete newState[action.deck.id];

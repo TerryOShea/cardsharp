@@ -45,7 +45,7 @@ class Api::DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:title, :description, :is_private)
+    params.require(:deck).permit(:title, :description, :is_private, :category)
   end
 
 end

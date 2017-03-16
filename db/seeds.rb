@@ -12,17 +12,13 @@ User.create!(username: "Magnus", password: "password")
 User.create!(username: "Oscar", password: "password")
 User.create!(username: "Wanda", password: "password")
 
-Deck.create!(author_id: 1, title: "French", is_private: true, description: "Elementary French 101", category: "foreign_languages")
-Deck.create!(author_id: 1, title: "My Favorite Buildings", category: "architecture")
-Deck.create!(author_id: 1, title: "Impressionism", category: "art")
+Deck.create!(author_id: 1, title: "My Favorite Foods", is_private: true, description: "A few of my favorite foods!", category: "food_drink")
+Deck.create!(author_id: 1, title: "Famous Buildings", category: "architecture")
+Deck.create!(author_id: 1, title: "Colors", category: "art")
 Deck.create!(author_id: 1, title: "Asian Countries", category: "geography")
 Deck.create!(author_id: 1, title: "Austen", category: "literature")
 Deck.create!(author_id: 1, title: "Geometry", category: "mathematics")
 Deck.create!(author_id: 1, title: "Jazz", category: "music")
-
-Card.create!(side_a: "bird", side_b: "oiseau", mastery: 2, deck_id: 1)
-Card.create!(side_a: "monkey", side_b: "singe", mastery: 4, deck_id: 1)
-Card.create!(side_a: "elephant", side_b: "éléphant", mastery: 5, deck_id: 1)
 
 colors = []
 until colors.length == 10
@@ -37,6 +33,6 @@ until foods.length == 10
 end
 
 (0..9).each do |i|
-  Card.create!(side_a: colors[i], side_b: "answer here", mastery: rand(5) + 1, deck_id: 1)
-  Card.create!(side_a: foods[i], side_b: "answer here", mastery: rand(5) + 1, deck_id: 3)
+  Card.create!(side_a: colors[i], side_b: "answer here", mastery: rand(5) + 1, deck_id: 3)
+  Card.create!(side_a: foods[i], side_b: "answer here", mastery: rand(5) + 1, deck_id: 1)
 end
