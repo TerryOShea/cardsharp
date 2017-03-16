@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import ItemTooltip from './item_tooltip';
 
 const progressRef = {
   '0': 'zero-fifths',
@@ -10,18 +11,39 @@ const progressRef = {
   '5': ''
 }
 
-const DeckIndexItem = ({ deck }) => {
-  const catName = deck.category.split("_").join("-");
-  const progressName = `progress ${progressRef[deck.mastery.toString()]}`;
+class DeckIndexItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleHover = this.handleHover.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+    this.state = { activated: false };
+  }
 
-  return (
-    <li>
-      <Link to={`decks/${deck.id}`} className={`deck-widget ${catName}`}>
-        <section className={progressName}></section>
-      </Link>
-      {deck.title}
-    </li>
-  );
-};
+  handleHover() {
+    this.setState({ activated: true });
+  }
+
+  handleBlur() {
+    this.setState({ activated: false });
+  }
+
+  render() {
+    const { deck } = this.props;
+    const catName = deck.category.split("_").join("-");
+    const progressName = `progress ${progressRef[deck.mastery.toString()]}`;
+    const tooltip = this.state.activated ? (<ItemTooltip deck={deck} />) : "";
+    const progressStyle = this.state.activated ? { display: "none" } : {};
+
+    return (
+      <li className="deck-item">
+        <section className={`deck-widget ${catName}`} onMouseEnter={this.handleHover} onMouseLeave={this.handleBlur}>
+          <div className={progressName} style={progressStyle}></div>
+          {tooltip}
+        </section>
+        <p>{deck.title}</p>
+      </li>
+    )
+  }
+}
 
 export default DeckIndexItem;
