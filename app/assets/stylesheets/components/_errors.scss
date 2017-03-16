@@ -1,0 +1,12 @@
+.error-box {
+  background-color: lighten($blue, 30%);
+  color: darken($blue, 30%);
+  width: 80%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: -1;
+  box-sizing: border-box;
+  border: 1px solid lighten($blue, 25%);
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
+import ErrorBox from '../errors/error_box';
 
 class SessionForm extends Component {
   constructor(props) {
@@ -22,15 +23,6 @@ class SessionForm extends Component {
     processForm(this.state).then(() => router.push("/profile"));
   }
 
-  processErrors(errors) {
-    if (!errors) return "";
-    const errorItems = [];
-    errors.forEach(error => errorItems.push(
-      <li key={error}>{error}</li>
-    ));
-    return (<ul>{errorItems}</ul>);
-  }
-
   demoLogin(e) {
     e.preventDefault();
     const demoLogin = { username: "Terry", password: "password" };
@@ -41,13 +33,12 @@ class SessionForm extends Component {
   render() {
     const { formType, errors } = this.props;
     const title = formType === 'login' ? "Log In" : "Sign Up";
-    const errorsList = this.processErrors(errors);
     const demoButton = formType === 'login' ? (<button onClick={this.demoLogin}>Demo</button>) : "";
 
     return (
       <div className="session-form-container">
+        <ErrorBox errors={errors} />
         <h3>{title}</h3>
-        {errorsList}
         <form onSubmit={this.handleSubmit} className="session-form">
           <input
             type="text"
