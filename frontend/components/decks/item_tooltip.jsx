@@ -13,7 +13,7 @@ const ItemTooltip = ({ deck, deleteDeck }) => {
     option = (<button type="button" onClick={handleClick}>Delete</button>);
     masteryText = "";
   } else {
-    option = (<Link to="/profile">Train</Link>);
+    option = (<Link to={`/train/${deck.id}`}>Train</Link>);
     masteryText = (<p><span className="tooltip-mastery">{`${deck.mastery * 20}%`}</span> mastery</p>);
   }
 

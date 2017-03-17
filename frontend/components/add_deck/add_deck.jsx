@@ -12,7 +12,7 @@ class AddDeck extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateRadio = this.updateRadio.bind(this);
+    this.updateToggle = this.updateToggle.bind(this);
     this.state = Object.assign({}, defaultState);
   }
 
@@ -33,8 +33,8 @@ class AddDeck extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
-  updateRadio(e) {
-    this.setState({ is_private: e.target.value === "private" ? true : false });
+  updateToggle(e) {
+    this.setState({ is_private: !this.state.is_private });
   }
 
   render() {
@@ -44,6 +44,7 @@ class AddDeck extends React.Component {
     const categoryItems = CATEGORIES.map((cat, i) => (
       <option value={cat} key={i}>{cat.split("_").map(word => capitalize(word)).join(" ")}</option>
     ));
+    const toggleStyle = is_private ? { right: 0 } : { left: 0 };
 
     return (
       <form className="add-deck-form" onSubmit={this.handleSubmit} style={formStyle}>
@@ -55,10 +56,14 @@ class AddDeck extends React.Component {
           {categoryItems}
         </select>
 
-        <div className="radio-btns">
-          <input type="radio" name="privacy" onChange={this.updateRadio} value="private" /> Private
-          <input type="radio" name="privacy" onChange={this.updateRadio} value="public" /> Public
-        </div>
+        <section className="privacy-section">
+          Public
+          <div className="privacy-toggler">
+            <div className="toggle" style={toggleStyle} onClick={this.updateToggle}></div>
+          </div>
+          Private
+        </section>
+
         <button>Add</button>
       </form>
     )

@@ -15,8 +15,37 @@
   transition: height 1s;
   display: flex;
   flex-direction: column;
+  width: 650px;
+  margin: 0 auto;
 
   .radio-btns {
-    width: 200px;
+    display: flex;
+    width: 150px;
+  }
+}
+
+.privacy-section {
+  display: flex;
+}
+
+.privacy-toggler {
+  width: 40px;
+  height: 20px;
+  border-radius: 50px;
+  background-color: lighten($blue, 20%);
+  position: relative;
+
+
+  .toggle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: $blue;
+    z-index: 5;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

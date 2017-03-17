@@ -8,6 +8,7 @@ import SessionFormContainer from './session/session_form_container';
 import ProfileContainer from './profile/profile_container';
 import DeckShowContainer from './deck_show/deck_show_container';
 import HomeContainer from './home/home_container';
+import DeckTrainContainer from './deck_train/deck_train_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replaceState) => {
@@ -35,6 +36,7 @@ const Root = ({ store }) => {
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} onLeave={_clearErrors} />
           <Route path="/profile" component={ProfileContainer} onEnter={_ensureLoggedIn} onLeave={_clearErrors} />
           <Route path="/decks/:deckId" component={DeckShowContainer} />
+          <Route path="train/:deckId" component={DeckTrainContainer} />
         </Route>
       </Router>
     </Provider>

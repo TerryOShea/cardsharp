@@ -11,13 +11,13 @@
 }
 
 .card {
-  background-color: $orange;
+  background-color: $coral;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:active {
-    background-color: darken($orange, 20%);
+    background-color: darken($coral, 20%);
   }
 }
 

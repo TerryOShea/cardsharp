@@ -11,7 +11,7 @@ export const fetchDeck = id => (
     method: 'GET',
     url: `api/decks/${id}`
   })
-)
+);
 
 export const createDeck = deck => (
   $.ajax({
