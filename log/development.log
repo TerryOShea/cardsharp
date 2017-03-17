@@ -25677,3 +25677,530 @@ Processing by Api::DecksController#index as JSON
 Completed 200 OK in 39ms (Views: 34.2ms | ActiveRecord: 3.4ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (226.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_development"[0m
+  [1m[35m (227.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_test"[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5264609448502180770);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170314175155)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170314175155"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToUsers (20170314210607)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "users" ADD "username" character varying NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "session_token" character varying NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying NOT NULL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170314210607"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCards (20170314214530)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "cards" ("id" serial primary key, "side_a" text NOT NULL, "side_b" text NOT NULL, "mastery" integer DEFAULT 1, "deck_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_cards_on_deck_id" ON "cards"  ("deck_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170314214530"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDecks (20170314235724)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "decks" ("id" serial primary key, "title" character varying NOT NULL, "description" text, "is_private" boolean DEFAULT 't', "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_decks_on_author_id" ON "decks"  ("author_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170314235724"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeDefaultDeckPrivacy (20170315165016)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "decks" DROP "is_private"[0m
+  [1m[35m (6.1ms)[0m  [1m[35mALTER TABLE "decks" ADD "is_private" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170315165016"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCategoryToDecks (20170315171816)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "decks" ADD "category" character varying NOT NULL[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170315171816"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-17 00:10:36 UTC], ["updated_at", 2017-03-17 00:10:36 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5264609448502180770)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-17 00:10:40 UTC], ["updated_at", 2017-03-17 00:10:40 UTC], ["username", "Terry"], ["session_token", "7sCy04_lW90x-bTKOKGPlw"], ["password_digest", "$2a$10$8GPR5HCmOfpCiOly0J8jWu.j0wEYo46flbIfWXB6vYy7QUpO7Wgg."]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Mabel"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-17 00:10:40 UTC], ["updated_at", 2017-03-17 00:10:40 UTC], ["username", "Mabel"], ["session_token", "ZMuPQfwkustpkeqdQe8w9w"], ["password_digest", "$2a$10$jEKtbd9Iw8uH47ZMjUa64OxByk9JA41dX/8CTl.CexvIuTyrRTDZW"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Magnus"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC], ["username", "Magnus"], ["session_token", "jc1SwTZCcmnxfc9uL8T18w"], ["password_digest", "$2a$10$bEAR1rala1Mj1GlDb6DEouyKeIRSWOdVQOVr9bVVQD84kJYd7qYNO"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Oscar"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC], ["username", "Oscar"], ["session_token", "-goHZOkNFyMXxrH_m3PGzA"], ["password_digest", "$2a$10$K7NgsrpmDQHjgjgH7wBOc.JOxsvRRlPFR92DrAvI5duSM94RlGSj6"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Wanda"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC], ["username", "Wanda"], ["session_token", "tfi0FawUjNNwfdRLtRsjpw"], ["password_digest", "$2a$10$A3UKRDwZ9HIctmaM2e9b5.CEEzMiGhymhJZjsnO594nGTZMy1eP3G"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "is_private", "category") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "My Favorite Foods"], ["description", "A few of my favorite foods!"], ["author_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC], ["is_private", true], ["category", "food_drink"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Famous Buildings"], ["author_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC], ["category", "architecture"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Colors"], ["author_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC], ["category", "art"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Asian Countries"], ["author_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC], ["category", "geography"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Austen"], ["author_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC], ["category", "literature"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Geometry"], ["author_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC], ["category", "mathematics"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Jazz"], ["author_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC], ["category", "music"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "teal"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 3], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["side_a", "Peas"], ["side_b", "answer here"], ["deck_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "turquoise"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 3], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Yellowtail Kingfish"], ["side_b", "answer here"], ["mastery", 4], ["deck_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "red"], ["side_b", "answer here"], ["mastery", 2], ["deck_id", 3], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Harissa"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "black"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 3], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["side_a", "Muesli"], ["side_b", "answer here"], ["deck_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "azure"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 3], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Berries"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "sky blue"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 3], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Kumera"], ["side_b", "answer here"], ["mastery", 4], ["deck_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "cyan"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 3], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Nutritional Yeast"], ["side_b", "answer here"], ["mastery", 2], ["deck_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "orchid"], ["side_b", "answer here"], ["mastery", 4], ["deck_id", 3], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Hot smoked salmon"], ["side_b", "answer here"], ["mastery", 3], ["deck_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "yellow"], ["side_b", "answer here"], ["mastery", 4], ["deck_id", 3], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Stevia"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "silver"], ["side_b", "answer here"], ["mastery", 2], ["deck_id", 3], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Chickpea"], ["side_b", "answer here"], ["mastery", 4], ["deck_id", 1], ["created_at", 2017-03-17 00:10:41 UTC], ["updated_at", 2017-03-17 00:10:41 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2017-03-16 17:22:41 -0700
+Started GET "/" for ::1 at 2017-03-16 17:22:41 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "GwFcxLeMPi8StmCWNZgibg"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 2979ms (Views: 2974.0ms | ActiveRecord: 2.8ms)
+
+
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "GwFcxLeMPi8StmCWNZgibg"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 17:22:47 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Terry", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "6XuBBwsdrODiHrn7QGmHdw"], ["updated_at", 2017-03-17 00:22:48 UTC], ["id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (2.7ms)
+Completed 200 OK in 109ms (Views: 9.6ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 17:22:48 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6XuBBwsdrODiHrn7QGmHdw"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.9ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.3ms)
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 2]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 3]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 4]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 5]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 6]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 7]]
+  Rendered api/decks/index.json.jbuilder (50.6ms)
+Completed 200 OK in 66ms (Views: 45.7ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/api/decks/3" for ::1 at 2017-03-16 17:23:03 -0700
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = 3[0m
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/_deck.json.jbuilder (0.3ms)
+  Rendered api/cards/_card.json.jbuilder (0.2ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.1ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/cards/_card.json.jbuilder (0.0ms)
+  Rendered api/decks/show.json.jbuilder (11.5ms)
+Completed 200 OK in 66ms (Views: 15.5ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 17:23:05 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6XuBBwsdrODiHrn7QGmHdw"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.8ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.3ms)
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 2]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 3]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 4]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 5]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 6]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 7]]
+  Rendered api/decks/index.json.jbuilder (18.5ms)
+Completed 200 OK in 37ms (Views: 20.0ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-16 17:24:03 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6XuBBwsdrODiHrn7QGmHdw"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 289ms (Views: 286.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 17:24:04 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6XuBBwsdrODiHrn7QGmHdw"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.5ms)
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 2]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 3]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 4]]
+  Rendered api/decks/_deck.json.jbuilder (0.2ms)
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 5]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 6]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 7]]
+  Rendered api/decks/index.json.jbuilder (23.0ms)
+Completed 200 OK in 33ms (Views: 26.4ms | ActiveRecord: 3.7ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (127.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_development"[0m
+  [1m[35m (125.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "CardSharp_test"[0m
+  [1m[35m (246.5ms)[0m  [1m[35mCREATE DATABASE "CardSharp_development" ENCODING = 'unicode'[0m
+  [1m[35m (245.2ms)[0m  [1m[35mCREATE DATABASE "CardSharp_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "cards" ("id" serial primary key, "side_a" text NOT NULL, "side_b" text NOT NULL, "mastery" integer DEFAULT 1, "deck_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_cards_on_deck_id" ON "cards" USING btree ("deck_id")[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "decks" ("id" serial primary key, "title" character varying NOT NULL, "description" text, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "is_private" boolean DEFAULT 'f', "category" character varying NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_decks_on_author_id" ON "decks" USING btree ("author_id")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "username" character varying NOT NULL, "session_token" character varying NOT NULL, "password_digest" character varying NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170315171816)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170314175155),
+(20170314210607),
+(20170314214530),
+(20170314235724),
+(20170315165016);
+
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-17 00:24:32 UTC], ["updated_at", 2017-03-17 00:24:32 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "cards" ("id" serial primary key, "side_a" text NOT NULL, "side_b" text NOT NULL, "mastery" integer DEFAULT 1, "deck_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_cards_on_deck_id" ON "cards" USING btree ("deck_id")[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "decks" ("id" serial primary key, "title" character varying NOT NULL, "description" text, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "is_private" boolean DEFAULT 'f', "category" character varying NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_decks_on_author_id" ON "decks" USING btree ("author_id")[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "username" character varying NOT NULL, "session_token" character varying NOT NULL, "password_digest" character varying NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170315171816)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170314175155),
+(20170314210607),
+(20170314214530),
+(20170314235724),
+(20170315165016);
+
+[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-17 00:24:32 UTC], ["updated_at", 2017-03-17 00:24:32 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-17 00:24:32 UTC], ["updated_at", 2017-03-17 00:24:32 UTC], ["username", "Terry"], ["session_token", "LLW5vdq2AKX-2kMfsvVdzw"], ["password_digest", "$2a$10$ryU20WyW7E/VXrRMLYRc2ek3aWUT0MIvdTHQFkvOoKMR6j4YIc0ui"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Mabel"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-17 00:24:32 UTC], ["updated_at", 2017-03-17 00:24:32 UTC], ["username", "Mabel"], ["session_token", "FFB6qDYRBmMlhIXeBnXmIw"], ["password_digest", "$2a$10$GoOzJy8kHMdecFeq1Ls3/.ynXAr6YhIFGrIAjHldVm7Vb8ha0Fx6K"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Magnus"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC], ["username", "Magnus"], ["session_token", "8nlKNeEoPVeHy789q6XffQ"], ["password_digest", "$2a$10$vzkum2abNOQwjRgelNoQDe5wElDX7UklMihyrcJuQgFnWsfsRLhUi"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Oscar"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC], ["username", "Oscar"], ["session_token", "KMmH1HW9H_t2NetXk0wmvw"], ["password_digest", "$2a$10$EcVjiZVCw5DYTDVS8oruqeaz3EtaCIprqM9JnzeOPEp7dYisvgpXa"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Wanda"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "username", "session_token", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC], ["username", "Wanda"], ["session_token", "6rzAdNLzUZ_4oNodINohsQ"], ["password_digest", "$2a$10$BJV3wySC5hwQyW6BfyMFWu8k7.tgczjnz/jBhsA4/K1pkEgHqkY66"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "author_id", "created_at", "updated_at", "is_private", "category") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "My Favorite Foods"], ["description", "A few of my favorite foods!"], ["author_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC], ["is_private", true], ["category", "food_drink"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Famous Buildings"], ["author_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC], ["category", "architecture"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Colors"], ["author_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC], ["category", "art"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Asian Countries"], ["author_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC], ["category", "geography"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Austen"], ["author_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC], ["category", "literature"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Geometry"], ["author_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC], ["category", "mathematics"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "decks" ("title", "author_id", "created_at", "updated_at", "category") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Jazz"], ["author_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC], ["category", "music"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["side_a", "blue"], ["side_b", "answer here"], ["deck_id", 3], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Miso"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "turquoise"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 3], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Vinegar"], ["side_b", "answer here"], ["mastery", 4], ["deck_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "sky blue"], ["side_b", "answer here"], ["mastery", 4], ["deck_id", 3], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Agar"], ["side_b", "answer here"], ["mastery", 3], ["deck_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "gold"], ["side_b", "answer here"], ["mastery", 2], ["deck_id", 3], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Choy Sum"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "yellow"], ["side_b", "answer here"], ["mastery", 2], ["deck_id", 3], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Oyster Mushrooms"], ["side_b", "answer here"], ["mastery", 2], ["deck_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "grey"], ["side_b", "answer here"], ["mastery", 3], ["deck_id", 3], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Olives"], ["side_b", "answer here"], ["mastery", 3], ["deck_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "pink"], ["side_b", "answer here"], ["mastery", 2], ["deck_id", 3], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Cumin"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["side_a", "plum"], ["side_b", "answer here"], ["deck_id", 3], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Eggplant"], ["side_b", "answer here"], ["mastery", 4], ["deck_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["side_a", "red"], ["side_b", "answer here"], ["deck_id", 3], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Rhubarb"], ["side_b", "answer here"], ["mastery", 2], ["deck_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "maroon"], ["side_b", "answer here"], ["mastery", 5], ["deck_id", 3], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cards" ("side_a", "side_b", "mastery", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["side_a", "Smoked Trout"], ["side_b", "answer here"], ["mastery", 3], ["deck_id", 1], ["created_at", 2017-03-17 00:24:33 UTC], ["updated_at", 2017-03-17 00:24:33 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2017-03-16 17:24:45 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6XuBBwsdrODiHrn7QGmHdw"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 484ms (Views: 479.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 17:24:49 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/session" for ::1 at 2017-03-16 17:24:50 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Terry", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Terry"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Terry"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "C8jctCpuSpI8w1ZKMrQbQQ"], ["updated_at", 2017-03-17 00:24:50 UTC], ["id", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/show.json.jbuilder (3.5ms)
+Completed 200 OK in 109ms (Views: 8.4ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/api/decks?authorId=1" for ::1 at 2017-03-16 17:24:50 -0700
+Processing by Api::DecksController#index as JSON
+  Parameters: {"authorId"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "C8jctCpuSpI8w1ZKMrQbQQ"], ["LIMIT", 1]]
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."author_id" = $1[0m  [["author_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.9ms)
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 1]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 2]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 3]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 4]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 5]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 6]]
+  Rendered api/decks/_deck.json.jbuilder (0.1ms)
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 7]]
+  Rendered api/decks/index.json.jbuilder (82.5ms)
+Completed 200 OK in 99ms (Views: 78.3ms | ActiveRecord: 11.3ms)
+
+

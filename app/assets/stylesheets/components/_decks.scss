@@ -88,6 +88,10 @@
   clip-path: polygon(50% 50%, 50% 0, 0 0, 0 34%);
 }
 
+.full {
+  display: none;
+}
+
 .foreign-languages {
   background-image: url("foreign_languages.png");
   background-color: blanchedalmond;

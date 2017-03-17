@@ -8,7 +8,7 @@ const progressRef = {
   '2': 'two-fifths',
   '3': 'three-fifths',
   '4': 'four-fifths',
-  '5': ''
+  '5': 'full'
 }
 
 class DeckIndexItem extends React.Component {
