@@ -12,7 +12,7 @@ User.create!(username: "Magnus", password: "password")
 User.create!(username: "Oscar", password: "password")
 User.create!(username: "Wanda", password: "password")
 
-Deck.create!(author_id: 1, title: "My Favorite Foods", is_private: true, description: "A few of my favorite foods!", category: "food_drink")
+Deck.create!(author_id: 1, title: "My Favorite Foods", is_private: true, description: "A few of my favorite foods!", category: "food")
 Deck.create!(author_id: 1, title: "Famous Buildings", category: "architecture")
 Deck.create!(author_id: 1, title: "Colors", category: "art")
 Deck.create!(author_id: 1, title: "Asian Countries", category: "geography")

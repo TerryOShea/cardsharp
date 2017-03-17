@@ -27,3 +27,11 @@ export const deleteDeck = id => (
     url: `api/decks/${id}`
   })
 );
+
+export const updateDeck = deck => (
+  $.ajax({
+    method: 'PATCH',
+    url: `api/decks/${deck.id}`,
+    data: { deck }
+  })
+);

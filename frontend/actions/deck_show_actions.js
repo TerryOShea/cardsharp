@@ -19,6 +19,12 @@ export const fetchDeckShow = id => dispatch => (
     .fail(err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+export const updateDeckShow = deck => dispatch => (
+  DeckAPIUtil.updateDeck(deck)
+    .then(updatedDeck => dispatch(receiveDeckShow(updatedDeck)))
+    .fail(err => dispatch(receiveErrors(err.responseJSON)))
+);
+
 export const deleteDeckShow = () => dispatch => {
   dispatch(removeDeckShow());
 };

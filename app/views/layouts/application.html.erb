@@ -9,6 +9,9 @@
     <%= favicon_link_tag 'favicon.png' %>
 
     <script type="text/javascript" src="http://widget.cloudinary.com/global/all.js"></script>
+    <script type="text/javascript">
+      window.CATEGORIES = <%= raw Deck::CATEGORIES %>
+    </script>
   </head>
 
   <body>

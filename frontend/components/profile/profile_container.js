@@ -5,7 +5,9 @@ import { fetchDecks } from '../../actions/deck_actions';
 const mapStateToProps = state => ({
   errors: state.errors,
   currentUser: state.session.currentUser,
-  decks: Object.keys(state.decks).map(id => state.decks[id])
+  decks: Object.keys(state.decks).map(id => state.decks[id]).sort((a, b) => {
+    return new Date(b.updated) - new Date(a.updated);
+  })
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -17,6 +17,7 @@ class Api::DecksController < ApplicationController
   def show
     @deck = Deck.includes(:cards).find(params[:id])
     if @deck
+      @deck.touch
       render :show
     else
       render json: ["deck not found"], status: 422
@@ -34,6 +35,12 @@ class Api::DecksController < ApplicationController
   end
 
   def update
+    @deck = Deck.find(params[:id])
+    if @deck.update(deck_params)
+      render :show
+    else
+      render json: @todo.errors.full_messages, status: 422
+    end
   end
 
   def destroy

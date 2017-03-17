@@ -1,8 +1,26 @@
 class Deck < ApplicationRecord
 
+  CATEGORIES = [
+    "foreign_languages",
+    "literature",
+    "religion",
+    "mathematics",
+    "technology",
+    "health",
+    "pop_culture",
+    "test_prep",
+    "history",
+    "science",
+    "art",
+    "music",
+    "geography",
+    "food",
+    "miscellaneous"
+  ]
+
   validates :author_id, :title, :category, presence: true
   validates :is_private, inclusion: { in: [true, false] }
-  # TODO: validate category's inclusion in category list
+  validates :category, inclusion: { in: CATEGORIES }
 
   has_many :cards, dependent: :destroy
 

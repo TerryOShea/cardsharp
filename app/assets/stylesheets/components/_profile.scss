@@ -13,4 +13,10 @@
 .add-deck-form {
   overflow: hidden;
   transition: height 1s;
+  display: flex;
+  flex-direction: column;
+
+  .radio-btns {
+    width: 200px;
+  }
 }
