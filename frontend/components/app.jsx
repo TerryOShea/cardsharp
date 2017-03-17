@@ -7,7 +7,7 @@ const App = ({ children }) => (
     <header>
       <nav className="header-left">
         <Link to="/" className="header-title">
-          <img src="/assets/favicon.png" className="header-logo" />
+          <div className="header-logo"></div>
           <h1><span>Card</span>Sharp</h1>
         </Link>
         <a href="#"><i className="fa fa-search"></i> Decks</a>

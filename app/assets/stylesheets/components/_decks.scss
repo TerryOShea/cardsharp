@@ -98,7 +98,7 @@
 }
 
 .mathematics {
-  background-image: url("mathematics.png");
+  background-image: url(image_path("mathematics.png"));
   background-color: yellow;
 }
 
@@ -108,66 +108,66 @@
 }
 
 .art {
-  background-image: url("art.png");
+  background-image: url(image_path("art.png"));
   background-color: red;
 }
 
 .geography {
-  background-image: url("geography.png");
+  background-image: url(image_path("geography.png"));
   background-color: green;
 }
 
 .literature {
-  background-image: url("literature.png");
+  background-image: url(image_path("literature.png"));
   background-color: cornflowerblue;
 }
 
 .music {
-  background-image: url("music.png");
+  background-image: url(image_path("music.png"));
   background-color: pink;
 }
 
 .food-drink {
-  background-image: url("food_drink.png");
+  background-image: url(image_path("food_drink.png"));
   background-color: mediumorchid;
 }
 
 .health {
-  background-image: url("health.png");
+  background-image: url(image_path("health.png"));
   background-color: black;
 }
 
 .history {
-  background-image: url("history.png");
+  background-image: url(image_path("history.png"));
   background-color: black;
 }
 
 .miscellaneous {
-  background-image: url("miscellaneous.png");
+  background-image: url(image_path("miscellaneous.png"));
   background-color: blanchedalmond;
 }
 
 .pop-culture {
-  background-image: url("pop_culture.png");
+  background-image: url(image_path("pop_culture.png"));
   background-color: black;
 }
 
 .religion {
-  background-image: url("religion.png");
+  background-image: url(image_path("religion.png"));
   background-color: black;
 }
 
 .science {
-  background-image: url("science.png");
+  background-image: url(image_path("science.png"));
   background-color: black;
 }
 
 .technology {
-  background-image: url("technology.png");
+  background-image: url(image_path("technology.png"));
   background-color: black;
 }
 
 .test-prep {
-  background-image: url("test_prep.png");
+  background-image: url(image_path("test_prep.png"));
   background-color: black;
 }

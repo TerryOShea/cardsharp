@@ -44,6 +44,8 @@ header {
 .header-logo {
   width: 25px;
   height: 25px;
+  background: url(image_path("favicon.png"));
+  background-size: 25px 25px;
   -webkit-filter: invert(100%);
   filter: invert(100%);
 }
