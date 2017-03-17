@@ -93,7 +93,7 @@
 }
 
 .foreign-languages {
-  background-image: url("foreign_languages.png");
+  background-image: url(image_path("foreign_languages.png"));
   background-color: blanchedalmond;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .architecture {
-  background-image: url("architecture.png");
+  background-image: url(image_path("architecture.png"));
   background-color: lightskyblue;
 }
 
