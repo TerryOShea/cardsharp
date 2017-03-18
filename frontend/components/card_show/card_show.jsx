@@ -1,9 +1,20 @@
 import React from 'react';
 
+const MASTERY_BUTTONS = (
+  <div className="mastery-buttons">
+    <div id="1">1</div>
+    <div id="2">2</div>
+    <div id="3">3</div>
+    <div id="4">4</div>
+    <div id="5">5</div>
+  </div>
+);
+
 class CardShow extends React.Component {
   constructor(props) {
     super(props);
     this.flipCard = this.flipCard.bind(this);
+    this.updateMastery = this.updateMastery.bind(this);
     this.state = { flip: false };
   }
 
@@ -11,9 +22,16 @@ class CardShow extends React.Component {
     this.setState({ flip: !this.state.flip });
   }
 
+  updateMastery(e) {
+    console.log(e.target.id);
+  }
+
   render() {
     const { card } = this.props;
     const flipClasses = `flip-container${this.state.flip ? " flip" : ""}`;
+    const buttonAction = this.state.flip ? this.updateMastery : this.flipCard;
+    const buttonContents = this.state.flip ? MASTERY_BUTTONS : "Reveal Answer";
+    const questionStyle = this.state.flip ? { color: "black" } : { color: "transparent" };
 
     return (
       <div className="card-show-container">
@@ -24,7 +42,9 @@ class CardShow extends React.Component {
           </div>
         </div>
 
-        <button type="button" className="card-show-btn" onClick={this.flipCard}>Reveal Answer</button>
+        <div className="button-question" style={questionStyle}>How well did you know this?</div>
+
+        <button type="button" className="card-show-btn" onClick={buttonAction}>{buttonContents}</button>
       </div>
     )
   }

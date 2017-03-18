@@ -16,6 +16,10 @@ class DeckTrain extends React.Component {
     // this.props.removeDeck();
   }
 
+  updateMastery() {
+    
+  }
+
   render() {
     const { deck, cards } = this.props;
     const { cardShown } = this.state;
