@@ -14,6 +14,12 @@ class Api::CardsController < ApplicationController
   end
 
   def update
+    @card = Card.find(params[:id])
+    if @card.update(card_params)
+      render :show
+    else
+      render json: @card.errors.full_messages, status: 422
+    end
   end
 
   def destroy
@@ -25,7 +31,7 @@ class Api::CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:side_a, :side_b, :deck_id)
+    params.require(:card).permit(:side_a, :side_b, :deck_id, :mastery)
   end
 
 end

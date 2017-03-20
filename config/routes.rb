@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resource :user, only: [:create]
     resource :session, only: [:create, :destroy, :show]
     resources :decks, only: [:create, :destroy, :index, :update, :show]
-    resources :cards, only: [:show, :create, :destroy]
+    resources :cards, only: [:show, :create, :destroy, :update]
   end
 end

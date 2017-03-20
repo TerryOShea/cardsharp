@@ -13,8 +13,8 @@ const MASTERY_BUTTONS = (
 class CardShow extends React.Component {
   constructor(props) {
     super(props);
-    this.flipCard = this.flipCard.bind(this);
     this.updateMastery = this.updateMastery.bind(this);
+    this.flipCard = this.flipCard.bind(this);
     this.state = { flip: false };
   }
 
@@ -23,7 +23,10 @@ class CardShow extends React.Component {
   }
 
   updateMastery(e) {
-    console.log(e.target.id);
+    const newCard = Object.assign({}, this.props.card, { mastery: parseInt(e.target.id) } );
+    this.props.updateCard(newCard);
+    this.setState({ flip: false });
+    this.props.next();
   }
 
   render() {

@@ -3,6 +3,7 @@ import React from 'react';
 const defaultState = {
   side_a: "",
   side_b: "",
+  mastery: 1,
   formActivated: false
 };
 
