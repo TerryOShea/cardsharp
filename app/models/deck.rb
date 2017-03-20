@@ -1,28 +1,29 @@
 class Deck < ApplicationRecord
 
-  CATEGORIES = [
-    "foreign_languages",
-    "literature",
-    "religion",
-    "mathematics",
-    "technology",
-    "health",
-    "pop_culture",
-    "test_prep",
-    "history",
-    "science",
-    "art",
-    "music",
-    "geography",
-    "food",
-    "miscellaneous"
-  ]
+  # CATEGORIES = [
+  #   "foreign_languages",
+  #   "literature",
+  #   "religion",
+  #   "mathematics",
+  #   "technology",
+  #   "health",
+  #   "pop_culture",
+  #   "test_prep",
+  #   "history",
+  #   "science",
+  #   "art",
+  #   "music",
+  #   "geography",
+  #   "food",
+  #   "miscellaneous"
+  # ]
 
-  validates :author_id, :title, :category, presence: true
+  validates :author_id, :title, presence: true
   validates :is_private, inclusion: { in: [true, false] }
-  validates :category, inclusion: { in: CATEGORIES }
 
   has_many :cards, dependent: :destroy
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings, source: :tag
 
   def self.most_recent(num, offset)
     self.limit(num).offset(offset).order('id desc').where(is_private: false)

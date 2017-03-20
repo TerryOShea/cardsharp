@@ -29,14 +29,13 @@ class DeckIndexItem extends React.Component {
 
   render() {
     const { deck } = this.props;
-    const catName = deck.category.split("_").join("-");
     const progressName = `progress ${progressRef[deck.mastery.toString()]}`;
     const tooltip = this.state.activated ? (<ItemTooltipContainer deck={deck} />) : "";
     const progressStyle = this.state.activated ? { display: "none" } : {};
 
     return (
       <li className="deck-item">
-        <section className={`deck-widget ${catName}`} onMouseEnter={this.handleHover} onMouseLeave={this.handleBlur}>
+        <section className="deck-widget" onMouseEnter={this.handleHover} onMouseLeave={this.handleBlur}>
           <div className={progressName} style={progressStyle}></div>
           {tooltip}
         </section>

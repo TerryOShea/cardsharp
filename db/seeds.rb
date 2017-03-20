@@ -12,13 +12,13 @@ User.create!(username: "Magnus", password: "password")
 User.create!(username: "Oscar", password: "password")
 User.create!(username: "Wanda", password: "password")
 
-Deck.create!(author_id: 1, title: "My Favorite Foods", is_private: true, description: "A few of my favorite foods!", category: "food")
-Deck.create!(author_id: 1, title: "Famous Buildings", category: "architecture")
-Deck.create!(author_id: 1, title: "Colors", category: "art")
-Deck.create!(author_id: 1, title: "Asian Countries", category: "geography")
-Deck.create!(author_id: 1, title: "Austen", category: "literature")
-Deck.create!(author_id: 1, title: "Geometry", category: "mathematics")
-Deck.create!(author_id: 1, title: "Jazz", category: "music")
+Deck.create!(author_id: 1, title: "My Favorite Foods", is_private: true, description: "A few of my favorite foods!")
+Deck.create!(author_id: 1, title: "Famous Buildings")
+Deck.create!(author_id: 1, title: "Colors")
+Deck.create!(author_id: 1, title: "Asian Countries")
+Deck.create!(author_id: 1, title: "Austen")
+Deck.create!(author_id: 1, title: "Geometry")
+Deck.create!(author_id: 1, title: "Jazz")
 
 colors = []
 until colors.length == 10
@@ -36,3 +36,9 @@ end
   Card.create!(side_a: colors[i], side_b: "answer here", mastery: rand(5) + 1, deck_id: 3)
   Card.create!(side_a: foods[i], side_b: "answer here", mastery: rand(5) + 1, deck_id: 1)
 end
+
+tags = %w(Art Architecture Foreign\ Languages Geography Literature Mathematics
+Music Technology Health Religion Miscellaneous Food\ and\ Drink Pop\ Culture
+Test\ Prep History Science)
+
+tags.each { |tag_name| Tag.create!(name: tag_name) }
