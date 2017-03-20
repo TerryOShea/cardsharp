@@ -38,7 +38,7 @@ const Root = ({ store }) => {
           <Route path="/profile" component={ProfileContainer} onEnter={_ensureLoggedIn} onLeave={_clearErrors} />
           <Route path="/search" component={SearchContainer} />
           <Route path="/decks/:deckId" component={DeckShowContainer} />
-          <Route path="train/:deckId" component={DeckTrainContainer} />
+          <Route path="train/:deckId" component={DeckTrainContainer} onEnter={_ensureLoggedIn} />
         </Route>
       </Router>
     </Provider>

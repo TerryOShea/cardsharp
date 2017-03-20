@@ -23,9 +23,11 @@ class Profile extends React.Component {
 
     return (
       <div className="profile-container">
-        <h3>My Decks&nbsp;
-          <button className="add-deck-btn" onClick={this.handleClick}>{buttonText}</button>
-        </h3>
+        <div className="profile-header">
+          <h3>My Decks&nbsp;
+            <button className="add-deck-btn" onClick={this.handleClick}>{buttonText}</button>
+          </h3>
+        </div>
         <AddDeckContainer active={formActivated} />
         <Decks decks={this.props.decks} />
       </div>

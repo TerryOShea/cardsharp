@@ -7,7 +7,7 @@
 
 
 .training-sidebar {
-  width: 25%;
+  width: 30%;
   height: 100vh;
   position: relative;
   background-color: red;
@@ -17,13 +17,14 @@
     position: absolute;
     background-color: black;
     width: 35px;
-    padding-top: 10px;
+    padding: 10px 0 80vh 0;
     box-sizing: border-box;
     height: 100%;
     display: flex;
     flex-direction: column;
     color: $blue;
     align-items: center;
+    justify-content: space-between;
     z-index: 10;
   }
 }
@@ -34,6 +35,9 @@
   width: 100%;
   padding-left: 35px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .training-nav-title {
@@ -54,22 +58,62 @@
   }
 }
 
+.training-nav-btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  font-size: 20px;
+  position: relative;
+
+  .done-btn, .decks-btn {
+    height: 45px;
+    width: 13vw;
+    border-radius: 2px;
+  }
+
+  .decks-btn {
+    background-color: transparent;
+    color: $blue;
+  }
+}
+
 .training-progress {
   width: 100px;
   height: 300px;
-  background-color: green;
+  background-color: $gray;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 50px;
 }
 
 .progress-bar {
   width: 100px;
-  background-color: orange;
+  background-color: $coral;
+}
+
+.progress-title {
+  color: white;
+  font-style: italic;
+}
+
+.train-decks-list {
+  position: absolute;
+  top: 58px;
+  background-color: black;
+  color: white;
+  width: 100%;
+  font-size: 14px;
+  line-height: 250%;
+  padding: 30px;
 }
 
 
 
 
 .card-show-container {
-  width: 75%;
+  width: 70%;
   height: 100vh;
   background-color: $offwhite;
   box-sizing: border-box;

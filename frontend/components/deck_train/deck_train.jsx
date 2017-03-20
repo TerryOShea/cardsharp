@@ -1,5 +1,5 @@
 import React from 'react';
-import TrainingSidebar from './training_sidebar';
+import TrainingSidebarContainer from './training_sidebar_container';
 import CardShowContainer from '../card_show/card_show_container';
 
 class DeckTrain extends React.Component {
@@ -35,7 +35,7 @@ class DeckTrain extends React.Component {
     return (
       <div className="deck-train-container">
         {endOfDeck}
-        <TrainingSidebar deckTitle={deck.title} numCards={cards.length} numSeen={2} />
+        <TrainingSidebarContainer numCards={cards.length} numSeen={cardShown} />
         {card}
       </div>
     );

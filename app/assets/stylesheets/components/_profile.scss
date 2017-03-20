@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.profile-header {
+  height: 200px;
+  margin: 0 auto 10px auto;
+  width: 50vw;
+  border-bottom: 1px solid $lightgray;
+}
+
 .add-deck-btn {
   width: 30px;
   height: 30px;

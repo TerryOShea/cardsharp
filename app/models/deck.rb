@@ -1,23 +1,5 @@
 class Deck < ApplicationRecord
 
-  # CATEGORIES = [
-  #   "foreign_languages",
-  #   "literature",
-  #   "religion",
-  #   "mathematics",
-  #   "technology",
-  #   "health",
-  #   "pop_culture",
-  #   "test_prep",
-  #   "history",
-  #   "science",
-  #   "art",
-  #   "music",
-  #   "geography",
-  #   "food",
-  #   "miscellaneous"
-  # ]
-
   validates :author_id, :title, presence: true
   validates :is_private, inclusion: { in: [true, false] }
 
@@ -39,7 +21,7 @@ class Deck < ApplicationRecord
     return 0 if cards.length == 0
     masterySum = 0
     cards.each { |card| masterySum += card.mastery }
-    (masterySum.to_f / cards.length).ceil
+    (masterySum.to_f / cards.length * 20).to_i
   end
 
 end
