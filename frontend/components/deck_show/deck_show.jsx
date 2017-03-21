@@ -45,8 +45,6 @@ class DeckShow extends React.Component {
     const { cards, deck } = this.props;
     const { formActivated, editEnabled, title, description } = this.state;
 
-    console.log(deck.description);
-
     const cardItems = cards.map(card => (
       <CardItemContainer key={card.id} card={card} />
     ));
@@ -55,6 +53,8 @@ class DeckShow extends React.Component {
 
     const titleIcon = this.state.editEnabled ? "unlock" : "lock";
     const infoStyle = this.state.editEnabled ? { color: "red" } : {};
+
+    const trash = cards.length > 0 ? (<TrashCardContainer />) : "";
 
     return (
       <div className="deck-show-container">
@@ -91,7 +91,8 @@ class DeckShow extends React.Component {
         <ul className="cards-holder">
           {cardItems}
         </ul>
-        <TrashCardContainer />
+
+        {trash}
       </div>
     )
   }

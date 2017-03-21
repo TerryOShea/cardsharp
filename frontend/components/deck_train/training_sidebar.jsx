@@ -19,12 +19,12 @@ class TrainingSidebar extends React.Component {
   }
 
   render() {
-    const { deckTitle, numCards, numSeen, otherDecks } = this.props;
+    const { deckTitle, numCards, numSeen, otherDecks, full } = this.props;
 
     const barHeight = Math.ceil(PROGRESS_HEIGHT/numCards);
 
     const progresses = [];
-    for (let i = 0; i < numSeen; i++) {
+    for (let i = 0; i < (full ? numCards : numSeen); i++) {
       progresses.push(<div className="progress-bar" style={{height: barHeight}} key={i}></div>);
     }
 

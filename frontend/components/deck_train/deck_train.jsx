@@ -17,25 +17,28 @@ class DeckTrain extends React.Component {
   }
 
   nextCard() {
-    let newState = { cardShown: this.state.cardShown += 1 };
-    if (this.state.cardShown === this.props.cards.length - 1) {
-      newState = { reachedEnd: true };
+    let nextState = { cardShown: this.state.cardShown + 1 };
+    if (nextState.cardShown === this.props.cards.length) {
+      nextState = { cardShown: 0, reachedEnd: true };
     }
-    this.setState(newState);
+
+    this.setState(nextState);
   }
 
   render() {
     const { deck, cards } = this.props;
-    const { cardShown } = this.state;
+    const { cardShown, reachedEnd } = this.state;
+
     const card = cards.length > 0 ? (
       <CardShowContainer card={cards[cardShown]} next={this.nextCard} />
     ) : "";
-    const endOfDeck = this.state.reachedEnd ? (<div>reached end</div>) : "";
 
     return (
       <div className="deck-train-container">
-        {endOfDeck}
-        <TrainingSidebarContainer numCards={cards.length} numSeen={cardShown} />
+        <TrainingSidebarContainer
+          numCards={cards.length}
+          numSeen={cardShown}
+          full={reachedEnd} />
         {card}
       </div>
     );
