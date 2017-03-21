@@ -8,7 +8,7 @@
 .session-form-title {
   color: $coral;
   font-size: 36px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .session-form {
@@ -17,5 +17,17 @@
   input, button {
     font-size: 18px;
     margin-bottom: 10px;
+    margin-left: 0;
+  }
+}
+
+.session-btns-box {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid lighten($lightgray, 5%);
+
+  button {
+    height: 40px;
+    margin-right: 10px;
   }
 }

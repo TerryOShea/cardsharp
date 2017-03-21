@@ -17,16 +17,25 @@ class DeckShow extends React.Component {
   }
 
   render() {
-    const { cards, deckId } = this.props;
+    const { cards, deck } = this.props;
 
     const cardItems = cards.map(card => (
       <Card key={card.id} card={card} />
     ));
 
+    // <li><AddCardContainer deckId={deck.id} /></li>
+
     return (
-      <div>
+      <div className="deck-show-container">
+        <div className="title-box">
+          <input type="text" value={deck.title} />
+          <button type="button"><i className="fa fa-cog"></i></button>
+        </div>
+        <div className="cards-header">
+          <h3>Cards</h3>
+          <button>+</button>
+        </div>
         <ul className="cards-holder">
-          <li><AddCardContainer deckId={deckId} /></li>
           {cardItems}
         </ul>
         <TrashCardContainer />

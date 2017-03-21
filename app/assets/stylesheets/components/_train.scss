@@ -84,13 +84,14 @@
   height: 300px;
   background-color: $gray;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
   margin-top: 50px;
 }
 
 .progress-bar {
   width: 100px;
-  background-color: $coral;
+  background-color: $purple;
 }
 
 .progress-title {

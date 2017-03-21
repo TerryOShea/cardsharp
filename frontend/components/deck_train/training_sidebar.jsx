@@ -21,15 +21,13 @@ class TrainingSidebar extends React.Component {
   render() {
     const { deckTitle, numCards, numSeen, otherDecks } = this.props;
 
-    // const barHeight = Math.ceil(PROGRESS_HEIGHT/numCards);
-    //
-    // const progresses = [];
-    // for (let i = 0; i < numSeen; i++) {
-    //   progresses.push(<div className="progress-bar" style={{backgroundColor: "blue"}}></div>);
-    // }
+    const barHeight = Math.ceil(PROGRESS_HEIGHT/numCards);
 
-    const barHeight = Math.ceil((numSeen/numCards) * PROGRESS_HEIGHT) || 0;
-    const barStyle = { height: barHeight };
+    const progresses = [];
+    for (let i = 0; i < numSeen; i++) {
+      progresses.push(<div className="progress-bar" style={{height: barHeight}} key={i}></div>);
+    }
+
     const decksBtnColor = this.state.showDecks ? { backgroundColor: "black" } : {};
 
     let decks = "";
@@ -60,7 +58,7 @@ class TrainingSidebar extends React.Component {
             {decks}
           </section>
           <div className="training-progress">
-            <div className="progress-bar" style={barStyle}></div>
+            {progresses}
           </div>
           <p className="progress-title">Progress</p>
         </nav>
