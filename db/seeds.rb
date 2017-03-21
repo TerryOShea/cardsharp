@@ -12,13 +12,13 @@ User.create!(username: "Magnus", password: "password")
 User.create!(username: "Oscar", password: "password")
 User.create!(username: "Wanda", password: "password")
 
-Deck.create!(author_id: 1, title: "My Favorite Foods", is_private: true, description: "A few of my favorite foods!")
-Deck.create!(author_id: 1, title: "Famous Buildings")
-Deck.create!(author_id: 1, title: "Colors")
-Deck.create!(author_id: 1, title: "Asian Countries")
-Deck.create!(author_id: 1, title: "Austen")
-Deck.create!(author_id: 1, title: "Geometry")
-Deck.create!(author_id: 1, title: "Jazz")
+Deck.create!(author_id: 1, title: "My Favorite Foods", description: "A few of my favorite foods!")
+Deck.create!(author_id: 1, title: "Famous Buildings", description: "Buildings of note")
+Deck.create!(author_id: 1, title: "Colors", description: "Test the rainbow.")
+Deck.create!(author_id: 1, title: "Asian Capitals", description: "The East")
+Deck.create!(author_id: 1, title: "Austen Heroines", description: "Explore our favorite Regency novelist.")
+Deck.create!(author_id: 1, title: "Geometry", description: "Triangles and so much more.")
+Deck.create!(author_id: 1, title: "Jazz", description: "A music genre!")
 
 colors = []
 until colors.length == 10
@@ -33,9 +33,39 @@ until foods.length == 10
 end
 
 (0..9).each do |i|
-  Card.create!(side_a: colors[i], side_b: "answer here", mastery: rand(5) + 1, deck_id: 3)
-  Card.create!(side_a: foods[i], side_b: "answer here", mastery: rand(5) + 1, deck_id: 1)
+  Card.create!(side_a: "Begins with \"#{colors[i][0].upcase}\"", side_b: colors[i], mastery: rand(5) + 1, deck_id: 3)
+  hangman = foods[i].split("").map.with_index { |el, i| i % 2 == 0 ? el : "_"}.join
+  Card.create!(side_a: hangman, side_b: foods[i], mastery: rand(5) + 1, deck_id: 1)
 end
+
+Card.create!(side_a: "Laos", side_b: "Vientiane", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "China", side_b: "Beijing", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "India", side_b: "New Delhi", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Japan", side_b: "Tokyo", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "North Korea", side_b: "Pyongyang", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "South Korea", side_b: "Seoul", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Thailand", side_b: "Bangkok", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Cambodia", side_b: "Phnom Penh", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Philippines", side_b: "Manila", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Indonesia", side_b: "Jakarta", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Bangladesh", side_b: "Dhaka", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Nepal", side_b: "Kathmandu", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Bhutan", side_b: "Thimphu", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Taiwan", side_b: "Taipei", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Mongolia", side_b: "Ulaanbaatar", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Tajikistan", side_b: "Dushanbe", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Turkmenistan", side_b: "Ashgabat", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Georgia", side_b: "Tbilisi", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Armenia", side_b: "Yerevan", mastery: rand(5) + 1, deck_id: 4)
+Card.create!(side_a: "Pakistan", side_b: "Islamabad", mastery: rand(5) + 1, deck_id: 4)
+
+Card.create!(side_a: "Elinor and Marianne Dashwood", side_b: "Sense and Sensibility", mastery: rand(5) + 1, deck_id: 5)
+Card.create!(side_a: "Elizabeth Bennet", side_b: "Pride and Prejudice", mastery: rand(5) + 1, deck_id: 5)
+Card.create!(side_a: "Fanny Price", side_b: "Mansfield Park", mastery: rand(5) + 1, deck_id: 5)
+Card.create!(side_a: "Emma Woodhouse", side_b: "Emma", mastery: rand(5) + 1, deck_id: 5)
+Card.create!(side_a: "Catherine Morland", side_b: "Northanger Abbey", mastery: rand(5) + 1, deck_id: 5)
+Card.create!(side_a: "Anne Elliot", side_b: "Persuasion", mastery: rand(5) + 1, deck_id: 5)
+
 
 tags = %w(Art Architecture Foreign\ Languages Geography Literature Mathematics
 Music Technology Health Religion Miscellaneous Food\ and\ Drink Pop\ Culture

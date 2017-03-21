@@ -7,6 +7,14 @@ const _defaultState = {
   reachedEnd: false
 };
 
+const shuffle = arr => {
+  for (let i = arr.length; i > 0; i--) {
+    const j = Math.floor(Math.random() * i);
+    [arr[i-1], arr[j]] = [arr[j], arr[i-1]];
+  }
+  return arr;
+}
+
 class DeckTrain extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +24,8 @@ class DeckTrain extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchDeck(parseInt(this.props.params.deckId));
+    this.props.fetchDeck(parseInt(this.props.params.deckId))
+      .then(() => this.setState({ cardOrder: shuffle([...Array(this.props.deck.numCards).keys()]) }));
   }
 
   nextCard() {
@@ -34,10 +43,10 @@ class DeckTrain extends React.Component {
 
   render() {
     const { deck, cards } = this.props;
-    const { cardShown, reachedEnd } = this.state;
+    const { cardShown, reachedEnd, cardOrder } = this.state;
 
-    const card = cards.length > 0 ? (
-      <CardShowContainer card={cards[cardShown]} next={this.nextCard} />
+    const card = cards.length > 0 && cardOrder ? (
+      <CardShowContainer card={cards[cardOrder[cardShown]]} next={this.nextCard} />
     ) : "";
 
     return (
