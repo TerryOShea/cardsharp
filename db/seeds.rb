@@ -79,14 +79,14 @@ Management\ Information\ Systems Cooking Nutrition Culinary\ Arts Bartending Art
 Fine\ Arts Mythology Astrology Tarot\ Cards Capitals Sports\ Trivia Famous\ People
 Basic\ Knowledge)
 
-tags.each { |tag_name| Tag.create!(name: tag_name) }
-
-(0..5).each do |i|
-  Tagging.create!(deck_id: i, tag_id: 1)
-end
-
-(0..3).each do |i|
-  Tagging.create!(deck_id: i, tag_id: 3)
-end
-
-Tagging.create!(deck_id: 6, tag_id: 4)
+# tags.each { |tag_name| Tag.create!(name: tag_name) }
+#
+# (0..5).each do |i|
+#   Tagging.create!(deck_id: i, tag_id: 1)
+# end
+#
+# (0..3).each do |i|
+#   Tagging.create!(deck_id: i, tag_id: 3)
+# end
+#
+# Tagging.create!(deck_id: 6, tag_id: 4)
