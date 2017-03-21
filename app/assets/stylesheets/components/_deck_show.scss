@@ -8,19 +8,54 @@
   flex-wrap: wrap;
 }
 
-.deck-show-title {
+.deck-show-info {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 30px auto 0 auto;
-  background-color: purple;
-  width: 100%;
+  width: 600px;
+  position: relative;
 
   input {
     margin-left: 0;
+    font-size: 36px;
+    text-align: center;
+    border: 0;
   }
+
+  textarea {
+    width: 400px;
+    text-align: center;
+  }
+
+  button {
+    background-color: transparent;
+    color: black;
+    font-size: 24px;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.cards-header {
+  text-align: center;
 }
 
 .add-card-form {
   overflow: hidden;
+  transition: height 1s;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  textarea {
+    border: 1px solid $lightgray;
+    width: 630px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
 }
 
 .add-card-btn {

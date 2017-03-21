@@ -51,12 +51,15 @@ class CardItem extends React.Component {
       ];
     }
 
+    const textStyle = this.state.allowEdit ? { color: "red" } : {};
+
     return (
       <li className="card" data-id={id} draggable onDragStart={this.dragStart}>
         <textarea
           value={showText}
           onChange={this.update(flipped ? 'side_b' : 'side_a')}
-          disabled={!allowEdit}></textarea>
+          disabled={!allowEdit}
+          style={textStyle}></textarea>
 
         <section className="card-buttons">
           <button onClick={this.toggleEdit} className="edit-btn">

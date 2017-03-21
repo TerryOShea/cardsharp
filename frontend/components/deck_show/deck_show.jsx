@@ -7,11 +7,18 @@ class DeckShow extends React.Component {
   constructor(props) {
     super(props);
     this.toggleForm = this.toggleForm.bind(this);
-    this.state = { formActivated: false }
+    this.toggleEdit = this.toggleEdit.bind(this);
+    this.state = {
+      formActivated: false,
+      editEnabled: false
+    }
   }
 
   componentDidMount() {
-    this.props.fetchDeck();
+    this.props.fetchDeck().then(() => {
+      const { deck } = this.props;
+      this.setState({ title: deck.title, description: deck.description });
+    });
   }
 
   componentWillUnmount() {
@@ -22,24 +29,60 @@ class DeckShow extends React.Component {
     this.setState({ formActivated: !this.state.formActivated });
   }
 
+  toggleEdit() {
+    if (this.state.editEnabled) {
+      this.props.updateDeck(Object.assign({}, this.props.deck, this.state));
+    }
+
+    this.setState({ editEnabled: !this.state.editEnabled });
+  }
+
+  update(field) {
+    return e => this.setState({ [field]: e.target.value });
+  }
+
   render() {
     const { cards, deck } = this.props;
-    const { formActivated } = this.state;
+    const { formActivated, editEnabled, title, description } = this.state;
+
+    console.log(deck.description);
 
     const cardItems = cards.map(card => (
       <CardItemContainer key={card.id} card={card} />
     ));
 
+    const addCardBtnText = this.state.formActivated ? "-" : "+";
+
+    const titleIcon = this.state.editEnabled ? "unlock" : "lock";
+    const infoStyle = this.state.editEnabled ? { color: "red" } : {};
+
     return (
       <div className="deck-show-container">
-        <section className="deck-show-title">
-          <input type="text" value={deck.title} />
-          <button type="button"><i className="fa fa-cog"></i></button>
+        <section className="deck-show-info">
+          <input
+            type="text"
+            value={title}
+            onChange={this.update('title')}
+            disabled={!editEnabled}
+            style={infoStyle} />
+
+          <textarea
+            value={description}
+            placeholder="(no description)"
+            onChange={this.update('description')}
+            disabled={!editEnabled}
+            style={infoStyle} />
+
+          <button type="button" onClick={this.toggleEdit}>
+            <i className={`fa fa-${titleIcon}`}></i>
+          </button>
         </section>
 
         <section className="cards-header">
           <h3>Cards&nbsp;
-            <button className="add-card-btn" onClick={this.toggleForm}>+</button>
+            <button className="add-card-btn" onClick={this.toggleForm}>
+              {addCardBtnText}
+            </button>
           </h3>
         </section>
 
