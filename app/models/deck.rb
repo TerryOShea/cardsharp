@@ -24,4 +24,8 @@ class Deck < ApplicationRecord
     (masterySum.to_f / cards.length * 20).to_i
   end
 
+  def num_cards
+    cards.length
+  end
+
 end

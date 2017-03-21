@@ -11,16 +11,18 @@
 
 .deck-item {
   width: 50vw;
-  height: 50px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  padding-left: 20px;
+  padding: 0 20px;
   position: relative;
 
   button {
     padding: 5px 10px;
+    background-color: transparent;
+    color: $blue;
   }
 }
 
@@ -30,3 +32,30 @@
   border-left: 0;
   border-right: 0;
 }
+
+.deck-item-mastery {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.deck-item-name {
+  position: absolute;
+  left: 90px;
+  text-align: left;
+  font-size: 18px;
+
+  p {
+    font-size: 12px;
+    font-style: italic;
+  }
+}
+
+.disabled-item-name {
+  color: $gray;
+}
+
+.mastery-yellow { color: $yellow }
+.mastery-purple { color: $purple }
+.mastery-seagreen { color: $seagreen }
+.mastery-coral { color: $coral }
+.mastery-blue { color: $blue }
