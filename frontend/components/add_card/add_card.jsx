@@ -4,7 +4,6 @@ const defaultState = {
   side_a: "",
   side_b: "",
   mastery: 1,
-  formActivated: false
 };
 
 class AddCard extends React.Component {
@@ -30,18 +29,15 @@ class AddCard extends React.Component {
 
   render() {
     const { side_a, side_b, formActivated } = this.state;
-    const classes = `add-card${formActivated ? " activated" : ""}`;
-    const buttonText = formActivated ? "x" : "+";
+    const formStyle = this.props.active ? { height: 300 } : { height: 0 };
+    const buttonText = formActivated ? "+" : "-";
 
     return (
-      <section className={classes}>
-        <p onClick={this.toggleForm}>{buttonText}</p>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" value={side_a} placeholder="Side A" onChange={this.update('side_a')} />
-          <input type="text" value={side_b} placeholder="Side B" onChange={this.update('side_b')} />
-          <button>Submit</button>
-        </form>
-      </section>
+      <form className="add-card-form" onSubmit={this.handleSubmit} style={formStyle}>
+        <textarea value={side_a} placeholder="Side A" onChange={this.update('side_a')} />
+        <textarea value={side_b} placeholder="Side B" onChange={this.update('side_b')} />
+        <button>Submit</button>
+      </form>
     );
   }
 };

@@ -3,8 +3,7 @@ import React from 'react';
 const defaultState = {
   title: "",
   description: "",
-  is_private: false,
-  formActivated: false
+  is_private: false
 };
 
 class AddDeck extends React.Component {
@@ -17,15 +16,7 @@ class AddDeck extends React.Component {
 
   handleSubmit() {
     this.props.createDeck(Object.assign({}, this.state))
-      .then(() => this.setState(Object.assign({}, defaultState, { formActivated: true })));
-  }
-
-  handleFocus() {
-    this.setState({ formActivated: true });
-  }
-
-  handleBlur() {
-    this.setState({ formActivated: false });
+      .then(() => this.setState(Object.assign({}, defaultState)));
   }
 
   update(field) {

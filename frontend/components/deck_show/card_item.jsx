@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Card extends React.Component {
+class CardItem extends React.Component {
   constructor(props) {
     super(props);
     this.toggleFlip = this.toggleFlip.bind(this);
@@ -19,6 +19,11 @@ class Card extends React.Component {
   }
 
   toggleEdit() {
+    if (this.state.allowEdit) {
+      const { card } = this.props;
+      this.props.updateCard(Object.assign({}, this.props.card, this.state));
+    }
+
     this.setState({ allowEdit: !this.state.allowEdit });
   }
 
@@ -67,4 +72,4 @@ class Card extends React.Component {
   }
 }
 
-export default Card;
+export default CardItem;

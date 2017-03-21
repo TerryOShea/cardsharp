@@ -7,3 +7,26 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.deck-show-title {
+  display: flex;
+  margin: 30px auto 0 auto;
+  background-color: purple;
+  width: 100%;
+
+  input {
+    margin-left: 0;
+  }
+}
+
+.add-card-form {
+  overflow: hidden;
+}
+
+.add-card-btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: $seagreen;
+  margin-left: 5px;
+}

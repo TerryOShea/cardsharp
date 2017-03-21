@@ -1,11 +1,13 @@
 import React from 'react';
-import Card from './card';
+import CardItemContainer from './card_item_container';
 import AddCardContainer from '../add_card/add_card_container';
 import TrashCardContainer from '../trash_card/trash_card_container';
 
 class DeckShow extends React.Component {
   constructor(props) {
     super(props);
+    this.toggleForm = this.toggleForm.bind(this);
+    this.state = { formActivated: false }
   }
 
   componentDidMount() {
@@ -16,25 +18,33 @@ class DeckShow extends React.Component {
     this.props.removeDeck();
   }
 
+  toggleForm() {
+    this.setState({ formActivated: !this.state.formActivated });
+  }
+
   render() {
     const { cards, deck } = this.props;
+    const { formActivated } = this.state;
 
     const cardItems = cards.map(card => (
-      <Card key={card.id} card={card} />
+      <CardItemContainer key={card.id} card={card} />
     ));
-
-    // <li><AddCardContainer deckId={deck.id} /></li>
 
     return (
       <div className="deck-show-container">
-        <div className="title-box">
+        <section className="deck-show-title">
           <input type="text" value={deck.title} />
           <button type="button"><i className="fa fa-cog"></i></button>
-        </div>
-        <div className="cards-header">
-          <h3>Cards</h3>
-          <button>+</button>
-        </div>
+        </section>
+
+        <section className="cards-header">
+          <h3>Cards&nbsp;
+            <button className="add-card-btn" onClick={this.toggleForm}>+</button>
+          </h3>
+        </section>
+
+        <AddCardContainer deckId={deck.id} active={formActivated} />
+
         <ul className="cards-holder">
           {cardItems}
         </ul>
