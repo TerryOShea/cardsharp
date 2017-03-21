@@ -1,4 +1,5 @@
 json.partial! 'api/decks/deck', deck: @deck
+json.set! :numCards, @deck.num_cards
 json.set! :cards, {}
 
 json.set! :cards do

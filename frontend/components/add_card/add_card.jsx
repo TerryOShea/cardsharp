@@ -18,7 +18,8 @@ class AddCard extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.props.createCard(Object.assign({}, this.state, { deck_id: this.props.deckId }))
       .then(() => this.setState(Object.assign({}, defaultState, { formActivated: true })));
   }
