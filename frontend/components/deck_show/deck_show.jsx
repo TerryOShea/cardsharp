@@ -51,7 +51,7 @@ class DeckShow extends React.Component {
 
     const addCardBtnText = this.state.formActivated ? "-" : "+";
 
-    const titleIcon = this.state.editEnabled ? "unlock" : "lock";
+    const titleIcon = this.state.editEnabled ? "check" : "edit";
     const infoStyle = this.state.editEnabled ? { color: "red" } : {};
 
     const trash = cards.length > 0 ? (<TrashCardContainer />) : "";

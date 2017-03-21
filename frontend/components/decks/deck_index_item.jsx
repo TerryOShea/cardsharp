@@ -38,7 +38,7 @@ const DeckIndexItem = ({ deck, deleteDeck }) => {
 
       <section className="deck-item-btns">
         <Link to={`/decks/${deck.id}`}>
-          <button type="button"><i className="fa fa-cog"></i></button>
+          <button type="button"><i className="fa fa-edit"></i></button>
         </Link>
         <button type="button" onClick={() => deleteDeck(deck.id)}>
           <i className="fa fa-trash"></i>

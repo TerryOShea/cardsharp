@@ -41,7 +41,7 @@ class CardItem extends React.Component {
 
     const showText = flipped ? side_b : side_a;
     const arrow = flipped ? "left" : "right";
-    const lock = allowEdit ? "unlock" : "lock";
+    const lock = allowEdit ? "check" : "edit";
 
     let editBtns = "";
     if (allowEdit) {
