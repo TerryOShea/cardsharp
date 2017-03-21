@@ -1,9 +1,9 @@
 import React from 'react';
-import DeckIndexItem from './deck_index_item';
+import DeckIndexItemContainer from './deck_index_item_container';
 
 const Decks = ({ decks }) => {
   const deckItems = decks.map(deck => (
-    <DeckIndexItem key={deck.id} deck={deck} />
+    <DeckIndexItemContainer key={deck.id} deck={deck} />
   ));
 
   return (
