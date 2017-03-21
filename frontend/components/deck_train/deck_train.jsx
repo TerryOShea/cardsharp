@@ -2,18 +2,21 @@ import React from 'react';
 import TrainingSidebarContainer from './training_sidebar_container';
 import CardShowContainer from '../card_show/card_show_container';
 
+const _defaultState = {
+  cardShown: 0,
+  reachedEnd: false
+};
+
 class DeckTrain extends React.Component {
   constructor(props) {
     super(props);
     this.nextCard = this.nextCard.bind(this);
-    this.state = {
-      cardShown: 0,
-      reachedEnd: false
-    };
+    this.reset = this.reset.bind(this);
+    this.state = Object.assign({}, _defaultState);
   }
 
   componentDidMount() {
-    this.props.fetchDeck();
+    this.props.fetchDeck(parseInt(this.props.params.deckId));
   }
 
   nextCard() {
@@ -23,6 +26,10 @@ class DeckTrain extends React.Component {
     }
 
     this.setState(nextState);
+  }
+
+  reset() {
+    this.setState(Object.assign({}, _defaultState));
   }
 
   render() {
@@ -38,7 +45,8 @@ class DeckTrain extends React.Component {
         <TrainingSidebarContainer
           numCards={cards.length}
           numSeen={cardShown}
-          full={reachedEnd} />
+          full={reachedEnd}
+          reset={this.reset} />
         {card}
       </div>
     );

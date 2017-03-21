@@ -7,8 +7,8 @@ const mapStateToProps = state => ({
   cards: Object.keys(state.deckShow.cards).map(id => state.deckShow.cards[id])
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchDeck: () => dispatch(fetchDeckShow(ownProps.params.deckId)),
+const mapDispatchToProps = dispatch => ({
+  fetchDeck: id => dispatch(fetchDeckShow(id)),
   removeDeck: () => dispatch(deleteDeckShow())
 });
 

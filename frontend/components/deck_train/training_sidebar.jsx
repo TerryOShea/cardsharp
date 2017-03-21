@@ -7,6 +7,7 @@ class TrainingSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.toggleDecks = this.toggleDecks.bind(this);
+    this.newTrain = this.newTrain.bind(this);
     this.state = { showDecks: false }
   }
 
@@ -16,6 +17,13 @@ class TrainingSidebar extends React.Component {
 
   toggleDecks() {
     this.setState({ showDecks: !this.state.showDecks });
+  }
+
+  newTrain(id) {
+    this.props.fetchDeck(id).then(() => {
+      this.setState({ showDecks: false });
+      this.props.reset();
+    });
   }
 
   render() {
@@ -34,7 +42,11 @@ class TrainingSidebar extends React.Component {
     if (this.state.showDecks) {
       const deckListItems = [];
       otherDecks.forEach(deck => deckListItems.push(
-        <li key={deck.id}><Link to={`/train/${deck.id}`}>{deck.title}</Link></li>
+        <li key={deck.id}>
+          <Link to={`/train/${deck.id}`} onClick={() => this.newTrain(deck.id)}>
+            {deck.title}
+          </Link>
+        </li>
       ));
       decks = (<ul className="train-decks-list">{deckListItems}</ul>);
     }

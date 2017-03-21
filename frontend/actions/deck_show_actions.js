@@ -15,9 +15,7 @@ const removeDeckShow = () => ({
 
 export const fetchDeckShow = id => dispatch => (
   DeckAPIUtil.fetchDeck(id)
-    .then(deck => {
-      dispatch(receiveDeckShow(deck));
-    })
+    .then(deck => dispatch(receiveDeckShow(deck)))
     .fail(err => dispatch(receiveErrors(err.responseJSON)))
 );
 

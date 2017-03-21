@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const COLOR_REF = {
-  "0": "mastery-purple",
-  "1": "mastery-coral",
-  "2": "mastery-yellow",
-  "3": "mastery-seagreen",
-  "4": "mastery-blue"
+  "0": "",
+  "1": "mastery-purple",
+  "2": "mastery-coral",
+  "3": "mastery-yellow",
+  "4": "mastery-seagreen",
+  "5": "mastery-blue"
 }
 
 const DeckIndexItem = ({ deck, deleteDeck }) => {
