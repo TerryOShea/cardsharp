@@ -25,10 +25,31 @@
   width: 650px;
   margin: 0 auto;
 
-  .radio-btns {
-    display: flex;
-    width: 150px;
+  input, textarea {
+    text-align: left;
   }
+
+  input {
+    margin: 0 0 10px 0;
+  }
+
+  textarea {
+    border: 1px solid $lightgray;
+    width: 630px;
+    height: 100px;
+  }
+
+  button {
+    width: 30px;
+  }
+}
+
+.add-deck-form-bottom {
+  display: flex;
+  padding: 10px 0;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
 }
 
 .privacy-section {
@@ -38,10 +59,10 @@
 .privacy-toggler {
   width: 40px;
   height: 20px;
+  margin: 0 10px;
   border-radius: 50px;
   background-color: lighten($blue, 20%);
   position: relative;
-
 
   .toggle {
     position: absolute;

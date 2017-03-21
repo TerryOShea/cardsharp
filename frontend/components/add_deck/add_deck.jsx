@@ -38,7 +38,7 @@ class AddDeck extends React.Component {
 
   render() {
     const { title, description, category, is_private } = this.state;
-    const formStyle = this.props.active ? { height: 300 } : { height: 0 };
+    const formStyle = this.props.active ? { height: 230 } : { height: 0 };
     const capitalize = word => `${word[0].toUpperCase()}${word.slice(1)}`;
     const toggleStyle = is_private ? { right: 0 } : { left: 0 };
 
@@ -47,15 +47,17 @@ class AddDeck extends React.Component {
         <input type="text" placeholder="Title" value={title} onChange={this.update('title')} />
         <textarea placeholder="Description (optional)" value={description} onChange={this.update('description')} />
 
-        <section className="privacy-section">
-          Public
-          <div className="privacy-toggler">
-            <div className="toggle" style={toggleStyle} onClick={this.updateToggle}></div>
-          </div>
-          Private
-        </section>
+        <section className="add-deck-form-bottom">
+          <section className="privacy-section">
+            Public
+            <div className="privacy-toggler">
+              <div className="toggle" style={toggleStyle} onClick={this.updateToggle}></div>
+            </div>
+            Private
+          </section>
 
-        <button>Add</button>
+          <button>Add</button>
+        </section>
       </form>
     )
   }

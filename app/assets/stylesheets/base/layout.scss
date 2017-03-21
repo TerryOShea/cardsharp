@@ -28,3 +28,9 @@ a:hover {
 	color: $blue;
 	cursor: pointer;
 }
+
+textarea {
+	resize: none;
+	padding: 10px;
+	box-sizing: border-box;
+}
