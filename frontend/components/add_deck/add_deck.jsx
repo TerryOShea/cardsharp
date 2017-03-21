@@ -14,7 +14,8 @@ class AddDeck extends React.Component {
     this.state = Object.assign({}, defaultState);
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.props.createDeck(Object.assign({}, this.state))
       .then(() => this.setState(Object.assign({}, defaultState)));
   }
