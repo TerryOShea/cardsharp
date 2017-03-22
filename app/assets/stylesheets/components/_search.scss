@@ -28,6 +28,29 @@
     font-size: 20px;
     color: darken($blue, 15%);
   }
+
+  .react-autosuggest__container {
+    width: calc(30vw - 25px);
+    height: 60px;
+    color: white;
+    font-weight: lighter;
+    background-color: lighten($gray, 5%);
+    border-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .react-autosuggest__input {
+    margin-left: 0;
+    border: 0;
+    padding-left: 40px;
+    height: 60px;
+
+    &::-webkit-input-placeholder { color: white; }
+    &::-moz-placeholder { color: white; }
+    &:-ms-input-placeholder { color: white; }
+    &:-moz-placeholder { color: white; }
+  }
 }
 
 .suggestion {
@@ -42,29 +65,6 @@
     background-color: white;
     cursor: pointer;
   }
-}
-
-.react-autosuggest__container {
-  width: calc(30vw - 25px);
-  height: 60px;
-  color: white;
-  font-weight: lighter;
-  background-color: lighten($gray, 5%);
-  border-radius: 2px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.react-autosuggest__input {
-  margin-left: 0;
-  border: 0;
-  padding-left: 40px;
-  height: 60px;
-
-  &::-webkit-input-placeholder { color: white; }
-  &::-moz-placeholder { color: white; }
-  &:-ms-input-placeholder { color: white; }
-  &:-moz-placeholder { color: white; }
 }
 
 .search-entry-img {

@@ -44,6 +44,12 @@
   }
 }
 
+.remove-tag-btn {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .add-deck-form-bottom {
   display: flex;
   padding: 10px 0;
