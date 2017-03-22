@@ -7,6 +7,12 @@ class Deck < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, source: :tag
 
+  def tag_names=(tag_names)
+    self.tags = tag_names.map do |tag_name|
+      Tag.find_or_create_by(name: tag_name)
+    end
+  end
+
   def self.most_recent(num = 10, offset = 0)
     self.limit(num).offset(offset).order('id desc').where(is_private: false)
   end

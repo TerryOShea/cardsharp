@@ -1,9 +1,9 @@
 import React from 'react';
-import SearchBarContainer from './search_bar_container';
+import SearchBar from './search_bar';
 
 const Search = props => (
   <div className="search-page">
-    <SearchBarContainer />
+    <SearchBar />
     <section className="search-results-box">
       <div className="search-results-header">Browse Flashcards</div>
       <div className="search-results">results here</div>

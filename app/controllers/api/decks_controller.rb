@@ -15,7 +15,7 @@ class Api::DecksController < ApplicationController
   end
 
   def show
-    @deck = Deck.includes(:cards).find(params[:id])
+    @deck = Deck.includes(:cards).includes(:tags).find(params[:id])
     if @deck
       @deck.touch
       render :show
@@ -28,7 +28,7 @@ class Api::DecksController < ApplicationController
     @deck = Deck.new(deck_params)
     @deck.author_id = current_user.id
     if @deck.save
-      render :show
+      render :show, include: :tags
     else
       render json: @deck.errors.full_messages, status: 422
     end
@@ -37,7 +37,7 @@ class Api::DecksController < ApplicationController
   def update
     @deck = Deck.find(params[:id])
     if @deck.update(deck_params)
-      render :show
+      render :show, include: :tags
     else
       render json: @todo.errors.full_messages, status: 422
     end
@@ -52,7 +52,7 @@ class Api::DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:title, :description, :is_private, tags: [])
+    params.require(:deck).permit(:title, :description, :is_private, tag_names: [])
   end
 
 end
