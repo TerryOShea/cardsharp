@@ -12,6 +12,7 @@
 
 .search-entry-box {
   height: 100px;
+  z-index: 10;
   background-color: darken($darkgray, 5%);
   display: flex;
   align-items: center;
@@ -29,16 +30,36 @@
   }
 }
 
-.search-input {
+.suggestion {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: $blue;
+  font-weight: 400;
+  line-height: 64px;
+  box-sizing: border-box;
+  padding-left: 20px;
+
+  &:hover {
+    background-color: white;
+    cursor: pointer;
+  }
+}
+
+.react-autosuggest__container {
   width: calc(30vw - 25px);
   height: 60px;
-  margin-left: 0;
   color: white;
+  font-weight: lighter;
   background-color: lighten($gray, 5%);
+  border-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__input {
+  margin-left: 0;
   border: 0;
   padding-left: 40px;
-  font-weight: lighter;
-  border-radius: 2px;
+  height: 60px;
 
   &::-webkit-input-placeholder { color: white; }
   &::-moz-placeholder { color: white; }
@@ -51,6 +72,9 @@
   background-image: url(image_path("search.jpeg"));
   background-size: cover;
   background-repeat: no-repeat;
+  -webkit-filter: brightness(0.9);
+  filter: brightness(0.9);
+  z-index: -1;
 
   aside {
     color: white;

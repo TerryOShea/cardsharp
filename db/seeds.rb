@@ -1,9 +1,14 @@
+# USERS
+
 User.create!(username: "Terry", password: "password")
 User.create!(username: "Mabel", password: "password")
 User.create!(username: "Magnus", password: "password")
 User.create!(username: "Oscar", password: "password")
 User.create!(username: "Wanda", password: "password")
 
+
+
+# DECKS
 Deck.create!(author_id: 1, title: "My Favorite Foods", description: "A few of my favorite foods!")
 Deck.create!(author_id: 1, title: "Famous Buildings", description: "Buildings of note")
 Deck.create!(author_id: 1, title: "Colors", description: "Test the rainbow.")
@@ -12,6 +17,9 @@ Deck.create!(author_id: 1, title: "Austen Heroines", description: "Explore our f
 Deck.create!(author_id: 1, title: "Geometry", description: "Triangles and so much more.")
 Deck.create!(author_id: 1, title: "Jazz", description: "A music genre!")
 
+
+
+# CARDS
 colors = []
 until colors.length == 10
   color = Faker::Color.color_name
@@ -21,12 +29,12 @@ end
 foods = []
 until foods.length == 10
   food = Faker::Food.ingredient
-  foods << food unless foods.include?(food)
+  foods << food unless foods.include?(food) || food.split(" ").length > 1
 end
 
 (0..9).each do |i|
   Card.create!(side_a: "Begins with \"#{colors[i][0].upcase}\"", side_b: colors[i], mastery: rand(5) + 1, deck_id: 3)
-  hangman = foods[i].split("").map.with_index { |el, i| i % 2 == 0 ? el : "_"}.join
+  hangman = foods[i].split("").map.with_index { |el, ind| ind % 2 == 0 ? el : "_"}.join
   Card.create!(side_a: hangman, side_b: foods[i], mastery: rand(5) + 1, deck_id: 1)
 end
 
@@ -58,8 +66,11 @@ Card.create!(side_a: "Emma Woodhouse", side_b: "Emma", mastery: rand(5) + 1, dec
 Card.create!(side_a: "Catherine Morland", side_b: "Northanger Abbey", mastery: rand(5) + 1, deck_id: 5)
 Card.create!(side_a: "Anne Elliot", side_b: "Persuasion", mastery: rand(5) + 1, deck_id: 5)
 
-tags = %w(Art Architecture Foreign\ Languages Geography Literature Mathematics
-Music Technology Health Religion Miscellaneous Food\ and\ Drink Pop\ Culture
+
+
+# TAGS
+tags = %w(Miscellaneous Art Architecture Foreign\ Languages Geography Literature Mathematics
+Music Technology Health Religion Food\ and\ Drink Pop\ Culture
 Test\ Prep History Science AP\ Exams GCSE\ Exams University\ Entrance\ Exams
 Graduate\ Entrance\ Exams Financial\ Exams Bar\ Exam Driver's\ Ed TOEFL
 Technology\ Certifications Other\ Certifications Military\ Exams
@@ -102,12 +113,9 @@ Basic\ Knowledge)
 
 tags.each { |tag_name| Tag.create!(name: tag_name) }
 
-# (0..5).each do |i|
-#   Tagging.create!(deck_id: i, tag_id: 1)
-# end
-#
-# (0..3).each do |i|
-#   Tagging.create!(deck_id: i, tag_id: 3)
-# end
-#
-# Tagging.create!(deck_id: 6, tag_id: 4)
+
+
+# TAGGINGS
+(1..7).each do |deck_id|
+  Tagging.create!(deck_id: deck_id, tag_id: 1)
+end
