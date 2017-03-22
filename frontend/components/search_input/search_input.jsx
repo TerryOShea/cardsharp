@@ -26,9 +26,22 @@ class SearchInput extends React.Component {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
-    return inputLength === 0 ? [] : this.props.tags.filter(tag => (
-      tag.name.toLowerCase().slice(0, inputLength) === inputValue
-    ));
+    if (inputLength === 0) {
+      return [];
+    } else {
+      return this.props.tags
+        .filter(tag => (tag.name.toLowerCase().includes(inputValue)))
+        .sort((a, b) => {
+          const aStart = a.name.toLowerCase().startsWith(inputValue);
+          const bStart = b.name.toLowerCase().startsWith(inputValue);
+
+          if ((aStart && bStart) || !(aStart || bStart)) {
+            return a < b ? -1 : 1;
+          } else {
+            return aStart ? -1 : 1;
+          }
+        });
+    }
   }
 
   handleSubmit() {

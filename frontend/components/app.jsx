@@ -5,11 +5,11 @@ import GreetingContainer from './greeting/greeting_container';
 const App = ({ children, location }) => {
   const hideHeader = location.pathname.match(/^\/train\/\d+$/);
 
-  const noBorder = location.pathname.match(/^\/search$/);
-  const borderStyle = noBorder ? { borderBottomWidth: 1 } : {};
+  const onSearch = location.pathname.match(/^\/search$/);
+  const headerClass = onSearch ? "search-header" : "";
 
   const header = hideHeader ? "" : (
-    <header style={borderStyle}>
+    <header className={headerClass}>
       <nav className="header-left">
         <Link to="/" className="header-title">
           <div className="header-logo"></div>

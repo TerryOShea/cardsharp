@@ -69,47 +69,46 @@ Card.create!(side_a: "Anne Elliot", side_b: "Persuasion", mastery: rand(5) + 1, 
 
 
 # TAGS
-tags = %w(Miscellaneous Art Architecture Foreign\ Languages Geography Literature Mathematics
-Music Technology Health Religion Food\ and\ Drink Pop\ Culture
-Test\ Prep History Science AP\ Exams GCSE\ Exams University\ Entrance\ Exams
-Graduate\ Entrance\ Exams Financial\ Exams Bar\ Exam Driver's\ Ed TOEFL
-Technology\ Certifications Other\ Certifications Military\ Exams
-Medical\ &\ Nursing\ Certifications Arabic Chinese French German Hebrew Italian Japanese
-Korean Linguistics Portuguese Russian Spanish Life\ Science Earth\ Science
-Physical\ Science Biology Chemistry Physics Meteorology Anatomy Physiology
-Organic\ Chemistry Periodic\ Table Astronomy Genetics Geology
-Environmental\ Science Plant\ Science Biochemistry Cellular\ Biology Microbiology
-Marine\ Biology Oceanography Zoology Vocab\ Builder Phonics
-Proverbs\ and\ Idioms American\ Literature British\ Literature Shakespeare English Fiction
-Spelling Medieval\ Literature Poetry Creative\ Writing Social\ Studies Civics
-Classics Psychology Philosophy Bible Anthropology Sociology
-Criminal\ Justice Social\ Work Communications Political\ Science Citizenship Arithmetic
-Multiplication\ Tables Algebra Algebra\ II Geometry Statistics Trigonometry
-Precalculus Calculus Probability Linear\ Algebra Statistical\ Methods
-Pharmacology Pathology Epidemiology Medical\ Terminology Nutrition
-Neurology Drugs Cardiology Cardiovascular Infectious\ Disease Endocrinology
-Oncology Obstetrics Paramedic Anesthesiology Gynecology Dermatology Audiology
-Pulmonary Gastroenterology Physical\ Therapy Neuroanatomy Musculoskeletal
-Neuromuscular Radiography Chiropractic Periodontics Respiratory Dentistry
-Childbirth Orthodontics Ophthalmology Prenatal Skeleton Urology Renal Hematology
-Hormones Podiatry Orthopedics Otolaryngology ER Phlebotomy Rheumatology Surgery
-Bacteriology Radiology Veterinary Occupational\ Therapy Pharmacy Bioethics
-Geriatrics Pediatrics Microanatomy Medical\ Exams Diagnostic\ Imaging Pathoma
-Neurosurgery Passive\ Care Gross\ Anatomy Spinal\ Anatomy Nursing
-Biomedical\ Science Toxicology Cosmetology Barbering Horticulture Firefighting
-Interior\ Design Electrician HVAC Air\ Traffic\ Control Pilot\ License Boating Welding
-Plumbing Policing ASVAB Massage\ Therapy Military Torts Constitutional\ Law
-Corporate\ Law Contract\ Law Property\ Law Criminal\ Law International\ Law
-Litigation Bankruptcy Family\ Law Intellectual\ Property Evidence
-Trusts\ &\ Estates Civil\ Procedure Law Business\ Law Business\ Communication
-Logistics Entrepreneurship Supply\ Chain Human\ Resources Accounting Finance
-Project\ Management Real\ Estate Marketing Management Risk\ Management Insurance
-International\ Business Fashion Tourism Business Salesforce Advertising
-Economics Engineering Biotechnology Computer\ Science
-Computer\ Programming Graphic\ Design Information\ Technology
-Management\ Information\ Systems Cooking Culinary\ Arts Bartending Art\ History Dance
-Fine\ Arts Mythology Astrology Tarot\ Cards Capitals Sports\ Trivia Famous\ People
-Basic\ Knowledge)
+tags = %w(Miscellaneous AP\ Exams ASVAB Accounting Advertising Air\ Traffic\ Control
+Algebra Algebra\ II American\ Literature Anatomy Anesthesiology Anthropology
+Arabic Architecture Arithmetic Art Art\ History Astrology Astronomy Audiology
+Bacteriology Bankruptcy Bar\ Exam Barbering Bartending Basic\ Knowledge Bible
+Biochemistry Bioethics Biology Biomedical\ Science Biotechnology Boating
+British\ Literature Business Business\ Communication Business\ Law Calculus
+Capitals Cardiology Cardiovascular Cellular\ Biology Chemistry Childbirth Chinese
+Chiropractic Citizenship Civics Civil\ Procedure Classics Communications
+Computer\ Programming Computer\ Science Constitutional\ Law Contract\ Law Cooking
+Corporate\ Law Cosmetology Creative\ Writing Criminal\ Justice Criminal\ Law
+Culinary\ Arts Dance Dentistry Dermatology Diagnostic\ Imaging Driver's\ Ed Drugs
+ER Earth\ Science Economics Electrician Endocrinology Engineering English
+Entrepreneurship Environmental\ Science Epidemiology Evidence Family\ Law
+Famous\ People Fashion Fiction Finance Financial\ Exams Fine\ Arts Firefighting
+Food\ and\ Drink Foreign\ Languages French GCSE\ Exams Gastroenterology Genetics
+Geography Geology Geometry Geriatrics German Graduate\ Entrance\ Exams
+Graphic\ Design Gross\ Anatomy Gynecology HVAC Health Hebrew Hematology History
+Hormones Horticulture Human\ Resources Infectious\ Disease
+Information\ Technology Insurance Intellectual\ Property Interior\ Design
+International\ Business International\ Law Italian Japanese Korean Law
+Life\ Science Linear\ Algebra Linguistics Literature Litigation Logistics
+Management Management\ Information\ Systems Marine\ Biology Marketing
+Massage\ Therapy Mathematics Medical\ &\ Nursing\ Certifications Medical\ Exams
+Medical\ Terminology Medieval\ Literature Meteorology Microanatomy Microbiology
+Military Military\ Exams Multiplication\ Tables Musculoskeletal
+Music Mythology Neuroanatomy Neurology Neuromuscular Neurosurgery Nursing
+Nutrition Obstetrics Occupational\ Therapy Oceanography Oncology Ophthalmology
+Organic\ Chemistry Orthodontics Orthopedics Other\ Certifications Otolaryngology
+Paramedic Passive\ Care Pathology Pathoma Pediatrics Periodic\ Table Periodontics
+Pharmacology Pharmacy Philosophy Phlebotomy Phonics Physical\ Science
+Physical\ Therapy Physics Physiology Pilot\ License Plant\ Science Plumbing
+Podiatry Poetry Policing Political\ Science Pop\ Culture Portuguese Precalculus
+Prenatal Probability Project\ Management Property\ Law Proverbs\ and\ Idioms
+Psychology Pulmonary Radiography Radiology Real\ Estate Religion Renal
+Respiratory Rheumatology Risk\ Management Russian Salesforce Science Shakespeare
+Skeleton Social\ Studies Social\ Work Sociology Spanish Spelling Spinal\ Anatomy
+Sports\ Trivia Statistical\ Methods Statistics Supply\ Chain Surgery TOEFL
+Tarot\ Cards Technology Technology\ Certifications Test\ Prep Torts Tourism
+Toxicology Trigonometry Trusts\ &\ Estates University\ Entrance\ Exams Urology
+Veterinary Vocab\ Builder Welding Zoology)
 
 tags.each { |tag_name| Tag.create!(name: tag_name) }
 

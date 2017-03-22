@@ -1,4 +1,5 @@
 json.extract! @tag, :name, :id
+json.set! :decks, {}
 
 json.set! :decks do
   @tag.decks.each do |deck|

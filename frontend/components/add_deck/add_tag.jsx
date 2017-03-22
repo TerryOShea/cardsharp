@@ -42,7 +42,7 @@ class AddTag extends React.Component {
   }
 
   onSuggestionsFetchRequested({ value }) {
-    this.setState({ suggestions: this.getSuggestions(value) });
+    this.setState({ suggestions: this.getSuggestions(value).slice(0, 1) });
   }
 
   onSuggestionsClearRequested() {

@@ -42,6 +42,25 @@
   button {
     width: 30px;
   }
+
+  .react-autosuggest__container {
+    position: relative;
+  }
+
+  .react-autosuggest__input {
+    margin-left: -20px;
+    border: 0;
+    border-bottom: 1px solid $lightgray;
+    border-radius: 0;
+  }
+
+  .react-autosuggest__suggestions-container {
+    position: absolute;
+    color: gray;
+    top: 10px;
+    left: 15px;
+    z-index: 2;
+  }
 }
 
 .remove-tag-btn {
