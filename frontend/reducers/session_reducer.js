@@ -2,7 +2,9 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 const _nullUser = Object.freeze({
-  currentUser: null,
+  currentUser: {
+    subscribed_decks: []
+  }
 });
 
 const SessionReducer = (state = _nullUser, action) => {

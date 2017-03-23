@@ -29,7 +29,7 @@ class SearchResults extends React.Component {
             <Link to={`/decks/${deck.id}`} className="search-result-title">{deck.title}</Link>
             <section className="search-result-info">
               <p>{deck.num_cards} Cards - {deck.num_subscribers} Learners</p>
-              <p>Authored by <Link to="user_somewhere">{deck.authorName}</Link></p>
+              <p>Authored by {deck.authorName}</p>
             </section>
             <Link to={`/decks/${deck.id}`}><button>Check It Out</button></Link>
           </li>

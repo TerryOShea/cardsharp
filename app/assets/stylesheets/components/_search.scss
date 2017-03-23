@@ -31,6 +31,13 @@
   font-size: 14px;
 }
 
+.tag-link {
+  color: $blue;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .search-result-item {
   display: flex;
   align-items: center;

@@ -121,6 +121,13 @@ end
 
 
 
+# SUBSCRIPTIONS
+Subscription.create!(user_id: 5, deck_id: 1)
+Subscription.create!(user_id: 5, deck_id: 2)
+Subscription.create!(user_id: 5, deck_id: 3)
+
+
+
 # EXTRA SEEDING
 
 Deck.create!(author_id: 2, title: "Celebrities Spotted at Starbucks", description: "Title says it all")

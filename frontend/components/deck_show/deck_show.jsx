@@ -74,34 +74,48 @@ class DeckShow extends React.Component {
 
     const trash = cards.length > 0 && isOwner ? (<TrashCardContainer />) : "";
 
+    const isSubscribed = currentUser && currentUser.subscribed_decks.includes(deck.id)
+
+    const authorInfo = isOwner ? "My deck" : `Deck by ${currentUser.username}`
+    const subscribeBtn = isOwner ? "" : (
+      <button type="button">{isSubscribed ? "Unsubscribe" : "Subscribe"}</button>
+    );
+
     return (
       <div className="deck-show-container">
         <section className="deck-show-info">
-          <section className="deck-show-title">
-            {editTitleBtn}
-            <input
-              type="text"
-              value={title}
-              onChange={this.update('title')}
-              onBlur={this.disableEdit('Title')}
-              disabled={!editingTitle || !isOwner}
-              style={editingTitle ? { color: "red" } : {}} />
-          </section>
+          <section className="deck-show-info-left">
+            <section className="deck-show-title">
+              {editTitleBtn}
+              <input
+                type="text"
+                value={title}
+                onChange={this.update('title')}
+                onBlur={this.disableEdit('Title')}
+                disabled={!editingTitle || !isOwner}
+                style={editingTitle ? { color: "red" } : {}} />
+            </section>
 
-          <section className="deck-show-description">
-            {editDescriptionBtn}
-            <textarea
-              value={description}
-              placeholder="(no description)"
-              onChange={this.update('description')}
-              onBlur={this.disableEdit('Description')}
-              disabled={!editingDescription || !isOwner}
-              style={editingDescription ? {color: "red"} : {}} />
+            <section className="deck-show-description">
+              {editDescriptionBtn}
+              <textarea
+                value={description}
+                placeholder="(no description)"
+                onChange={this.update('description')}
+                onBlur={this.disableEdit('Description')}
+                disabled={!editingDescription || !isOwner}
+                style={editingDescription ? {color: "red"} : {}} />
+            </section>
+          </section>
+          <section className="deck-show-info-right">
+            <p>{authorInfo}</p>
+            <p>{deck.num_subscribers} subscribers</p>
+            {subscribeBtn}
           </section>
         </section>
 
         <section className="cards-header">
-          <h3>Cards&nbsp;
+          <h3>Cards ({deck.num_cards})&nbsp;
             {addCardBtn}
           </h3>
         </section>

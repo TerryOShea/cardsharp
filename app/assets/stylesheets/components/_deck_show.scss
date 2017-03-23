@@ -11,12 +11,25 @@
 
 .deck-show-info {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 30px;
-  width: 600px;
   position: relative;
+}
+
+.deck-show-info-left, .deck-show-info-right {
+  position: relative;
+}
+
+.deck-show-info-left {
+  width: 80%;
+}
+
+.deck-show-info-right {
+  width: 20%;
+  button {
+    margin-top: 15px;
+  }
 }
 
 .deck-show-title, .deck-show-description {

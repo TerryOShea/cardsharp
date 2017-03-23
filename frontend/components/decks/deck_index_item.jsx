@@ -12,7 +12,7 @@ const COLOR_REF = {
 
 const DeckIndexItem = ({ deck, deleteDeck }) => {
   let itemName;
-  if (deck.numCards === 0) {
+  if (deck.num_cards === 0) {
     itemName = [
         (<div className="disabled-item-name" key="1">{deck.title}</div>),
         (<p key="2"><Link to={`/decks/${deck.id}`}>add cards</Link></p>)
@@ -20,7 +20,7 @@ const DeckIndexItem = ({ deck, deleteDeck }) => {
   } else {
     itemName = [
       (<Link to={`/train/${deck.id}`} key="1">{deck.title}</Link>),
-      (<p key="2">Cards: {deck.numCards}</p>)
+      (<p key="2">Cards: {deck.num_cards}</p>)
     ];
   }
 
