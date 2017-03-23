@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 
 const Greeting = ({ currentUser, logout, router }) => {
-  if (currentUser) {
+  if (currentUser.username) {
     return (
       <nav className="header-greeting">
         <Link to="/profile">{currentUser.username}</Link>

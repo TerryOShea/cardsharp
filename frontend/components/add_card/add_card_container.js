@@ -3,7 +3,8 @@ import AddCard from './add_card';
 import { createCard } from '../../actions/card_actions';
 
 const mapStateToProps = state => ({
-  deckId: state.deckShow.id
+  deckId: state.deckShow.id,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -3,7 +3,7 @@ import React from 'react';
 const defaultState = {
   side_a: "",
   side_b: "",
-  mastery: 0,
+  mastery: 0
 };
 
 class AddCard extends React.Component {
@@ -11,7 +11,7 @@ class AddCard extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
-    this.state = Object.assign({}, defaultState);
+    this.state = Object.assign({}, defaultState, { user_id: this.props.currentUser.id });
   }
 
   update(field) {
@@ -21,7 +21,7 @@ class AddCard extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createCard(Object.assign({}, this.state, { deck_id: this.props.deckId }))
-      .then(() => this.setState(Object.assign({}, defaultState, { formActivated: true })));
+      .then(() => this.setState(Object.assign({}, defaultState, { formActivated: true, user_id: this.props.currentUser.id })));
   }
 
   toggleForm() {

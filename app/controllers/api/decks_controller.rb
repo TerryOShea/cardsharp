@@ -6,11 +6,13 @@ class Api::DecksController < ApplicationController
       offset = params[:recent][:offset].to_i || 0
       @decks = Deck.most_recent(num, offset)
     elsif params[:authorId]
+      # @decks = current_user.decks
       @decks = current_user.decks + current_user.subscribed_decks
     else
       @decks = Deck.all
     end
 
+    @current_user = current_user
     render :index
   end
 
@@ -18,6 +20,7 @@ class Api::DecksController < ApplicationController
     @deck = Deck.includes(:cards).includes(:tags).find(params[:id])
     if @deck
       @deck.touch
+      @current_user = current_user
       render :show
     else
       render json: ["deck not found"], status: 422

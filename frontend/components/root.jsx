@@ -13,13 +13,13 @@ import SearchPage from './search_page/search_page';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replaceState) => {
-    if (store.getState().session.currentUser) {
+    if (store.getState().session.currentUser.username) {
       replaceState("/profile");
     }
   };
 
   const _ensureLoggedIn = (nextState, replaceState) => {
-    if (!store.getState().session.currentUser) {
+    if (!store.getState().session.currentUser.username) {
       replaceState("/login");
     }
   };

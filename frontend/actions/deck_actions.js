@@ -53,3 +53,21 @@ export const deleteDeck = id => dispatch => (
     })
     .fail(err => dispatch(receiveErrors(err.responseJSON)))
 );
+
+export const createSubscription = subscription => dispatch => (
+  DeckAPIUtil.createSubscription(subscription)
+    .then(deck => {
+      dispatch(clearErrors());
+      dispatch(receiveDeck(deck));
+    })
+    .fail(err => dispatch(receiveErrors(err.responseJSON)))
+);
+
+export const deleteSubscription = deckId => dispatch => (
+  DeckAPIUtil.deleteSubscription(deckId)
+    .then(deck => {
+      dispatch(clearErrors());
+      dispatch(removeDeck(deck));
+    })
+    .fail(err => dispatch(receiveErrors(err.responseJSON)))
+);

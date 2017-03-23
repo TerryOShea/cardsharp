@@ -34,8 +34,8 @@ class CardShow extends React.Component {
   }
 
   updateMastery(e) {
-    const newCard = Object.assign({}, this.props.card, { mastery: parseInt(e.target.id) });
-    this.props.updateCard(newCard).then(() => {
+    const newMastery = { id: this.props.card.mastery.id, value: parseInt(e.target.id) };
+    this.props.updateCard(newMastery).then(() => {
       this.setState({ front: true, oddQuestion: !this.state.oddQuestion });
       this.props.next();
     });
@@ -49,7 +49,6 @@ class CardShow extends React.Component {
     const buttonAction = front ? this.flipCard : this.updateMastery;
     const buttonContents = front ? "Reveal Answer" : MASTERY_BUTTONS;
     const questionStyle = front ? { color: "transparent" } : { color: "black" };
-    // const cardLabel = front ? "Q." : "A."
 
     return (
       <div className="card-show-container">

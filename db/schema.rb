@@ -10,18 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323170132) do
+ActiveRecord::Schema.define(version: 20170323170817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.text     "side_a",                 null: false
-    t.text     "side_b",                 null: false
-    t.integer  "deck_id",                null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "mastery",    default: 0
+    t.text     "side_a",     null: false
+    t.text     "side_b",     null: false
+    t.integer  "deck_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["deck_id"], name: "index_cards_on_deck_id", using: :btree
   end
 
@@ -36,10 +35,11 @@ ActiveRecord::Schema.define(version: 20170323170132) do
   end
 
   create_table "masteries", force: :cascade do |t|
-    t.integer  "card_id",    null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "card_id",                null: false
+    t.integer  "user_id",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "value",      default: 0
     t.index ["card_id"], name: "index_masteries_on_card_id", using: :btree
     t.index ["user_id"], name: "index_masteries_on_user_id", using: :btree
   end

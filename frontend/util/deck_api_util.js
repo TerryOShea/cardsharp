@@ -35,3 +35,19 @@ export const updateDeck = deck => (
     data: { deck }
   })
 );
+
+export const createSubscription = subscription => (
+  $.ajax({
+    method: 'POST',
+    url: 'api/subscriptions',
+    data: { subscription }
+  })
+);
+
+export const deleteSubscription = deck_id => (
+  $.ajax({
+    method: 'DELETE',
+    url: 'api/subscriptions/0',
+    data: { deck_id }
+  })
+);

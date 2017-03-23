@@ -29,6 +29,12 @@ export const updateCard = cardData => dispatch => (
     .fail(err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+export const updateMastery = masteryData => dispatch => (
+  CardApiUtil.updateMastery(masteryData)
+    .then(card => dispatch(receiveCard(card)))
+    .fail(err => dispatch(receiveErrors(err.responseJSON)))
+)
+
 export const deleteCard = id => dispatch => (
   CardApiUtil.deleteCard(id)
     .then(card => {

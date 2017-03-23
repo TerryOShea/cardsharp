@@ -27,10 +27,10 @@ class Deck < ApplicationRecord
     query
   end
 
-  def deck_mastery
+  def deck_mastery(user_id)
     return 0 if cards.length == 0
     masterySum = 0
-    cards.each { |card| masterySum += card.mastery }
+    cards.each { |card| masterySum += card.mastery(user_id)[:value] }
     (masterySum.to_f / cards.length * 20).to_i
   end
 

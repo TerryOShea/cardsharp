@@ -3,7 +3,7 @@ import { RECEIVE_CARD, REMOVE_CARD } from '../actions/card_actions';
 import { RECEIVE_SUBSCRIPTION, REMOVE_SUBSCRIPTION } from '../actions/subscription_actions';
 import merge from 'lodash/merge';
 
-const _defaultState = Object.freeze({ cards: {} });
+const _defaultState = Object.freeze({ cards: { mastery: {} } });
 
 const DeckShowReducer = (state = _defaultState, action) => {
   Object.freeze(state);
@@ -14,9 +14,9 @@ const DeckShowReducer = (state = _defaultState, action) => {
       return merge({}, _defaultState);
     case RECEIVE_CARD:
       const cardsWithNew = merge({}, state.cards, { [action.card.id]: action.card });
-      return merge({}, state, { cards: cardsWithNew });
+      return merge({}, state, { cards: cardsWithNew, num_cards: state.num_cards + 1 });
     case REMOVE_CARD:
-      const newState = merge({}, state);
+      const newState = merge({}, state, { num_cards: state.num_cards - 1 });
       delete newState.cards[action.card.id];
       return newState;
     case RECEIVE_SUBSCRIPTION:

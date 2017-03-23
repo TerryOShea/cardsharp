@@ -25,7 +25,7 @@ class DeckTrain extends React.Component {
 
   componentDidMount() {
     this.props.fetchDeck(parseInt(this.props.params.deckId))
-      .then(() => this.setState({ cardOrder: shuffle([...Array(this.props.deck.numCards).keys()]) }));
+      .then(() => this.setState({ cardOrder: shuffle([...Array(this.props.deck.num_cards).keys()]) }));
   }
 
   nextCard() {

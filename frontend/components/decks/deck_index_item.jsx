@@ -10,7 +10,7 @@ const COLOR_REF = {
   "5": "mastery-blue"
 }
 
-const DeckIndexItem = ({ deck, deleteDeck, currentUser }) => {
+const DeckIndexItem = ({ deck, deleteDeck, deleteSubscription, currentUser, idx, deleteItem }) => {
   const isOwner = deck.author_id === currentUser.id;
 
   let itemName;
@@ -32,6 +32,21 @@ const DeckIndexItem = ({ deck, deleteDeck, currentUser }) => {
     "" :
     ` ${COLOR_REF[Math.floor(deck.mastery/20).toString()]}`;
 
+  const editBtn = isOwner ? (
+    <Link to={`/decks/${deck.id}`}>
+      <button type="button"><i className="fa fa-edit"></i></button>
+    </Link>) : "";
+
+  const deleteBtn = isOwner ? (
+    <button type="button" onClick={() => deleteDeck(deck.id)}>
+      <i className="fa fa-trash"></i>
+    </button>
+  ) : (
+    <button type="button" onClick={() => {
+      deleteSubscription(deck.id).then(() => deleteItem(idx));
+    }}>Unsubscribe</button>
+  );
+
   return (
     <li className="deck-item">
       <p className={`deck-item-mastery${masteryClass}`}>{deck.mastery}%</p>
@@ -41,12 +56,8 @@ const DeckIndexItem = ({ deck, deleteDeck, currentUser }) => {
       </section>
 
       <section className="deck-item-btns">
-        <Link to={`/decks/${deck.id}`}>
-          <button type="button"><i className="fa fa-edit"></i></button>
-        </Link>
-        <button type="button" onClick={() => deleteDeck(deck.id)}>
-          <i className="fa fa-trash"></i>
-        </button>
+        {editBtn}
+        {deleteBtn}
       </section>
     </li>
   );

@@ -5,7 +5,10 @@ import { fetchTagShow, clearTagShow } from '../../actions/tag_actions';
 
 const mapStateToProps = state => ({
   tagName: state.tagShow.name,
-  resultDecks: Object.keys(state.tagShow.decks).map(id => state.tagShow.decks[id])
+  resultDecks: Object.keys(state.decks)
+                 .map(id => state.decks[id])
+                 .sort((deckA, deckB) => deckA.num_subscribers < deckB.num_subscribers),
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

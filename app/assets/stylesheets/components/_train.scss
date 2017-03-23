@@ -143,6 +143,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  padding: 0 30px;
+  text-align: center;
 
   &:hover {
     cursor: pointer;

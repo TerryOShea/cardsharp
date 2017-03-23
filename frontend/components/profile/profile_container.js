@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Profile from './profile';
-import { fetchDecks } from '../../actions/deck_actions';
+import { fetchDecks, createSubscription } from '../../actions/deck_actions';
 
 const mapStateToProps = state => ({
   errors: state.errors,
@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchDecks: id => dispatch(fetchDecks({ authorId: id }))
+  fetchDecks: id => dispatch(fetchDecks({ authorId: id })),
+  createSubscription: id => dispatch(createSubscription(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

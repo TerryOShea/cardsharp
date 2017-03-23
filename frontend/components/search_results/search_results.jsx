@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import SearchResultItemContainer from './search_result_item_container';
 
 class SearchResults extends React.Component {
   constructor() {
@@ -18,22 +19,15 @@ class SearchResults extends React.Component {
   }
 
   render() {
-    const { tagName, resultDecks } = this.props;
+    const { tagName, resultDecks, currentUser } = this.props;
 
     if (tagName) {
       let deckItems = (<li>No results found.</li>);
 
       if (Object.keys(resultDecks).length > 0) {
-        deckItems = resultDecks.map(deck => (
-          <li key={deck.id} className="search-result-item">
-            <Link to={`/decks/${deck.id}`} className="search-result-title">{deck.title}</Link>
-            <section className="search-result-info">
-              <p>{deck.num_cards} Cards - {deck.num_subscribers} Learners</p>
-              <p>Authored by {deck.authorName}</p>
-            </section>
-            <Link to={`/decks/${deck.id}`}><button>Check It Out</button></Link>
-          </li>
-        ));
+        deckItems = resultDecks.map(deck => {
+          return (<SearchResultItemContainer key={deck.id} deck={deck} />);
+        });
       }
 
       return (

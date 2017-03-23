@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :cards, only: [:show, :create, :destroy, :update]
     resources :tags, only: [:index, :show]
     resources :subscriptions, only: [:create, :destroy]
+    resources :masteries, only: [:create, :update, :show]
   end
 end

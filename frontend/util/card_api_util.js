@@ -23,6 +23,14 @@ export const updateCard = card => (
   })
 );
 
+export const updateMastery = mastery => (
+  $.ajax({
+    method: 'PATCH',
+    url: `api/masteries/${mastery.id}`,
+    data: { mastery }
+  })
+)
+
 export const deleteCard = id => (
   $.ajax({
     method: 'DELETE',
