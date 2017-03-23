@@ -5,14 +5,14 @@
 .search-bar-container {
   width: 30vw;
   position: fixed;
-  top: 60px;
+  top: 55px;
 }
 
 .search-results-box {
   width: 70vw;
   position: absolute;
   right: 0;
-  top: 60px;
+  top: 56px;
 }
 
 .search-results {
@@ -40,11 +40,18 @@
   border-bottom: 1px solid $lightgray;
   box-sizing: border-box;
   padding: 0 15px;
+  position: relative;
 }
 
 .search-result-title {
   font-size: 24px;
   color: $blue;
+  width: 40%;
+}
+
+.search-result-info {
+  position: absolute;
+  left: 40%;
 }
 
 .search-entry-box {

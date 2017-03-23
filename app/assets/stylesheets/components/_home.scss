@@ -3,4 +3,9 @@
   align-items: center;
   justify-content: center;
   height: calc(100vh - 50px);
+  background-image: url(image_path("splash.jpg"));
+  background-size: cover;
+  background-repeat: no-repeat;
+  // -webkit-filter: brightness(0.5);
+  // filter: brightness(0.5);
 }

@@ -5,3 +5,11 @@ export const fetchTags = name => (
     data: { name }
   })
 );
+
+export const fetchPopularTags = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/tags',
+    data: { popular: 10 }
+  })
+)

@@ -20,8 +20,7 @@ class AddDeck extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createDeck(Object.assign({}, this.state))
-      .then(() => this.setState(Object.assign({}, defaultState)));
+    this.props.createDeck(Object.assign({}, this.state));
   }
 
   addTag(tagName) {
@@ -44,13 +43,13 @@ class AddDeck extends React.Component {
 
   render() {
     const { title, description, tags, is_private } = this.state;
-    const formStyle = this.props.active ? { height: 260 } : { height: 0 };
+    const formStyle = this.props.active ? { height: 320 } : { height: 0 };
     const capitalize = word => `${word[0].toUpperCase()}${word.slice(1)}`;
     const toggleStyle = is_private ? { right: 0 } : { left: 0 };
 
     const tagItems = tags.map(tag => (
       <li key={tag}>
-        <span className="remove-tag-btn" onClick={() => this.removeTag(tag)}>x</span>&nbsp;
+        <button className="remove-tag-btn" onClick={() => this.removeTag(tag)}><i className="fa fa-close"></i></button>&nbsp;
         {tag}
       </li>
     ));
@@ -72,11 +71,11 @@ class AddDeck extends React.Component {
 
         <section className="add-deck-form-bottom">
           <section className="privacy-section">
-            Public
-            <div className="privacy-toggler">
-              <div className="toggle" style={toggleStyle} onClick={this.updateToggle}></div>
+            <p className={is_private ? "" : "privacy-selected"}>Public</p>
+            <div className="privacy-toggler" onClick={this.updateToggle}>
+              <div className="toggle" style={toggleStyle}></div>
             </div>
-            Private
+            <p className={is_private ? "privacy-selected" : ""}>Private</p>
           </section>
 
           <button>Add</button>

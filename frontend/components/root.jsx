@@ -14,7 +14,7 @@ import SearchPage from './search_page/search_page';
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replaceState) => {
     if (store.getState().session.currentUser) {
-      replaceState("/");
+      replaceState("/profile");
     }
   };
 
@@ -32,7 +32,7 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={HomeContainer} />
+          <IndexRoute component={HomeContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} onLeave={_clearErrors} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} onLeave={_clearErrors} />
           <Route path="/profile" component={ProfileContainer} onEnter={_ensureLoggedIn} onLeave={_clearErrors} />
