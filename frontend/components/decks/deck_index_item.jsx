@@ -10,13 +10,17 @@ const COLOR_REF = {
   "5": "mastery-blue"
 }
 
-const DeckIndexItem = ({ deck, deleteDeck }) => {
+const DeckIndexItem = ({ deck, deleteDeck, currentUser }) => {
+  const isOwner = deck.author_id === currentUser.id;
+
   let itemName;
   if (deck.num_cards === 0) {
-    itemName = [
-        (<div className="disabled-item-name" key="1">{deck.title}</div>),
-        (<p key="2"><Link to={`/decks/${deck.id}`}>add cards</Link></p>)
-    ];
+    itemName = [(<div className="disabled-item-name" key="1">{deck.title}</div>)];
+    if (isOwner) {
+      itemName.push(<p key="2"><Link to={`/decks/${deck.id}`}>add cards</Link></p>);
+    } else {
+      itemName.push(<p key="2">Cards: 0</p>);
+    }
   } else {
     itemName = [
       (<Link to={`/train/${deck.id}`} key="1">{deck.title}</Link>),
