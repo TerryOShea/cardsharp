@@ -74,12 +74,14 @@ class DeckShow extends React.Component {
 
     const trash = cards.length > 0 && isOwner ? (<TrashCardContainer />) : "";
 
-    const isSubscribed = currentUser && currentUser.subscribed_decks.includes(deck.id)
+    const isSubscribed = currentUser.subscribed_decks.includes(deck.id)
 
-    const authorInfo = isOwner ? "My deck" : `Deck by ${currentUser.username}`
-    const subscribeBtn = isOwner ? "" : (
+    const authorInfo = isOwner ? "My deck" : `Deck by ${deck.author_name}`
+    const subscribeBtn = (isOwner || !currentUser.id) ? "" : (
       <button type="button">{isSubscribed ? "Unsubscribe" : "Subscribe"}</button>
     );
+
+    const subscriberS = deck.num_subscribers === 1 ? "subscriber" : "subscribers";
 
     return (
       <div className="deck-show-container">
@@ -109,7 +111,7 @@ class DeckShow extends React.Component {
           </section>
           <section className="deck-show-info-right">
             <p>{authorInfo}</p>
-            <p>{deck.num_subscribers} subscribers</p>
+            <p>{deck.num_subscribers} {subscriberS}</p>
             {subscribeBtn}
           </section>
         </section>

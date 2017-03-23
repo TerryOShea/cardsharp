@@ -3,14 +3,16 @@ import { Link } from 'react-router';
 
 const SearchResultItem = ({ deck, currentUser, createSubscription, deleteSubscription }) => {
 
-  const isOwner = currentUser && currentUser.id === deck.author_id;
-  const isSubscribed = currentUser && currentUser.subscribed_decks.includes(deck.id);
+  const isOwner = currentUser.id === deck.author_id;
+  const isSubscribed = currentUser.subscribed_decks.includes(deck.id);
 
   const learnerS = deck.num_subscribers === 1 ? "Learner" : "Learners";
   const author = isOwner ? "(your deck)" : `Authored by ${deck.authorName}`
 
   let button;
-  if (isSubscribed) {
+  if (!currentUser.id) {
+    button = (<p><Link to="/signup">Sign up</Link> to train</p>);
+  } else if (isSubscribed) {
     button = (
       <button className="unsubscribe-btn" onClick={() => deleteSubscription(deck.id)}>
         Unsubscribe
