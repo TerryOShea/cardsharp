@@ -6,7 +6,7 @@ const SearchPage = props => (
   <div className="search-page">
     <SearchBar />
     <section className="search-results-box">
-      <div className="search-results-header">Browse Flashcards</div>
+      <div className="search-results-header">Browse Decks</div>
       <SearchResultsContainer />
     </section>
   </div>

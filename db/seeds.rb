@@ -164,7 +164,7 @@ Card.create!(side_a: "Which is better in the field, water or lighter fluid?", si
 Tagging.create!(deck_id: 14, tag_id: 87)
 Tagging.create!(deck_id: 14, tag_id: 224)
 
-Deck.create!(author_id: 3, title: "McDonalds Slogans Throughout the Ages", description: "Ronald McDonald's smooth verbalizations.")
+Deck.create!(author_id: 3, title: "McDonalds Slogans Throughout Time", description: "Ronald McDonald's smooth verbalizations.")
 Card.create!(side_a: "Put a __ on", side_b: "Smile", deck_id: 15)
 Tagging.create!(deck_id: 15, tag_id: 88)
 Tagging.create!(deck_id: 15, tag_id: 186)

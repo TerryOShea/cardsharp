@@ -4,7 +4,8 @@ import { fetchDeckShow, deleteDeckShow, updateDeckShow } from '../../actions/dec
 
 const mapStateToProps = state => ({
   deck: state.deckShow,
-  cards: Object.keys(state.deckShow.cards).map(id => state.deckShow.cards[id])
+  cards: Object.keys(state.deckShow.cards).map(id => state.deckShow.cards[id]),
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

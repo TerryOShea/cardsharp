@@ -6,35 +6,41 @@
 .cards-holder {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .deck-show-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 30px auto 0 auto;
+  align-items: flex-start;
+  margin-top: 30px;
   width: 600px;
   position: relative;
+}
+
+.deck-show-title, .deck-show-description {
+  display: flex;
 
   input {
     margin-left: 0;
     font-size: 36px;
-    text-align: center;
     border: 0;
+    width: 80vw;
   }
 
   textarea {
-    width: 400px;
-    text-align: center;
+    width: 80vw;
   }
 
   button {
     background-color: transparent;
-    color: black;
+    color: $gray;
     font-size: 24px;
-    position: absolute;
-    right: 0;
+
+    &:hover {
+      color: black;
+    }
   }
 }
 

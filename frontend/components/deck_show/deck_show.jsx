@@ -7,10 +7,11 @@ class DeckShow extends React.Component {
   constructor(props) {
     super(props);
     this.toggleForm = this.toggleForm.bind(this);
-    this.toggleEdit = this.toggleEdit.bind(this);
     this.state = {
       formActivated: false,
-      editEnabled: false
+      editingTitle: false,
+      editingDescription: false,
+      editingTags: false
     }
   }
 
@@ -29,12 +30,15 @@ class DeckShow extends React.Component {
     this.setState({ formActivated: !this.state.formActivated });
   }
 
-  toggleEdit() {
-    if (this.state.editEnabled) {
-      this.props.updateDeck(Object.assign({}, this.props.deck, this.state));
-    }
+  enableEdit(field) {
+    return () => this.setState({ [`editing${field}`]: true });
+  }
 
-    this.setState({ editEnabled: !this.state.editEnabled });
+  disableEdit(field) {
+    return () => {
+      this.props.updateDeck(Object.assign({}, this.props.deck, this.state));
+      this.setState({ [`editing${field}`]: false });
+    }
   }
 
   update(field) {
@@ -42,47 +46,63 @@ class DeckShow extends React.Component {
   }
 
   render() {
-    const { cards, deck } = this.props;
-    const { formActivated, editEnabled, title, description } = this.state;
+    const { cards, deck, currentUser } = this.props;
+    const { formActivated, editingTitle, editingDescription, editingTags, title, description } = this.state;
+    const isOwner = currentUser && currentUser.id === deck.author_id;
 
     const cardItems = cards.map(card => (
-      <CardItemContainer key={card.id} card={card} />
+      <CardItemContainer key={card.id} card={card} isOwner={isOwner} />
     ));
 
     const addCardBtnText = this.state.formActivated ? "-" : "+";
+    const addCardBtn = isOwner ? (
+      <button className="add-card-btn" onClick={this.toggleForm}>
+        {addCardBtnText}
+      </button>) : "";
 
-    const titleIcon = this.state.editEnabled ? "check" : "edit";
-    const infoStyle = this.state.editEnabled ? { color: "red" } : {};
+    const editTitleBtn = isOwner ? (
+      <button type="button" onClick={this.enableEdit('Title')}>
+        {editingTitle ? "" : <i className="fa fa-edit"></i>}
+      </button>
+    ) : "";
 
-    const trash = cards.length > 0 ? (<TrashCardContainer />) : "";
+    const editDescriptionBtn = isOwner ? (
+      <button type="button" onClick={this.enableEdit('Description')}>
+        {editingDescription ? "" : <i className="fa fa-edit"></i>}
+      </button>
+    ) : "";
+
+    const trash = cards.length > 0 && isOwner ? (<TrashCardContainer />) : "";
 
     return (
       <div className="deck-show-container">
         <section className="deck-show-info">
-          <input
-            type="text"
-            value={title}
-            onChange={this.update('title')}
-            disabled={!editEnabled}
-            style={infoStyle} />
+          <section className="deck-show-title">
+            {editTitleBtn}
+            <input
+              type="text"
+              value={title}
+              onChange={this.update('title')}
+              onBlur={this.disableEdit('Title')}
+              disabled={!editingTitle || !isOwner}
+              style={editingTitle ? { color: "red" } : {}} />
+          </section>
 
-          <textarea
-            value={description}
-            placeholder="(no description)"
-            onChange={this.update('description')}
-            disabled={!editEnabled}
-            style={infoStyle} />
-
-          <button type="button" onClick={this.toggleEdit}>
-            <i className={`fa fa-${titleIcon}`}></i>
-          </button>
+          <section className="deck-show-description">
+            {editDescriptionBtn}
+            <textarea
+              value={description}
+              placeholder="(no description)"
+              onChange={this.update('description')}
+              onBlur={this.disableEdit('Description')}
+              disabled={!editingDescription || !isOwner}
+              style={editingDescription ? {color: "red"} : {}} />
+          </section>
         </section>
 
         <section className="cards-header">
           <h3>Cards&nbsp;
-            <button className="add-card-btn" onClick={this.toggleForm}>
-              {addCardBtnText}
-            </button>
+            {addCardBtn}
           </h3>
         </section>
 
