@@ -7,6 +7,8 @@ class Deck < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, source: :tag
 
+  belongs_to :author, class_name: :User, primary_key: :id, foreign_key: :author_id
+
   def tag_names=(tag_names)
     self.tags = tag_names.map do |tag_name|
       Tag.find_or_create_by(name: tag_name)

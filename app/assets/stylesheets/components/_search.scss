@@ -19,6 +19,7 @@
   background-color: $offwhite;
   box-sizing: border-box;
   padding: 20px;
+  min-height: calc(100vh - 160px);
 }
 
 .search-results-title {

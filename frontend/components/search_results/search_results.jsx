@@ -10,7 +10,10 @@ const SearchResults = ({ tagName, resultDecks }) => {
       deckItems = resultDecks.map(deck => (
         <li key={deck.id} className="search-result-item">
           <p className="search-result-title">{deck.title}</p>
-          <section>number of cards, number of learners; author</section>
+          <section className="search-result-info">
+            <p>{deck.numCards} Cards - {0} Learners</p>
+            <p>Authored by <Link to="user_somewhere">{deck.authorName}</Link></p>
+          </section>
           <Link to={`/somewhere`}><button>Check It Out</button></Link>
         </li>
       ));
