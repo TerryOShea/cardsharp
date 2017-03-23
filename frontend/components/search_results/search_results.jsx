@@ -26,12 +26,12 @@ class SearchResults extends React.Component {
       if (Object.keys(resultDecks).length > 0) {
         deckItems = resultDecks.map(deck => (
           <li key={deck.id} className="search-result-item">
-            <p className="search-result-title">{deck.title}</p>
+            <Link to={`/decks/${deck.id}`} className="search-result-title">{deck.title}</Link>
             <section className="search-result-info">
-              <p>{deck.numCards} Cards - {0} Learners</p>
+              <p>{deck.num_cards} Cards - {deck.num_subscribers} Learners</p>
               <p>Authored by <Link to="user_somewhere">{deck.authorName}</Link></p>
             </section>
-            <Link to={`/somewhere`}><button>Check It Out</button></Link>
+            <Link to={`/decks/${deck.id}`}><button>Check It Out</button></Link>
           </li>
         ));
       }

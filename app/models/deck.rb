@@ -6,8 +6,10 @@ class Deck < ApplicationRecord
   has_many :cards, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, source: :tag
+  has_many :subscriptions
+  has_many :subscribers, through: :subscriptions, source: :user
 
-  belongs_to :author, class_name: :User, primary_key: :id, foreign_key: :author_id
+  belongs_to :author, class_name: :User, foreign_key: :author_id
 
   def tag_names=(tag_names)
     self.tags = tag_names.map do |tag_name|
@@ -34,6 +36,10 @@ class Deck < ApplicationRecord
 
   def num_cards
     cards.length
+  end
+
+  def num_subscribers
+    subscribers.length
   end
 
 end

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :decks, only: [:create, :destroy, :index, :update, :show]
     resources :cards, only: [:show, :create, :destroy, :update]
     resources :tags, only: [:index, :show]
+    resources :subscriptions, only: [:create, :destroy]
   end
 end

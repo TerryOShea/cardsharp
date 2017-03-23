@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :decks, foreign_key: :author_id, primary_key: :id
+  has_many :subscriptions
+  has_many :subscribed_decks, through: :subscriptions, source: :deck
 
   attr_reader :password
 
