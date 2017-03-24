@@ -54,7 +54,6 @@ class DeckShow extends React.Component {
 
   disableEdit(field) {
     return () => {
-      console.log(field);
       this.props.updateDeck(Object.assign({}, this.props.deck, this.state));
       this.setState({ [`editing${field}`]: false });
     }

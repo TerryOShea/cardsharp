@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
-import ErrorBox from '../errors/error_box';
 
 class SessionForm extends Component {
   constructor(props) {
@@ -37,7 +36,6 @@ class SessionForm extends Component {
 
     return (
       <div className="session-form-container">
-        <ErrorBox errors={errors} />
         <h3 className="session-form-title">{title}</h3>
         <form onSubmit={this.handleSubmit} className="session-form">
           <input

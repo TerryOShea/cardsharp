@@ -26,20 +26,4 @@ class Decks extends React.Component {
   }
 }
 
-// const Decks = ({ decks }) => {
-//   const deleteItem = idx => {
-//     console.log(deckItems.length);
-//     deckItems.splice(idx, 1);
-//     console.log(deckItems.length);
-//   };
-//
-//   const deckItems = decks.map((deck, idx) => (
-//     <DeckIndexItemContainer key={deck.id} deck={deck} idx={idx} deleteItem={deleteItem} />
-//   ));
-//
-//   return (
-//     <ul className="decks-container">{deckItems}</ul>
-//   );
-// }
-
 export default Decks;

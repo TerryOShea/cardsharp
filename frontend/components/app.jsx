@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import GreetingContainer from './greeting/greeting_container';
+import ErrorBoxContainer from './errors/error_box_container';
 
 const App = ({ children, location }) => {
   const hideHeader = location.pathname.match(/^\/train\/\d+$/);
@@ -24,6 +25,7 @@ const App = ({ children, location }) => {
   return (
     <div className="page-container">
       {header}
+      <ErrorBoxContainer />
       {children}
     </div>
   );

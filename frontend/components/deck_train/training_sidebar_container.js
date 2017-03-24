@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
   deckTitle: state.deckShow.title,
   otherDecks: Object.keys(state.decks)
     .map(id => {
-      return { id: parseInt(id), title: state.decks[id].title, numCards: state.decks[id].numCards }
+      return { id: parseInt(id), title: state.decks[id].title, numCards: state.decks[id].num_cards }
     })
     .filter(item => item.id !== state.deckShow.id && item.numCards !== 0)
     .sort((a, b) => a.title > b.title),
