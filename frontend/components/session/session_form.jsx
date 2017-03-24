@@ -24,7 +24,7 @@ class SessionForm extends Component {
 
   demoLogin(e) {
     e.preventDefault();
-    const demoLogin = { username: "Terry", password: "password" };
+    const demoLogin = { username: "Terry", password: "primrose" };
     const { processForm, router } = this.props;
     processForm(demoLogin).then(() => router.push("/profile"));
   }
