@@ -6,6 +6,7 @@
 .cards-holder {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 30px;
 }
 
@@ -26,17 +27,23 @@
 }
 
 .deck-show-info-right {
+  margin-right: 50px;
+  text-align: right;
   width: 20%;
   button {
     margin-top: 15px;
   }
 }
 
+.deck-show-profile-btn {
+  margin-bottom: 30px
+}
+
 .deck-show-title, .deck-show-description {
   display: flex;
 
   input {
-    margin-left: 0;
+    margin-left: -15px;
     font-size: 36px;
     border: 0;
     width: 80vw;
@@ -44,6 +51,7 @@
 
   textarea {
     width: 80vw;
+    margin-left: -10px;
   }
 }
 

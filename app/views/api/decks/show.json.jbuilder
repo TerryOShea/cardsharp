@@ -7,7 +7,7 @@ json.set! :cards, {}
 json.set! :cards do
   @deck.cards.each do |card|
     json.set! card.id do
-      json.mastery @current_user ? card.mastery(@current_user) : 0
+      json.mastery @current_user && @current_user.subscribed_decks.include?(@deck) ? card.mastery(@current_user.id) : 0
       json.partial! 'api/cards/card', card: card
     end
   end

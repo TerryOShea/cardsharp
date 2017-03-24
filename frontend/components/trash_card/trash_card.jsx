@@ -30,14 +30,14 @@ class TrashCard extends React.Component {
     const trashStyle = this.state.hovering ? { backgroundColor: "gray" } : {};
 
     return (
-      <section
+      <li
         style={trashStyle}
         className="trash-card"
         onDragOver={this.onDragOver}
         onDragLeave={this.onDragLeave}
         onDrop={this.onDrop}>
         <i className="fa fa-trash"></i>
-      </section>
+      </li>
     )
   }
 }

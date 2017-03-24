@@ -61,7 +61,7 @@ class CardItem extends React.Component {
     const textStyle = this.state.editing ? { color: "red" } : {};
 
     return (
-      <li className="card" data-id={id} draggable onDragStart={this.dragStart}>
+      <li key={id} className="card" data-id={id} draggable onDragStart={this.dragStart}>
         <textarea
           value={showText}
           onChange={this.update(flipped ? 'side_b' : 'side_a')}

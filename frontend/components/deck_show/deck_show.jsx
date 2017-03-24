@@ -66,10 +66,18 @@ class DeckShow extends React.Component {
   }
 
   render() {
-    const { cards, deck, currentUser } = this.props;
+    const { cards, deck, currentUser, createSubscription, deleteSubscription } = this.props;
     const { formActivated, editingTitle, editingDescription, editingTags, title, description } = this.state;
     const isOwner = currentUser && currentUser.id === deck.author_id;
-    const isSubscribed = currentUser.subscribed_decks.includes(deck.id)
+    const isSubscribed = currentUser.subscribed_decks.includes(deck.id);
+
+    const toProfileBtn = isOwner ? (
+      <Link to="/profile">
+        <button type="button" className="deck-show-profile-btn">
+          <i className="fa fa-angle-left"></i> Back
+        </button>
+      </Link>
+    ) : "";
 
     const editTitleBtn = isOwner ? (
       <button type="button" className="deck-show-edit-btn" onClick={this.enableEdit('Title')}>
@@ -106,9 +114,22 @@ class DeckShow extends React.Component {
       "";
 
     const authorInfo = isOwner ? "My deck" : `Deck by ${deck.author_name}`
-    const subscribeBtn = (isOwner || !currentUser.id) ? "" : (
-      <button type="button">{isSubscribed ? "Unsubscribe" : "Subscribe"}</button>
-    );
+
+    let subscribeBtn = "";
+
+    if (isSubscribed) {
+      subscribeBtn = (<button type="button" onClick={() => deleteSubscription(deck.id)}>Unsubscribe</button>);
+    } else if (!isOwner && !isSubscribed) {
+      subscribeBtn = (<button type="button" onClick={() => createSubscription({ deck_id: deck.id })}>Subscribe</button>);
+    }
+
+    // const subscribeBtnText = isSubscribed ? "Unsubscribe" : "Subscribe";
+    //
+    // const subscribeBtn = (isOwner || !currentUser.id) ? "" : (
+    //   <button type="button" onClick={isSubscribed ? () => deleteSubscription(deck.id) : () => createSubscription({ deck_id: deck.id }) }>{subscribeBtnText}</button>
+    // );
+
+
     const trainBtn = (isOwner || isSubscribed) ?
       (<Link to={`/train/${deck.id}`}><button type="button">Train</button></Link>) : "";
 
@@ -130,6 +151,8 @@ class DeckShow extends React.Component {
       <div className="deck-show-container">
         <section className="deck-show-info">
           <section className="deck-show-info-left">
+            {toProfileBtn}
+
             <section className="deck-show-title">
               {editTitleBtn}
               <input
@@ -155,7 +178,7 @@ class DeckShow extends React.Component {
             <section className="deck-show-tags">
               <section className="deck-show-tag-line">
                 {editTagsBtn}
-                Tags:
+                Tags: &nbsp;
                 <ul className="tags-container">{tagItems}</ul>
               </section>
               {addTagsInput}
@@ -180,9 +203,9 @@ class DeckShow extends React.Component {
 
         <ul className="cards-holder">
           {cardItems}
+          {trash}
         </ul>
 
-        {trash}
       </div>
     )
   }

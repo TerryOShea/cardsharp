@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import DeckShow from './deck_show';
 import { fetchDeckShow, deleteDeckShow, updateDeckShow } from '../../actions/deck_show_actions';
+import { createSubscription, deleteSubscription } from '../../actions/deck_actions';
 
 const mapStateToProps = state => ({
   deck: state.deckShow,
@@ -12,7 +13,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchDeck: () => dispatch(fetchDeckShow(ownProps.params.deckId)),
   removeDeck: () => dispatch(deleteDeckShow()),
-  updateDeck: deck => dispatch(updateDeckShow(deck))
+  updateDeck: deck => dispatch(updateDeckShow(deck)),
+  createSubscription: subscription => dispatch(createSubscription(subscription)),
+  deleteSubscription: id => dispathc(deleteSubscription(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckShow);

@@ -19,7 +19,7 @@ class Api::MasteriesController < ApplicationController
   end
 
   def update
-    mastery = Mastery.find(params[:id])
+    mastery = Mastery.find_by(card_id: params[:mastery][:card_id], user_id: current_user.id)
     if mastery.update(mastery_params)
       @card = Card.find(mastery.card_id)
       @mastery = { id: mastery.id, value: mastery.value }

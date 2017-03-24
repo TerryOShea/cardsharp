@@ -34,7 +34,7 @@ class CardShow extends React.Component {
   }
 
   updateMastery(e) {
-    const newMastery = { id: this.props.card.mastery.id, value: parseInt(e.target.id) };
+    const newMastery = { card_id: this.props.card.id, value: parseInt(e.target.id) };
     this.props.updateCard(newMastery).then(() => {
       this.setState({ front: true, oddQuestion: !this.state.oddQuestion });
       this.props.next();
