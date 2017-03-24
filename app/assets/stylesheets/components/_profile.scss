@@ -139,3 +139,18 @@
     cursor: pointer;
   }
 }
+
+.profile-decks {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  margin: 0 auto 30px auto;
+
+  > p {
+    font-style: italic;
+    position: absolute;
+    top: 25px;
+    left: 10px;
+  }
+}

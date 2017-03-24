@@ -29,7 +29,10 @@ class Profile extends React.Component {
           </h3>
         </div>
         <AddDeckContainer active={formActivated} />
-        <Decks decks={this.props.decks} />
+        <section className="profile-decks">
+          <p>Mastery</p>
+          <Decks decks={this.props.decks} />
+        </section>
       </div>
     )
   }
