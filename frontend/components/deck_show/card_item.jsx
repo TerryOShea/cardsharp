@@ -45,12 +45,12 @@ class CardItem extends React.Component {
     const lock = editing ? "check" : "edit";
 
     let editOptions = "";
-    if (editing) {
-      editOptions = [
-        <button type="button" key="1">B</button>,
-        <button type="button" key="2">I</button>,
-      ];
-    }
+    // if (editing) {
+    //   editOptions = [
+    //     <button type="button" key="1">B</button>,
+    //     <button type="button" key="2">I</button>,
+    //   ];
+    // }
 
     const editBtn = isOwner ? (
       <button onClick={this.toggleEdit} className="edit-btn">

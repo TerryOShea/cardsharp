@@ -5,7 +5,7 @@ class TrashCard extends React.Component {
     super(props);
     this.onDragOver = this.onDragOver.bind(this);
     this.onDragLeave = this.onDragLeave.bind(this);
-    this.drop = this.drop.bind(this);
+    this.onDrop = this.onDrop.bind(this);
     this.state = { hovering: false };
   }
 
