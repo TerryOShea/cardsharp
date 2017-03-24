@@ -20,7 +20,7 @@ class TrashCard extends React.Component {
     this.setState({ hovering: false });
   }
 
-  drop(e) {
+  onDrop(e) {
     e.preventDefault();
     const cardId = e.dataTransfer.getData("cardId");
     this.props.deleteCard(cardId);
@@ -35,7 +35,7 @@ class TrashCard extends React.Component {
         className="trash-card"
         onDragOver={this.onDragOver}
         onDragLeave={this.onDragLeave}
-        onDrop={this.drop}>
+        onDrop={this.onDrop}>
         <i className="fa fa-trash"></i>
       </section>
     )

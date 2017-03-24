@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router';
+
 import CardItemContainer from './card_item_container';
 import AddCardContainer from '../add_card/add_card_container';
 import TrashCardContainer from '../trash_card/trash_card_container';
@@ -107,6 +109,8 @@ class DeckShow extends React.Component {
     const subscribeBtn = (isOwner || !currentUser.id) ? "" : (
       <button type="button">{isSubscribed ? "Unsubscribe" : "Subscribe"}</button>
     );
+    const trainBtn = (isOwner || isSubscribed) ?
+      (<Link to={`/train/${deck.id}`}><button type="button">Train</button></Link>) : "";
 
     const subscriberS = deck.num_subscribers === 1 ? "subscriber" : "subscribers";
 
@@ -162,6 +166,7 @@ class DeckShow extends React.Component {
             <p>{authorInfo}</p>
             <p>{deck.num_subscribers} {subscriberS}</p>
             {subscribeBtn}
+            {trainBtn}
           </section>
         </section>
 
