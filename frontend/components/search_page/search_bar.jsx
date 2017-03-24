@@ -8,7 +8,7 @@ const SearchBar = () => (
       <SearchInputContainer />
     </section>
     <section className="search-entry-img">
-      <aside>Search over 10 subjects created by top students, professors,
+      <aside>Search over 200 subjects created by top students, professors,
       publishers, and experts</aside>
     </section>
   </nav>
