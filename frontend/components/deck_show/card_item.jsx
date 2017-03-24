@@ -72,7 +72,7 @@ class CardItem extends React.Component {
           {editBtn}
           {editOptions}
           <button onClick={this.toggleFlip} className="flip-btn">
-            <i className={`fa fa-chevron-${arrow}`}></i>
+            <i className={`fa fa-angle-${arrow}`}></i>
           </button>
         </section>
       </li>

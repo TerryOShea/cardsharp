@@ -15,6 +15,24 @@
   top: 56px;
 }
 
+.search-results-popular {
+  font-size: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px 30px 0 30px;
+
+  li {
+    background-color: lighten($lightgray, 5%);
+    padding: 5px 10px;
+    margin: 5px;
+
+    &:hover {
+      background-color: $lightgray;
+    }
+  }
+}
+
 .search-results {
   background-color: $offwhite;
   box-sizing: border-box;

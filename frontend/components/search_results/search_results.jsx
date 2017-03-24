@@ -19,7 +19,7 @@ class SearchResults extends React.Component {
   }
 
   render() {
-    const { tagName, resultDecks, currentUser } = this.props;
+    const { tagName, resultDecks, currentUser, clearTagShow } = this.props;
 
     if (tagName) {
       let deckItems = (<li>No results found.</li>);
@@ -31,10 +31,13 @@ class SearchResults extends React.Component {
       }
 
       return (
-        <div className="search-results">
-          <h3 className="search-results-title">{tagName} Decks Ranked by Popularity</h3>
-          <ul className="search-results-list">{deckItems}</ul>
-        </div>
+        <section className="search-results-box">
+          <a className="search-results-header" onClick={clearTagShow}><i className="fa fa-angle-left"></i> &nbsp;Back</a>
+          <section className="search-results">
+            <h3 className="search-results-title">{tagName} Decks Ranked by Popularity</h3>
+            <ul className="search-results-list">{deckItems}</ul>
+          </section>
+        </section>
       );
     } else {
 
@@ -43,10 +46,13 @@ class SearchResults extends React.Component {
       ));
 
       return (
-        <div className="search-results">
-          <h3 className="search-results-title">Browse Popular Subjects</h3>
-          <ul>{tagItems}</ul>
-        </div>
+        <section className="search-results-box">
+          <p className="search-results-header">Browse Decks</p>
+          <section className="search-results">
+            <h3 className="search-results-title">Browse Popular Subjects</h3>
+            <ul className="search-results-popular">{tagItems}</ul>
+          </section>
+        </section>
       );
     }
   }

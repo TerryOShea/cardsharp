@@ -10,6 +10,6 @@ export const fetchPopularTags = () => (
   $.ajax({
     method: 'GET',
     url: 'api/tags',
-    data: { popular: 10 }
+    data: { popular: 50 }
   })
 )
