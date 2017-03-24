@@ -23,6 +23,30 @@ the decks made by that user in addition to those made by others that the user ha
 subscribed to. If a user is editing or studying a deck, more detailed information
 is kept in the Redux store's `deckShow`, including the deck's cards.
 
+#### Component methods to drag and drop cards to be deleted
+
+card_item.jsx
+```javascript
+dragStart(e) {
+  e.dataTransfer.setData("cardId", e.target.dataset.id);
+}
+// ...
+render() {
+  return (
+    <li className="card" data-id={id} draggable onDragStart={this.dragStart}>...</li>
+  )
+}
+```
+
+trash_card.jsx
+```javascript
+onDrop(e) {
+  e.preventDefault();
+  const cardId = e.dataTransfer.getData("cardId");
+  this.props.deleteCard(cardId);
+}
+```
+
 #### Spotlight: Mastery
 Originally, cards were stored with a `mastery` attribute--a number 1 through 5
 representing the deck owner's mastery of that card's material, updated every
@@ -41,6 +65,8 @@ pared-down interface where they can flip between the front and back of cards in
 that deck one at a time. A bar on the side keeps track of the user's progress
 through the deck and has buttons to switch between decks to study and to return
 to the profile page.
+
+![image of training mode](docs/wireframes/training_mode.png)
 
 #### Spotlight: Training Mode Bugs
 In the original iteration of the deck train feature, when users switched from
@@ -76,6 +102,16 @@ and `id` and `decks` is updated with the decks having that tag.
 When users create or edit decks, they can choose to add or remove tags--either
 preexisting tags or tags of their own creation.
 
+#### Method on the Deck model to automatically create Taggings and find/create Tags as needed
+
+```ruby
+def tag_names=(tag_names)
+  self.tags = tag_names.map do |tag_name|
+    Tag.find_or_create_by(name: tag_name)
+  end
+end
+```
+
 ### Search
 The search page initially shows the most popular tags across the site. Users can
 then search tags, both CardSharp- and user-created, to find others' decks that
@@ -83,6 +119,8 @@ they're interested in studying. From the search interface, they can choose to
 subscribe or unsubscribe to those decks. Subscribed decks will then appear on
 the user's profile page alongside the decks he or she created. I implemented
 the search function's autosuggest through the react-autosuggest NPM package.
+
+![image of search page](docs/wireframes/search_page.png)
 
 ## New Directions
 With CardSharp, there are many more avenues to explore. My next steps are as
