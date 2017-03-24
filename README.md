@@ -2,8 +2,8 @@
 
 [See it live.](https://card-sharp.herokuapp.com/)
 
-CardSharp is a full-stack web application inspired by the flash card site Brainscape. It has a Rails backend with a PostgreSQL database and a React/Redux
-frontend.
+CardSharp is a full-stack web application inspired by the flash card site Brainscape.
+It has a Rails backend with a PostgreSQL database and a React/Redux frontend.
 
 ## Features & Implementation
 
@@ -42,9 +42,26 @@ that deck one at a time. A bar on the side keeps track of the user's progress
 through the deck and has buttons to switch between decks to study and to return
 to the profile page.
 
-#### Spotlight: Switching Decks in Training Mode
-The way I first wrote my the deck train feature, when users tried to switch from
-studying one deck to studying another, ________________. I solved this by farming 
+#### Spotlight: Training Mode Bugs
+In the original iteration of the deck train feature, when users switched from
+studying one deck to studying another, the progress shown in the sidebar wouldn't
+update. If the switch happened when the last card in the previous deck was showing
+its `side_b` (the answer), users would see the same side of the new deck's first
+card, even though it should automatically show `side_a`. I solved this by adding
+state to the deck train component: when the deck switches, the state is set back
+to card 0, prompting a rerender and effectively restarting study progress.
+
+Another small bug: originally, the card item represented in study mode had a
+distinct front side and back side; it flipped forward (right) to reveal the answer
+on the back and backward (left) to review the question. When a new card replaced
+the old, however, users would see a flash of the answer to the new card before it
+had finished flipping back to the question side. I solved this by modifying the
+flipping mechanism: moving on to the next card doesn't prompt a flip, so the back
+of one card is outright replaced by the front of the next card. Maintaining the
+front/back, flip-forward-for-answer/ flip-backward-for-question dichotomies would
+have been possible, but it was simpler to just dissolve the front-of-card and
+back-of-card distinctions and have the card flip forward irrespective of whether
+it was switching from the back to the front or vice versa.
 
 
 ### Tags
@@ -56,7 +73,16 @@ Tags are stored on the frontend in the `tags` slice of Redux state. When a parti
 tag is searched for, the Redux state's `tagShow` is updated with that tag's `name`
 and `id` and `decks` is updated with the decks having that tag.
 
+When users create or edit decks, they can choose to add or remove tags--either
+preexisting tags or tags of their own creation.
+
 ### Search
+The search page initially shows the most popular tags across the site. Users can
+then search tags, both CardSharp- and user-created, to find others' decks that
+they're interested in studying. From the search interface, they can choose to
+subscribe or unsubscribe to those decks. Subscribed decks will then appear on
+the user's profile page alongside the decks he or she created. I implemented
+the search function's autosuggest through the react-autosuggest NPM package.
 
 ## New Directions
 With CardSharp, there are many more avenues to explore. My next steps are as
@@ -71,7 +97,7 @@ Badges will reward users for training regularly, for achieving mastery, and for
 creating popular decks.
 
 ### Spaced Repetition
-I will use the Anki API to implement a(n optional) spaced repetition scheme for
+I will use the Anki API to implement an optional spaced repetition scheme for
 users--CardSharp will calculate the best cards and decks for each user to study
 based on their past mastery and the amount of time since last training.
 
