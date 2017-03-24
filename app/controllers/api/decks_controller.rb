@@ -29,13 +29,9 @@ class Api::DecksController < ApplicationController
   def create
     @deck = Deck.new(deck_params)
     @deck.author_id = current_user.id
-    p @deck
     if @deck.save
-      p "new deck: "
-      p @deck
       render :show, include: :tags
     else
-      p @deck.errors.full_messages
       render json: @deck.errors.full_messages, status: 422
     end
   end

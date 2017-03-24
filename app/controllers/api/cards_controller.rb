@@ -9,8 +9,6 @@ class Api::CardsController < ApplicationController
     @card = Card.new(card_params)
     if @card.save
       @mastery = @card.mastery(current_user.id)
-      p "mastery: "
-      p @mastery
       render :show
     else
       render json: @card.errors.full_messages, status: 422
@@ -21,8 +19,6 @@ class Api::CardsController < ApplicationController
     @card = Card.find(params[:id])
     if @card.update(card_params)
       @mastery = @card.mastery(current_user.id)
-      p "mastery: "
-      p @mastery
       render :show
     else
       render json: @card.errors.full_messages, status: 422

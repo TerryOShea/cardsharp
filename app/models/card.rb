@@ -12,11 +12,7 @@ class Card < ApplicationRecord
   after_save :create_mastery
 
   def mastery(user_id)
-    p "user_id: #{user_id}"
-    p "card_id: #{id}"
     mastery = masteries.find_by(user_id: user_id, card_id: id)
-    p "mastery: "
-    p mastery
     { id: mastery.id, value: mastery.value }
   end
 

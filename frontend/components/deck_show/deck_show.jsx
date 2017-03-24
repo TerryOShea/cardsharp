@@ -123,13 +123,6 @@ class DeckShow extends React.Component {
       subscribeBtn = (<button type="button" onClick={() => createSubscription({ deck_id: deck.id })}>Subscribe</button>);
     }
 
-    // const subscribeBtnText = isSubscribed ? "Unsubscribe" : "Subscribe";
-    //
-    // const subscribeBtn = (isOwner || !currentUser.id) ? "" : (
-    //   <button type="button" onClick={isSubscribed ? () => deleteSubscription(deck.id) : () => createSubscription({ deck_id: deck.id }) }>{subscribeBtnText}</button>
-    // );
-
-
     const trainBtn = (isOwner || isSubscribed) ?
       (<Link to={`/train/${deck.id}`}><button type="button">Train</button></Link>) : "";
 
