@@ -9,6 +9,7 @@ class AddTag extends React.Component {
     this.getSuggestions = this.getSuggestions.bind(this);
     this.renderSuggestion = this.renderSuggestion.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
 
@@ -49,13 +50,26 @@ class AddTag extends React.Component {
     this.setState({ suggestions: [], value: "" });
   }
 
+  handleKeyUp(e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      this.props.addTag(this.state.value);
+      this.onSuggestionsClearRequested();
+    }
+  }
+
   render() {
     const { value, suggestions } = this.state;
     const inputProps = {
       placeholder: "Add tag...",
       value,
-      onChange: this.onChange
+      onChange: this.onChange,
+      onKeyUp: this.handleKeyUp
     };
+    
+    if (this.props.onBlur) {
+      inputProps["onBlur"] = this.props.onBlur;
+    }
 
     return (
       <Autosuggest

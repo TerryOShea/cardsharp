@@ -3,7 +3,7 @@ import { RECEIVE_CARD, REMOVE_CARD } from '../actions/card_actions';
 import { RECEIVE_SUBSCRIPTION, REMOVE_SUBSCRIPTION } from '../actions/subscription_actions';
 import merge from 'lodash/merge';
 
-const _defaultState = Object.freeze({ cards: { mastery: {} } });
+const _defaultState = Object.freeze({ cards: { mastery: {} }, tags: {} });
 
 const DeckShowReducer = (state = _defaultState, action) => {
   Object.freeze(state);

@@ -38,7 +38,7 @@ const DeckIndexItem = ({ deck, deleteDeck, deleteSubscription, currentUser, idx,
     </Link>) : "";
 
   const deleteBtn = isOwner ? (
-    <button type="button" onClick={() => deleteDeck(deck.id)}>
+    <button type="button" onClick={() => deleteDeck(deck.id).then(() => deleteItem(idx))}>
       <i className="fa fa-trash"></i>
     </button>
   ) : (

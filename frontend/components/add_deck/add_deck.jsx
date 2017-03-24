@@ -4,7 +4,7 @@ import AddTagContainer from './add_tag_container';
 const defaultState = {
   title: "",
   description: "",
-  tags: [],
+  tag_names: [],
   is_private: false
 };
 
@@ -24,13 +24,13 @@ class AddDeck extends React.Component {
   }
 
   addTag(tagName) {
-    this.setState({ tags: [...this.state.tags, tagName]});
+    this.setState({ tag_names: [...this.state.tag_names, tagName]});
   }
 
   removeTag(tagName) {
-    const newTags = [...this.state.tags];
-    newTags.splice(newTags.indexOf(tagName), 1);
-    this.setState({ tags: newTags });
+    const newTagNames = [...this.state.tag_names];
+    newTagNames.splice(newTagNames.indexOf(tagName), 1);
+    this.setState({ tag_names: newTagNames });
   }
 
   update(field) {
@@ -42,20 +42,20 @@ class AddDeck extends React.Component {
   }
 
   render() {
-    const { title, description, tags, is_private } = this.state;
+    const { title, description, tag_names, is_private } = this.state;
     const formStyle = this.props.active ? { height: 320 } : { height: 0 };
     const capitalize = word => `${word[0].toUpperCase()}${word.slice(1)}`;
     const toggleStyle = is_private ? { right: 0 } : { left: 0 };
 
-    const tagItems = tags.map(tag => (
+    const tagItems = tag_names.map(tag => (
       <li key={tag}>
-        <button className="remove-tag-btn" onClick={() => this.removeTag(tag)}><i className="fa fa-close"></i></button>&nbsp;
+        <button type="button" className="remove-tag-btn" onClick={() => this.removeTag(tag)}><i className="fa fa-close"></i></button>&nbsp;
         {tag}
       </li>
     ));
 
     return (
-      <form className="add-deck-form" onSubmit={this.handleSubmit} style={formStyle}>
+      <section className="add-deck-form" style={formStyle}>
         <input
           type="text"
           placeholder="Title"
@@ -67,6 +67,7 @@ class AddDeck extends React.Component {
           onChange={this.update('description')} />
 
         <ul className="tags-container">{tagItems}</ul>
+
         <AddTagContainer addTag={this.addTag} />
 
         <section className="add-deck-form-bottom">
@@ -78,9 +79,9 @@ class AddDeck extends React.Component {
             <p className={is_private ? "privacy-selected" : ""}>Private</p>
           </section>
 
-          <button>Add</button>
+          <button onClick={this.handleSubmit}>Add</button>
         </section>
-      </form>
+      </section>
     )
   }
 }

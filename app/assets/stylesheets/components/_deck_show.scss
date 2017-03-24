@@ -45,15 +45,21 @@
   textarea {
     width: 80vw;
   }
+}
 
-  button {
+.deck-show-tag-line {
+  display: flex;
+  align-items: center;
+}
+
+.deck-show-edit-btn {
+  background-color: transparent;
+  color: $gray;
+  font-size: 24px;
+
+  &:hover {
+    color: black;
     background-color: transparent;
-    color: $gray;
-    font-size: 24px;
-
-    &:hover {
-      color: black;
-    }
   }
 }
 

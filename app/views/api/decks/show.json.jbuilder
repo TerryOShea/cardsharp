@@ -1,7 +1,8 @@
 json.partial! 'api/decks/deck', deck: @deck
 json.description @deck.description
-json.set! :cards, {}
 json.set! :author_name, @deck.author.username
+json.set! :tags, @deck.tags.map { |tag| { id: tag.id, name: tag.name } }
+json.set! :cards, {}
 
 json.set! :cards do
   @deck.cards.each do |card|

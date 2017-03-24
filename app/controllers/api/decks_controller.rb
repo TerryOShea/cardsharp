@@ -6,7 +6,6 @@ class Api::DecksController < ApplicationController
       offset = params[:recent][:offset].to_i || 0
       @decks = Deck.most_recent(num, offset)
     elsif params[:authorId]
-      # @decks = current_user.decks
       @decks = current_user.decks + current_user.subscribed_decks
     else
       @decks = Deck.all
@@ -30,9 +29,13 @@ class Api::DecksController < ApplicationController
   def create
     @deck = Deck.new(deck_params)
     @deck.author_id = current_user.id
+    p @deck
     if @deck.save
+      p "new deck: "
+      p @deck
       render :show, include: :tags
     else
+      p @deck.errors.full_messages
       render json: @deck.errors.full_messages, status: 422
     end
   end
