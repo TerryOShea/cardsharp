@@ -1,12 +1,20 @@
-node_modules/
+# Ignore bundler config
+/.bundle
 bundle.js
 bundle.js.map
-.byebug_history
-.DS_Store
+
+# Ignore all logfiles and tempfiles
+/log/*
+/tmp/*
 npm-debug.log
+
+# Ignore node modules and DS Store
+node_modules/
+.DS_Store
+
+# Ignore ENV variables and todo list
 .env
 .todo
-tmp/**/*
 
 # Ignore application configuration
 /config/application.yml
