@@ -32,7 +32,7 @@ class SessionForm extends Component {
   render() {
     const { formType, errors } = this.props;
     const title = formType === 'login' ? "Log In" : "Sign Up";
-    const demoButton = formType === 'login' ? (<button onClick={this.demoLogin}>Demo Login</button>) : "";
+    // const demoButton = formType === 'login' ? (<button onClick={this.demoLogin}>Demo Login</button>) : "";
 
     return (
       <div className="session-form-container">
@@ -50,7 +50,7 @@ class SessionForm extends Component {
             onChange={this.update('password')} />
           <section className="session-btns-box">
             <button>Submit</button>
-            {demoButton}
+            <button onClick={this.demoLogin}>Demo Login</button>
           </section>
         </form>
       </div>
