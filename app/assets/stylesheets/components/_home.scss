@@ -26,6 +26,10 @@
   align-items: center;
   justify-content: center;
   font-size: 64px;
+
+  @include for-phone-only {
+    font-size: 48px;
+  }
 }
 
 .home-btns {

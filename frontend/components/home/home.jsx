@@ -1,6 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+// const backgroundImg = new Image();
+// backgroundImg.addEventListener('load', () => {
+//
+// });
+// backgroundImg.src = "";
+// image_path("splash.jpg")
+
 const Home = props => (
   <section className="home-container">
     <section className="home-image"></section>
