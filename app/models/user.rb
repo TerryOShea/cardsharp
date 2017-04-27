@@ -1,8 +1,8 @@
 class User < ApplicationRecord
 
-  validates :username, :password_digest, :session_token, presence: true
-  validates :username, uniqueness: true
-  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :password_digest, :session_token, presence: true
+  validates :username, uniqueness: true, length: { minimum: 3, maximum: 30 }
+  validates :password, length: { minimum: 6, maximum: 30, allow_nil: true }
 
   has_many :decks, foreign_key: :author_id, primary_key: :id
   has_many :subscriptions
