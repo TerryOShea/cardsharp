@@ -1,12 +1,7 @@
 header {
-  height: 60px;
-  background-color: $darkgray;
-  color: $gray;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  overflow: hidden;
+  transition: height 0.5s;
   border-bottom: 5px solid $coral;
-  padding: 0 40px;
   box-sizing: border-box;
   -webkit-box-shadow: 0px 1px 5px 0px rgba(153,153,153,1);
   -moz-box-shadow: 0px 1px 5px 0px rgba(153,153,153,1);
@@ -14,25 +9,45 @@ header {
   width: 100vw;
   z-index: 10;
 
+  a {
+    color: $gray;
+  }
+
   a:hover {
     color: $blue;
   }
 }
 
+.header-main {
+  height: 55px;
+  background-color: $darkgray;
+  color: $gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
 .search-header {
   position: fixed;
   border-bottom-width: 1px;
-  height: 56px;
+  // height: 59px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
 
-.header-left {
+.header-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 230px;
+  width: 100%;
+  margin-left: 30px;
+
+  @include for-phone-only {
+    display: none;
+  }
 }
 
 .header-title-box {
@@ -66,5 +81,37 @@ header {
   align-items: center;
   a:first-of-type {
     margin-right: 15px;
+  }
+}
+
+.header-dropdown-btn {
+  display: none;
+  background-color: transparent;
+
+  &:hover {
+    color: $blue;
+    background-color: transparent;
+  }
+
+  @include for-phone-only {
+    display: block;
+  }
+}
+
+.dropdown {
+  padding: 20px 0;
+  background-color: $darkgray;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  li {
+    height: 50px;
+    display: flex;
+    padding-left: 50px;
+    box-sizing: border-box;
+    align-items: center;
+    width: 100%;
   }
 }
