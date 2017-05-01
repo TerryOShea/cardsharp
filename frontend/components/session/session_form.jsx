@@ -25,14 +25,13 @@ class SessionForm extends Component {
   demoLogin(e) {
     e.preventDefault();
     const demoLogin = { username: "Terry", password: "primrose" };
-    const { processForm, router } = this.props;
-    processForm(demoLogin).then(() => router.push("/profile"));
+    const { login, router } = this.props;
+    login(demoLogin).then(() => router.push("/profile"));
   }
 
   render() {
     const { formType, errors } = this.props;
     const title = formType === 'login' ? "Log In" : "Sign Up";
-    // const demoButton = formType === 'login' ? (<button onClick={this.demoLogin}>Demo Login</button>) : "";
 
     return (
       <div className="session-form-container">

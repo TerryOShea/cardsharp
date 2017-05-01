@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   processForm: formData => (
     dispatch(ownProps.location.pathname === '/login' ? login(formData) : signup(formData))
-  )
+  ),
+  login: data => dispatch(login(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
